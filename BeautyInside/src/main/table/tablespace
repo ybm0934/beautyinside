@@ -1,0 +1,13 @@
+--테이블 스페이스 생성
+CREATE TABLESPACE beauty
+DATAFILE 'G:\Project\tablespace\beautyinside.dbf'
+SIZE 300M REUSE
+AUTOEXTEND ON NEXT 100M
+MAXSIZE UNLIMITED;
+
+--계정 생성
+CREATE USER beauty IDENTIFIED BY 1234
+DEFAULT TABLESPACE beauty;
+
+--권한 부여
+GRANT connect, RESOURCE, plustrace, ALTER SESSION TO beauty;
