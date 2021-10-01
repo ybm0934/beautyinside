@@ -1,0 +1,172 @@
+@charset "UTF-8";
+
+body {
+	background-image: url('../../img/pure (6).jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.9;
+}
+
+#register_div {
+    margin: 0 auto;
+    width: 520px;
+    border: 1px solid lightgray;
+    padding: 100px;
+    background-color: white;
+}
+
+#register_div:nth-child(1) div {
+    margin-bottom: 10px;
+}
+
+#register_div .box {
+    border: 1px solid lightgray;
+    margin-bottom: 10px;
+}
+
+#register_div h3 {
+	margin-top: 35px;
+}
+
+input:focus {
+    outline: none;
+}
+
+select:focus {
+    outline: none;
+}
+
+input::placeholder {
+	color: lightgray;
+}
+
+#register_div .textbox {
+    border: 1px solid white;
+    font-size: 20px;
+    font-weight: bold;
+    width: 70%;
+    margin: 10px;
+    padding: 10px;
+    letter-spacing: 3px;
+}
+
+#register_div #logo_div {
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+#id_div {}
+
+#id_div #duplbtn {
+    width: 100px;
+    height: 40px;
+    font-size: 1em;
+}
+
+#password_div {}
+
+#password_ok_div {}
+
+#name_div {}
+
+#birthday_div {}
+
+#birthday_div .birth_box {}
+
+#birthday_div .birth_textbox {
+    border: 1px solid lightgray;
+    width: 30%;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    vertical-align: middle;
+    margin-bottom: 10px;
+}
+
+#birthday_div #birth_monday {
+    border: 1px solid lightgray;
+    width: 25%;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    vertical-align: middle;
+    margin-bottom: 10px;
+}
+
+#gender_div {}
+
+#gender_div #gender {
+    border: 1px solid lightgray;
+    width: 100%;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#email_div {}
+
+#address_div {}
+
+#address_div #addr_search_btn {
+	width: 100px;
+    height: 40px;
+    font-size: 1em;
+}
+
+#tel_div {}
+
+#tel_div .tel_box1 {}
+
+#tel_div .tel_box1 #tel1 {
+    border: 1px solid lightgray;
+    padding: 10px 40px 10px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+#tel_div .tel_box2 {
+    vertical-align: middle;
+}
+
+#tel_div #tel2 {
+    border: 1px solid lightgray;
+}
+
+#register_div .error {
+    color: red;
+    font-weight: bold;
+}
+
+#register_div .btn {
+    border: 1px solid #be4646;
+    background-color: #be4646;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+#register_div .btn:hover {
+    border-color: red;
+    background-color: red;
+}
+
+#register_div .btn:active {
+    background-color: #be4646;
+}
+
+#register_div #button_div {
+    text-align: center;
+    margin-top: 80px;
+}
+
+#register_div #button_div #regbtn {
+    width: 100%;
+    height: 70px;
+    font-weight: bold;
+    font-size: 1.5em;
+}
