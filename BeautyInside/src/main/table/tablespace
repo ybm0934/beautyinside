@@ -10,4 +10,4 @@ CREATE USER beauty IDENTIFIED BY 1234
 DEFAULT TABLESPACE beauty;
 
 --권한 부여
-GRANT connect, RESOURCE, plustrace, ALTER SESSION TO beauty;
+GRANT connect, RESOURCE, plustrace, ALTER SESSION, CREATE VIEW TO beauty;

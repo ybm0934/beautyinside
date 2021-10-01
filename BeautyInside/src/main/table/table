@@ -16,9 +16,67 @@ CREATE TABLE MEMBER(
     dormant varchar2(2) DEFAULT 'N'
 );
 
+
 --회원 시퀀스
 DROP SEQUENCE member_seq;
 CREATE SEQUENCE member_seq
 start WITH 1
 INCREMENT BY 1
 NOCYCLE;
+
+
+--우편번호 테이블
+DROP TABLE zipcode;
+CREATE TABLE zipcode
+(
+    zipcode          VARCHAR2 (5),
+    sido             VARCHAR2 (20),
+    sido_en          VARCHAR2 (40),
+    sigungu          VARCHAR2 (20),
+    sigungu_en       VARCHAR2 (40),
+    blank            VARCHAR2 (5),
+    blank2           VARCHAR2 (5),
+    dorocode         VARCHAR2 (12),
+    doro             VARCHAR2 (80),
+    doro_en          VARCHAR2 (80),
+    jiha             VARCHAR2 (1),
+    build_a          NUMBER,
+    build_b          NUMBER,
+    mgrno            VARCHAR2 (40),
+    sigungu_build    VARCHAR2 (200),
+    bubcode          VARCHAR2 (20),
+    bubjung          VARCHAR2 (20),
+    haengjung        VARCHAR2 (40),
+    blank3           VARCHAR2 (5),
+    detaildong       VARCHAR2 (20),
+    san              VARCHAR2 (1),
+    eupkey           VARCHAR2 (2)
+);
+
+
+--우편번호 간소화 뷰
+DROP VIEW v_zipcode;
+CREATE VIEW v_zipcode
+AS
+    SELECT zipcode        "우편번호",
+           sido           "시도",
+           sigungu        "시군구",
+           doro           "도로명",
+           build_a        "도로번지",
+           haengjung      "지명",
+           detaildong     "동",
+           eupkey         "지명번지"
+      FROM zipcode;
+
+
+
+
+
+
+
+
+
+
+
+
+

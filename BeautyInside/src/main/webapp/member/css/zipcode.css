@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+/* 주소 검색 CSS */
+
+body {
+    margin: 0 auto;
+}
+
+#wrap {
+    background-color: #efefef;
+}
+
+#search_div {
+    border: 1px solid gray;
+    background-color: white;
+}
+
+#search {
+    border: 1px solid white;
+    padding: 10px;
+    width: 80%;
+    font-size: 1.2em;
+}
+
+#search:focus {
+    outline: none;
+}
+
+.img_spn {
+    cursor: pointer;
+    padding: 3px;
+    vertical-align: middle;
+}
+
+.img_spn img {
+    width: 17px;
+    image-rendering: auto;
+    opacity: 0.9;
+}
+
+#address_div_group {
+    padding: 15px;
+}
+
+#address_main {
+    border: 1px solid lightgray;
+    background-color: white;
+    padding: 20px;
+}
+
+#address_main .tip {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+#address_main .ex_blue {
+    color: #2598fc;
+    font-size: 0.9em;
+}
+
+.address_div {
+    border: 1px solid lightgray;
+    background-color: white;
+    padding: 15px;
+}
+
+.address_div div {
+    margin-bottom: 5px;
+}
+
+.zipcode {
+    color: red;
+}
+
+.street {
+    border: 1px solid #7cc0fd;
+    color: #2e97f4;
+    font-size: 0.7em;
+    padding: 1px;
+}
+
+.address_spn {
+    line-height: 25px;
+}
+
+.paging_div {
+    background-color: #f9f9f9;
+    border: 1px solid lightgray;
+    text-align: center;
+    color: gray;
+    padding: 15px;
+}
+
+#footer {
+    text-align: center;
+    padding: 15px;
+}
+
+#footer #power {
+    color: gray;
+    font-size: 0.8em;
+}

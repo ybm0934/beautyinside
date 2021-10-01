@@ -74,12 +74,12 @@
 		
 		// 주소검색 새창 가운데 띄우기
 		$('#addr_search_btn').click(function(){
-			var _width = 600;
-			var _height = 800;
+			var _width = 450;
+			var _height = 700;
 			var _left = (window.screen.width / 2) - (_width / 2);
 			var _top = (window.screen.height / 2) - (_height / 2);
 			
-			window.open('', '주소 검색', 'width = ' + _width + ', height = ' + _height + ', top = ' + _top + ', left = ' + _left);
+			window.open('<%=request.getContextPath() %>/member/zipcode.jsp', '주소 검색', 'width = ' + _width + ', height = ' + _height + ', top = ' + _top + ', left = ' + _left);
 		});
 		
 		// 정규 표현식
