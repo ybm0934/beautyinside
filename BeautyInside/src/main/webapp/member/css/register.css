@@ -38,7 +38,7 @@ select:focus {
 }
 
 input::placeholder {
-	color: lightgray;
+	color: gray;
 }
 
 #register_div .textbox {

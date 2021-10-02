@@ -83,12 +83,34 @@ body {
     line-height: 25px;
 }
 
+.address_spn a {
+	text-decoration: none;
+	color: black;
+}
+
+.address_spn a:hover {
+	text-decoration: underline;
+	font-weight: bold;
+}
+
 .paging_div {
     background-color: #f9f9f9;
     border: 1px solid lightgray;
     text-align: center;
     color: gray;
     padding: 15px;
+}
+
+.pagemove {}
+
+.pagemove a {
+	text-decoration: none;
+	color: gray;
+	font-size: 1em;
+}
+
+.pagemove a:hover {
+	font-weight: bold;
 }
 
 #footer {

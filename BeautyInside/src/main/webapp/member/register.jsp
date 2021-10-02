@@ -98,6 +98,18 @@
 			}
 		});
 		
+		$('#password_ok').focusout(function(){
+			if($(this).val().length > 0) {
+				$('#password_ok_error').html('');
+			}
+		});
+		
+		$('#name').focusout(function(){
+			if($(this).val().length > 0) {
+				$('#name_error').html('');
+			}
+		});
+		
 		$('#birth_year').focusout(function(){
 			if($(this).val().length > 0) {
 				$('#birth_error').html('');
@@ -198,6 +210,11 @@
 			}else if($('#password_ok').val() == ''){
 				$('#password_ok').focus();
 				$('#password_ok_error').html('비밀번호 확인을 입력하세요.');
+				
+				return false;
+			}else if($('#password').val() != $('#password_ok').val()){
+				$('#password_ok').focus();
+				$('#password_ok_error').html('비밀번호를 잘못 입력하셨습니다.');
 				
 				return false;
 			}else if($('#name').val() == ''){
