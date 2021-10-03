@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+/* 풋터 CSS */
+
+#footer {
+    height: 100px;
+    background-color: #333333;
+    color: white;
+    text-align: center;
+}
+
+#footer span {
+    position: relative;
+    top: 15%;
+}
+
+#footer .sns_logo_spn img {
+    width: 20px;
+    padding: 5px;
+    margin-top: 15px;
+}
+
+#footer .sns_logo_spn a {
+    text-decoration: none;
+}

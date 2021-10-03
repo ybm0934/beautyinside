@@ -1,0 +1,138 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Krub:wght@200&display=swap');
+
+
+
+/* 메인 페이지 CSS */
+
+img {
+    image-rendering: auto;
+}
+
+body {
+    margin: 0 auto;
+}
+
+#main_div {
+    background-image: url('../../img/flowers-g0decc2ffd_1920.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.9;
+}
+
+.main_div_class {
+    height: 1200px;
+}
+
+#main {
+    text-align: center;
+}
+
+#main_title {
+    font-size: 150px;
+    font-family: 'Ramabhadra', sans-serif;
+    position: relative;
+    top: 30%;
+}
+
+#main_title_dot {
+    font-size: 180px;
+    font-family: 'Hahmlet', serif;
+    position: relative;
+    top: 30%;
+    color: #febdbd;
+}
+
+#main_title_2 {
+    position: relative;
+    top: 28%;
+    font-size: 30px;
+    font-family: 'Hahmlet', serif;
+    color: #fd9494;
+    margin-right: 200px;
+    opacity: 0;
+}
+
+#blank {
+    background-image: url('../../img/young-woman-g052f7f011_1920.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#about {
+    background-image: url('../../img/pure (6).jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#service {
+    background-image: url('');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#blank2 {
+    background-image: url('');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#portfolio_table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    background-color: white;
+}
+
+caption {
+    visibility: hidden;
+}
+
+#portfolio_table tr td {
+    padding: 0;
+}
+
+#portfolio_table a {
+    text-decoration: none;
+}
+
+#portfolio_table img {
+    vertical-align: middle;
+    width: 100%;
+    height: 400px;
+}
+
+
+#portfolio_table img:hover {
+    opacity: 0.5;
+    transition-duration: 0.7s;
+}
+
+#blank3 {
+    background-image: url('../../img/rose-g14a9ce0a3_1920.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#contact {
+    background-image: url('');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#reserve {
+    background-image: url('../../img/');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}

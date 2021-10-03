@@ -270,6 +270,7 @@
 	ondragstart='return false': 드래그 방지
 -->
 <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+<%@ include file="../top.jsp" %>
 	<div id="register_div">
         <form name="register" method="post" action="<%=request.getContextPath()%>/member/register_ok.jsp">
         <div id="logo_div">
@@ -391,5 +392,6 @@
         </div>
     </form>
     </div>
+<%@ include file="../bottom.jsp" %>
 </body>
 </html>
