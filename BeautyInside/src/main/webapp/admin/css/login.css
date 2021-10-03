@@ -1,0 +1,45 @@
+@charset "UTF-8";
+body {
+	background-image: url('/admin/img/login_main.jpg');
+	background-repeat: no-repeat;
+	background-size: 1710px 980px;
+}
+h1 {
+    margin-top: 300px;
+    text-align: center;
+    font-size: 100px;
+    font-family: 'Lexend Deca', sans-serif;
+}
+.login_div {
+    text-align: center;
+    margin-top: 30px;
+}
+.login_input {
+    width: 350px;
+    height: 35px;
+    font-size: 20px;
+    border: none;
+    border-bottom: 1px solid gray ;
+    background-color: #FAFAFA;
+    outline: none;
+}
+.login_btn {
+    width: 350px;
+    height: 35px;
+    font-size: 20px;
+    margin-top: 40px;
+    background-color: #FAFAFA;
+    border: none;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+.login_btn:hover {
+    background-color: #ffdcdc;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+footer {
+    text-align: center;
+    padding-top: 160px;
+}

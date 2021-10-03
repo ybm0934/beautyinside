@@ -1,0 +1,90 @@
+@charset "UTF-8";
+h1 {
+	text-align: center;
+	font-size: 2em;
+	border-top: 1px solid black;
+	padding-top: 10px;
+}
+.back_table {
+    width: 1280px;
+    margin-top: 50px;
+    table-layout: fixed;
+}
+.body_scroll {
+    width: 1280px;
+    height: 350px;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    border-top: 1px solid black;
+}
+.body_table {
+    border: 0px;
+    width: 1280px;
+    table-layout: fixed;
+    height: 30px;
+}
+.body_table thead tr {
+	height: 40px;
+}
+.body_table tr {
+	border-bottom: 1px solid #ffdcdc;
+}
+.body_table tr th {
+	white-space: nowrap;
+	text-align: center;
+	background-color: #ffdcdc;
+}
+.title {
+    text-align: center;
+    font-weight: bold;
+}
+.content {
+    border-bottom: 1px solid #ffdcdc;
+    padding: 10px 10px 10px 10px;
+    text-align: center;                
+    white-space: nowrap;
+    overflow: hidden;
+    
+}
+.selectAll_btn {
+    margin-top: 10px;
+}
+.page_btn{
+	text-align: center;
+	margin-bottom: 20px;
+}
+.selectAll_btn input {
+	background-color: white;
+    border: 1px solid gray;
+    border-radius: 10px;
+    font-family: 'Hahmlet', serif;
+}
+.selectAll_btn input:hover {
+	background-color: #ffdcdc;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+.select_search {
+	display: flex;
+	justify-content: center;
+}
+.select_search select{
+	border-radius: 10px;
+	margin-right: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.delete_btn {
+	float: right;
+}
+.delete_btn input {
+	width: 50px;
+}
+.text_search {
+	border: 1px solid gray;
+	border-radius: 10px;
+	margin-right: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
