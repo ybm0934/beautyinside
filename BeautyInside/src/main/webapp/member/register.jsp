@@ -1,18 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<title>회원가입</title>
+<%@ include file="/top.jsp" %>
+<%@ include file="/top_a.jsp" %>
 <link rel="stylesheet" type="text/css" href="css/register.css">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 	$(document).ready(function(){
 		// 페이지 이동 감지 경고창
-		// window.onbeforeunload = function() {
-		// 	return false;
-		// };
+		window.onbeforeunload = function() {
+			return false;
+		};
 		
 		//정규 표현식
 		var reg_exp = /[^a-z0-9A-Z]/gi; // 영문 & 숫자만
@@ -189,7 +185,9 @@
 			// 전화번호 합치기
 			var tel1 = $('#tel1').val();
 			var tel2 = $('#tel2').val();
-			var tel = tel1 + '-' + tel2;
+			var tel3 = tel2.substr(0, 4);
+			var tel4 = tel2.substr(4);
+			var tel = tel1 + '-' + tel3 + '-' + tel4;
 			$('#tel').val(tel);
 			
 			if($('#id').val() == ''){
@@ -270,7 +268,6 @@
 	ondragstart='return false': 드래그 방지
 -->
 <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
-<%@ include file="../top.jsp" %>
 	<div id="register_div">
         <form name="register" method="post" action="<%=request.getContextPath()%>/member/register_ok.jsp">
         <div id="logo_div">
@@ -392,6 +389,4 @@
         </div>
     </form>
     </div>
-<%@ include file="../bottom.jsp" %>
-</body>
-</html>
+<%@ include file="/bottom.jsp" %>

@@ -62,10 +62,10 @@
             <div id="search_div">
                 <input type="text" name="search" id="search" placeholder="주소를 입력하세요." spellcheck="false" autofocus="autofocus" value="<%=address %>">
                 <span class="img_spn" id="cancel_spn">
-                    <img src="../img/ico/cancel.png" alt="검색창 지우기">
+                    <img src="/img/ico/cancel.png" alt="검색창 지우기">
                 </span>
                 <span class="img_spn" id="search_spn">
-                    <img src="../img/ico/search.png" alt="검색하기">
+                    <img src="/img/ico/search.png" alt="검색하기">
                 </span>
             </div>
             <div id="address_div_group">

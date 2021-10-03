@@ -17,7 +17,7 @@ body {
 }
 
 #main_div {
-    background-image: url('../../img/flowers-g0decc2ffd_1920.jpg');
+    background-image: url('/img/flowers-g0decc2ffd_1920.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -58,14 +58,14 @@ body {
 }
 
 #blank {
-    background-image: url('../../img/young-woman-g052f7f011_1920.jpg');
+    background-image: url('/img/young-woman-g052f7f011_1920.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
 #about {
-    background-image: url('../../img/pure (6).jpg');
+    background-image: url('/img/pure (6).jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -92,10 +92,6 @@ body {
     background-color: white;
 }
 
-caption {
-    visibility: hidden;
-}
-
 #portfolio_table tr td {
     padding: 0;
 }
@@ -117,21 +113,14 @@ caption {
 }
 
 #blank3 {
-    background-image: url('../../img/rose-g14a9ce0a3_1920.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
-#contact {
-    background-image: url('');
+    background-image: url('/img/rose-g14a9ce0a3_1920.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
 #reserve {
-    background-image: url('../../img/');
+    background-image: url('');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;

@@ -4,10 +4,10 @@
 
 body {
     margin: 0 auto;
+    background-color: #efefef;
 }
 
 #wrap {
-    background-color: #efefef;
 }
 
 #search_div {

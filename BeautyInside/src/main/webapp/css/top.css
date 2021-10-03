@@ -10,6 +10,10 @@ img {
     image-rendering: auto;
 }
 
+caption {
+	visibility: hidden;
+}
+
 #header {
     font-family: 'Hahmlet', serif;
     text-align: center;

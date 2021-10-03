@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+/* 문의하기 CSS */
+
+@import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
+
+#contact {
+    text-align: center;
+    background-color: white;
+    border: 1px solid white;
+}
+
+#contact h1 {
+    font-family: 'Asap', sans-serif;
+    font-size: 6em;
+    margin-top: 250px;
+}
+
+#contact_table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 50%;
+}
+
+#contact_table tr td {
+    text-align: center;
+    border:20px solid white;
+}
+
+#contact_btn {
+    border: 1px solid #333333;
+    background-color: #333333;
+    color: white;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+#contact_btn:hover {
+    border: 1px solid #c44444;
+    background-color: #c44444;
+}
+
+#contact .textbox {
+    border: 1px solid lightgray;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+#contact textarea {
+    border: 1px solid lightgray;
+    width: 100%;
+    resize: none;
+    height: 200px;
+    line-height: 25px;
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+textarea::placeholder {
+    font-weight: bold;
+}
