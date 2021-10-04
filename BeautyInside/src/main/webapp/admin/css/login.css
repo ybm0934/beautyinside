@@ -34,10 +34,10 @@ h1 {
     border-radius: 10px;
 }
 .login_btn:hover {
-    background-color: #ffdcdc;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    transition: all 0.4s;
+    background-color: #A5907E;
+    box-shadow: 0px 15px 20px rgba(170, 166, 166, 0.4);
+    color: #fff;
+    transform: translateY(-3px);
 }
 footer {
     text-align: center;

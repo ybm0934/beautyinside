@@ -15,6 +15,7 @@
 <body>
 <%@ include file="/admin/index/header.jsp" %>
 <main>
+	<!-- 메인 화면 -->
     <div class="main_div">
         <div class="main_logo">
             <span>PURE</span>

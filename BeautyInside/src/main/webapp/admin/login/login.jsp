@@ -16,6 +16,7 @@
     <h1>PURE</h1>
 </header>
 <main>
+	<!-- 로그인 화면 -->
     <div class="login_div">
         <form method="post" action="/admin/login/login_action.jsp">
             <div><input type="text" name="id" placeholder="ID" class="login_input"></div>

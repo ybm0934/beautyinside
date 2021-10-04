@@ -3,18 +3,25 @@ h1 {
 	text-align: center;
 	font-size: 2em;
 	border-top: 1px solid black;
-	padding-top: 10px;
+	padding-top: 30px;
+}
+h1.a:after {
+  content: "";
+  display: block;
+  width: 120px;
+  border-bottom: 3px solid #e7e7e7;
+  margin: 10px auto;
 }
 .back_table {
     width: 1280px;
-    margin-top: 50px;
+    margin-top: 35px;
     table-layout: fixed;
 }
 .body_scroll {
     width: 1280px;
-    height: 350px;
+    height: 428px;
     overflow-y: scroll;
-    overflow-x: scroll;
+	overflow-x: scroll;
     border-top: 1px solid black;
 }
 .body_table {
@@ -27,43 +34,64 @@ h1 {
 	height: 40px;
 }
 .body_table tr {
-	border-bottom: 1px solid #dedede;
+	border-bottom: 1px solid #f0f0f0;
 }
 .body_table tr th {
 	white-space: nowrap;
 	text-align: center;
-	background-color: #dedede;
+	background-color: #f0f0f0;
+}
+#tr_null {
+	border-bottom: none;
+}
+#tr_null td {
+	padding-right: 350px;
 }
 .title {
     text-align: center;
     font-weight: bold;
 }
 .content {
-    border-bottom: 1px solid #dedede;
+    border-bottom: 1px solid #f0f0f0;
     padding: 10px 10px 10px 10px;
     text-align: center;                
     white-space: nowrap;
     overflow: hidden;
-    
 }
 .selectAll_btn {
     margin-top: 10px;
 }
-.page_btn{
+.page_btn {
 	text-align: center;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
+}
+.page_btn a {
+	padding: 10px;
+	color: black;
+	text-decoration: none;
+}
+.page_btn span {
+	padding: 10px;
+	background-color: gray;
+	color: white;
+	border-radius: 100px;
+}
+.page_btn a:hover {
+	background-color: gray;
+	color: white;
+	border-radius: 100px;
 }
 .selectAll_btn input {
-	background-color: white;
-    border: 1px solid gray;
+	background-color: #f0f0f0;
     border-radius: 10px;
-    font-family: 'Hahmlet', serif;
+    font-family: 'Roboto', sans-serif;
+    border: none;
 }
 .selectAll_btn input:hover {
-	background-color: #ffdcdc;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    transition: all 0.4s;
+ 	background-color: #A5907E;
+    box-shadow: 0px 15px 20px rgba(170, 166, 166, 0.4);
+    color: #fff;
+    transform: translateY(-3px);
 }
 .select_search {
 	display: flex;

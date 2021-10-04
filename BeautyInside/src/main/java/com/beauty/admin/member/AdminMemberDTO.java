@@ -1,8 +1,8 @@
-package com.beauty.admin;
+package com.beauty.admin.member;
 
 import java.sql.*;
 
-public class AdminDTO {
+public class AdminMemberDTO {
 	
 	private int no; // 회원 번호
 	private String id; // 아이디
@@ -98,3 +98,4 @@ public class AdminDTO {
 	}
 	
 }
+
