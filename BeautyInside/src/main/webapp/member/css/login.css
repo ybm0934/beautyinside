@@ -1,0 +1,147 @@
+@charset "UTF-8";
+
+/* 로그인 영역 CSS */
+
+#wrap {
+	height: 100vh;
+	background-color: #eeeeee;
+}
+
+#login_div {
+	position: relative;
+    width: 65%;
+    display: flex;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.block {
+    width: 100%;
+    padding: 60px;
+}
+
+
+/* block1 영역 */
+
+.block1 {
+    background-image: url('../../img/background-ga41219cb7_1920.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    opacity: 0.9;
+}
+
+.block1_title {
+    margin-bottom: 120px;
+}
+
+.block1_title span {}
+
+.block1_div1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.block1_div2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.block1_div3 {
+    text-align: center;
+}
+
+.block1_div1 span {}
+
+.block1_div2 span {
+    font-size: 3em;
+}
+
+.block1_div3 p {
+    font-size: 0.9em;
+}
+
+
+/* block2 영역 */
+
+.block2 {
+    background-color: white;
+}
+
+.block2 form {}
+
+.block2_title {
+    color: #228be6;
+}
+
+.block2_title h1 {
+    text-align: center;
+}
+
+.block2_subtitle {
+    color: #cccccc;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.text_div {}
+
+.textbox {
+    border: 1px solid #f9f9f9;
+    background-color: #f9f9f9;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.textbox:focus {
+    outline:1px solid gray;
+}
+
+.textbox::placeholder {
+    color: lightgray;
+}
+
+.saveid_div {
+    color: #228be6;
+    margin: 25px 0 25px 0;
+}
+
+.saveid_div span {
+    cursor: pointer;
+}
+
+.btn_div {}
+
+#login_btn {
+    width: 100%;
+    border:1px solid #228be6;
+    background-color: #228be6;
+    color: white;
+    padding: 15px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+#login_btn:hover {
+    background-color: #0c79d8;
+}
+
+#login_btn:active {
+    background-color: #228be6;
+}
+
+.forgot_div {
+    margin-top: 40px;
+    color: #0e63ae;
+    text-align: center;
+}
+
+.forgot_spn:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
