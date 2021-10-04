@@ -139,6 +139,11 @@
 					}
                 </script>
                 <input type="button" value="전체해제" onclick="selectRelease()">
+                <script type="text/javascript">
+                	function select() {
+						
+					}
+                </script>
                	<!-- 수정, 삭제 -->
                 <div class="delete_btn">
                 	<input type="button" value="수정" onclick="">
@@ -146,11 +151,6 @@
             		<input type="button" value="휴면 등록" style="width: 70px;">
             		<input type="button" value="휴면 해제" style="width: 70px;">
             	</div>
-            	<script>
-            		function memberRevise() {
-						if ($("input[name=""]"))
-					}
-            	</script>
             </div>
             </form>
             <!-- 페이징 버튼 -->
