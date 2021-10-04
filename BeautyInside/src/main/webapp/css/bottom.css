@@ -8,9 +8,8 @@
     background-color: #333333;
     color: white;
     text-align: center;
-    position: fixed;
-    left: 0;
-    bottom: 0;
+   	position: relative;
+   	transform: translateY(-100%);
 }
 
 #footer span {

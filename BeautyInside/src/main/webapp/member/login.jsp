@@ -3,11 +3,6 @@
 <%@ include file="/top.jsp" %>
 <%@ include file="/top_a.jsp" %>
 <link rel="stylesheet" type="text/css" href="css/login.css">
-<script>
-	$(document).ready(function(){
-		
-	});
-</script>
 <div id="wrap">
 	<div id="login_div">
 	    <div class="block block1">
@@ -28,7 +23,7 @@
 	        </div>
 	    </div>
 	    <div class="block block2">
-	        <form name="login" method="post" action="">
+	        <form name="login" method="post" action="<%=request.getContextPath() %>/member/login_ok.jsp">
 	            <div class="block2_title">
 	                <h1>Login Account</h1>
 	            </div>

@@ -6,10 +6,11 @@
 <script>
 	$(document).ready(function(){
 		// 페이지 이동 감지 경고창
-		window.onbeforeunload = function() {
-			return false;
-		};
-		
+		var checkUnload = true;
+	    $(window).on("beforeunload", function(){
+	        if(checkUnload) return "";
+	    });
+	    
 		//정규 표현식
 		var reg_exp = /[^a-z0-9A-Z]/gi; // 영문 & 숫자만
 		
@@ -172,6 +173,9 @@
 		
 		// submit 전 유효성 검사
 		$('#regbtn').click(function(){
+			// 새로고침 경고 해제
+			checkUnload = false;
+			
 			// 아이디 중복 확인
 			var flag = $('#idCheck').val();
 			
@@ -199,7 +203,7 @@
 				$('#id_error').html('아이디 중복 검사를 해주세요.');
 				$('#id').focus();
 				
-				return;
+				return false;
 			}else if($('#password').val() == '') {
 				$('#password').focus();
 				$('#password_error').html('비밀번호를 입력하세요.');
@@ -257,7 +261,6 @@
 				return false;
 			}
 			
-			// document.register.submit();
 		});
 	});
 </script>
@@ -267,125 +270,127 @@
 	onselectstart='return false': 블록선택 방지
 	ondragstart='return false': 드래그 방지
 -->
-<div id="register_div">
-	<form name="register" method="post" action="<%=request.getContextPath()%>/member/register_ok.jsp">
-	    <div id="logo_div">
-	        <h1>회원가입</h1>
-	    </div>
-	    <div id="id_div">
-	        <h3>아이디</h3>
-	        <div class="box">
-	            <input type="text" id="id" name="id" class="textbox" placeholder="중복검사를 누르세요." maxlength="20">
-	            <input type="button" id="duplbtn" class="btn" value="중복검사">
-	        </div>
-	        <span id="id_error" class="error"></span>
-	    </div>
-	    <div id="password_div">
-	        <h3>비밀번호</h3>
-	        <div class="box">
-	            <input type="password" name="password" id="password" class="textbox" maxlength="15" placeholder="비밀번호 입력">
-	        </div>
-	        <span id="password_error" class="error"></span>
-	    </div>
-	    <div id="password_ok_div">
-	        <h3>비밀번호 확인</h3>
-	        <div class="box">
-	            <input type="password" name="password_ok" id="password_ok" class="textbox" maxlength="15" placeholder="비밀번호 입력">
-	        </div>
-	        <span id="password_ok_error" class="error"></span>
-	    </div>
-	    <div id="name_div">
-	        <h3>이름</h3>
-	        <div class="box">
-	            <input type="text" name="name" id="name" class="textbox" maxlength="7" placeholder="이름 입력">
-	        </div>
-	        <span id="name_error" class="error"></span>
-	    </div>
-	    <div id="birthday_div">
-	        <h3>생년월일</h3>
-	        <span class="birth_box">
-	            <input type="text" id="birth_year" class="birth_textbox" placeholder="년(4자)" maxlength="4">
-	        </span>
-	        <span class="birth_box">
-	            <select id="birth_monday">
-	                <option value="">월</option>
-	                <option value="1">1</option>
-	                <option value="2">2</option>
-	                <option value="3">3</option>
-	                <option value="4">4</option>
-	                <option value="5">5</option>
-	                <option value="6">6</option>
-	                <option value="7">7</option>
-	                <option value="8">8</option>
-	                <option value="9">9</option>
-	                <option value="10">10</option>
-	                <option value="11">11</option>
-	                <option value="12">12</option>
-	            </select>
-	        </span>
-	        <span class="birth_box">
-	            <input type="text" id="birth_day" class="birth_textbox" placeholder="일" maxlength="2">
-	        </span>
-	        <input type="hidden" name="birthday" id="birthday">
-	        <span id="birth_error" class="error"></span>
-	    </div>
-	    <div id="gender_div">
-	        <h3>성별</h3>
-	        <div>
-	            <select id="gender" name="gender">
-	                <option value="">성별</option>
-	                <option value="남자">남자</option>
-	                <option value="여자">여자</option>
-	            </select>
-	        </div>
-	        <span id="gender_error" class="error"></span>
-	    </div>
-	    <div id="email_div">
-	        <h3>이메일</h3>
-	        <div class="box">
-	            <input type="text" name="email" id="email" class="textbox" placeholder="이메일 입력" maxlength="20">
-	        </div>
-	        <span id="email_error" class="error"></span>
-	    </div>
-	    <div id="tel_div">
-	        <h3>전화번호</h3>
-	        <span class="tel_box1">
-	            <select id="tel1" name="tel1">
-	                <option value="010">010</option>
-	                <option value="011">011</option>
-	                <option value="012">012</option>
-	                <option value="013">013</option>
-	                <option value="014">014</option>
-	                <option value="015">015</option>
-	                <option value="016">016</option>
-	                <option value="017">017</option>
-	                <option value="018">018</option>
-	                <option value="019">019</option>
-	            </select>
-	        </span>
-	        <span class="tel_box2">
-	            <input type="text" name="tel2" id="tel2" class="textbox" placeholder="전화번호 입력" maxlength="8">
-	        </span>
-	        <input type="hidden" name="tel"> 
-	        <span id="tel_error" class="error"></span>
-	    </div>
-	    <div id="address_div">
-	        <h3>주소</h3>
-	        <div class="box">
-	            <input type="text" name="zipcode" id="zipcode" class="textbox" placeholder="주소찾기를 누르세요." readonly="readonly">
-	            <input type="button" id="addr_search_btn" class="btn" value="주소찾기">
-	        </div>
-	        <div class="box">
-	            <input type="text" name="address1" id="address1" class="textbox" readonly="readonly">
-	        </div>
-	        <div class="box">
-	            <input type="text" name="address2" id="address2" class="textbox" maxlength="50">
-	        </div>
-	        <span id="address_error" class="error"></span>
-	    </div>
-	    <div id="button_div">
-	        <input type="button" id="regbtn" class="btn" value="가입하기">
-	    </div>
-	</form>
+<div id="wrap">
+	<div id="register_div">
+		<form name="register" method="post" action="<%=request.getContextPath()%>/member/register_ok.jsp">
+		    <div id="logo_div">
+		        <h1>회원가입</h1>
+		    </div>
+		    <div id="id_div">
+		        <h3>아이디</h3>
+		        <div class="box">
+		            <input type="text" id="id" name="id" class="textbox" placeholder="중복검사를 누르세요." maxlength="20">
+		            <input type="button" id="duplbtn" class="btn" value="중복검사">
+		        </div>
+		        <span id="id_error" class="error"></span>
+		    </div>
+		    <div id="password_div">
+		        <h3>비밀번호</h3>
+		        <div class="box">
+		            <input type="password" name="password" id="password" class="textbox" maxlength="15" placeholder="비밀번호 입력">
+		        </div>
+		        <span id="password_error" class="error"></span>
+		    </div>
+		    <div id="password_ok_div">
+		        <h3>비밀번호 확인</h3>
+		        <div class="box">
+		            <input type="password" name="password_ok" id="password_ok" class="textbox" maxlength="15" placeholder="비밀번호 입력">
+		        </div>
+		        <span id="password_ok_error" class="error"></span>
+		    </div>
+		    <div id="name_div">
+		        <h3>이름</h3>
+		        <div class="box">
+		            <input type="text" name="name" id="name" class="textbox" maxlength="7" placeholder="이름 입력">
+		        </div>
+		        <span id="name_error" class="error"></span>
+		    </div>
+		    <div id="birthday_div">
+		        <h3>생년월일</h3>
+		        <span class="birth_box">
+		            <input type="text" id="birth_year" class="birth_textbox" placeholder="년(4자)" maxlength="4">
+		        </span>
+		        <span class="birth_box">
+		            <select id="birth_monday">
+		                <option value="">월</option>
+		                <option value="1">1</option>
+		                <option value="2">2</option>
+		                <option value="3">3</option>
+		                <option value="4">4</option>
+		                <option value="5">5</option>
+		                <option value="6">6</option>
+		                <option value="7">7</option>
+		                <option value="8">8</option>
+		                <option value="9">9</option>
+		                <option value="10">10</option>
+		                <option value="11">11</option>
+		                <option value="12">12</option>
+		            </select>
+		        </span>
+		        <span class="birth_box">
+		            <input type="text" id="birth_day" class="birth_textbox" placeholder="일" maxlength="2">
+		        </span>
+		        <input type="hidden" name="birthday" id="birthday">
+		        <span id="birth_error" class="error"></span>
+		    </div>
+		    <div id="gender_div">
+		        <h3>성별</h3>
+		        <div>
+		            <select id="gender" name="gender">
+		                <option value="">성별</option>
+		                <option value="남자">남자</option>
+		                <option value="여자">여자</option>
+		            </select>
+		        </div>
+		        <span id="gender_error" class="error"></span>
+		    </div>
+		    <div id="email_div">
+		        <h3>이메일</h3>
+		        <div class="box">
+		            <input type="text" name="email" id="email" class="textbox" placeholder="이메일 입력" maxlength="20">
+		        </div>
+		        <span id="email_error" class="error"></span>
+		    </div>
+		    <div id="tel_div">
+		        <h3>전화번호</h3>
+		        <span class="tel_box1">
+		            <select id="tel1" name="tel1">
+		                <option value="010">010</option>
+		                <option value="011">011</option>
+		                <option value="012">012</option>
+		                <option value="013">013</option>
+		                <option value="014">014</option>
+		                <option value="015">015</option>
+		                <option value="016">016</option>
+		                <option value="017">017</option>
+		                <option value="018">018</option>
+		                <option value="019">019</option>
+		            </select>
+		        </span>
+		        <span class="tel_box2">
+		            <input type="text" name="tel2" id="tel2" class="textbox" placeholder="전화번호 입력" maxlength="8">
+		        </span>
+		        <input type="hidden" name="tel"> 
+		        <span id="tel_error" class="error"></span>
+		    </div>
+		    <div id="address_div">
+		        <h3>주소</h3>
+		        <div class="box">
+		            <input type="text" name="zipcode" id="zipcode" class="textbox" placeholder="주소찾기를 누르세요." readonly="readonly">
+		            <input type="button" id="addr_search_btn" class="btn" value="주소찾기">
+		        </div>
+		        <div class="box">
+		            <input type="text" name="address1" id="address1" class="textbox" readonly="readonly">
+		        </div>
+		        <div class="box">
+		            <input type="text" name="address2" id="address2" class="textbox" maxlength="50">
+		        </div>
+		        <span id="address_error" class="error"></span>
+		    </div>
+		    <div id="button_div">
+		        <input type="submit" id="regbtn" class="btn" value="가입하기">
+		    </div>
+		</form>
+	</div>
 </div>
 <%@ include file="/bottom.jsp" %>
