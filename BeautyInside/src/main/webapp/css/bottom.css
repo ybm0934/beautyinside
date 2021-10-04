@@ -3,10 +3,14 @@
 /* 풋터 CSS */
 
 #footer {
+    width: 100%;
     height: 100px;
     background-color: #333333;
     color: white;
     text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
 }
 
 #footer span {

@@ -2,18 +2,25 @@
 
 /* 문의하기 CSS */
 
-@import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
 
 #contact {
     text-align: center;
-    background-color: white;
-    border: 1px solid white;
+    border: 1px solid rgba(255, 255, 255, 0);
+    background-image: url('../../img/desk-g1d033e3f8_1920.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#contact form {
+	margin-top: 250px;
 }
 
 #contact h1 {
-    font-family: 'Asap', sans-serif;
+    font-family: 'Crimson Text', serif;
     font-size: 6em;
-    margin-top: 250px;
+    margin: 0;
 }
 
 #contact_table {
@@ -24,7 +31,7 @@
 
 #contact_table tr td {
     text-align: center;
-    border:20px solid white;
+    border:20px solid rgb(255, 255, 255, 0);
 }
 
 #contact_btn {
@@ -47,6 +54,7 @@
     width: 100%;
     padding: 15px;
     box-sizing: border-box;
+    outline: none;
 }
 
 #contact textarea {
@@ -57,6 +65,7 @@
     line-height: 25px;
     box-sizing: border-box;
     padding: 15px;
+    outline: none;
 }
 
 textarea::placeholder {

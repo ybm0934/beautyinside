@@ -6,6 +6,10 @@
 
 /* 헤더 CSS */
 
+body {
+	margin: 0 auto
+}
+
 img {
     image-rendering: auto;
 }

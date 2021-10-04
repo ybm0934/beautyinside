@@ -12,10 +12,6 @@ img {
     image-rendering: auto;
 }
 
-body {
-    margin: 0 auto;
-}
-
 #main_div {
     background-image: url('/img/flowers-g0decc2ffd_1920.jpg');
     background-size: cover;

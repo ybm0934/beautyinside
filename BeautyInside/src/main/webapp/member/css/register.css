@@ -15,6 +15,7 @@ body {
     border: 1px solid lightgray;
     padding: 100px;
     background-color: white;
+    transform: translate(0%, 4%);
 }
 
 #register_div:nth-child(1) div {
@@ -144,20 +145,20 @@ input::placeholder {
 }
 
 #register_div .btn {
-    border: 1px solid #be4646;
-    background-color: #be4646;
+    border: 1px solid #228be6;
+    background-color: #228be6;
     color: white;
     cursor: pointer;
     font-size: 15px;
 }
 
 #register_div .btn:hover {
-    border-color: red;
-    background-color: red;
+    border-color: #0c79d8;
+    background-color: #0c79d8;
 }
 
 #register_div .btn:active {
-    background-color: #be4646;
+    background-color: #228be6;
 }
 
 #register_div #button_div {
@@ -170,4 +171,5 @@ input::placeholder {
     height: 70px;
     font-weight: bold;
     font-size: 1.5em;
+    margin-bottom: 100px;
 }

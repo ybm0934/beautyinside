@@ -71,3 +71,4 @@
         </li>
     </ul>
 </header>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
