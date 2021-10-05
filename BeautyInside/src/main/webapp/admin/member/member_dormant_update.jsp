@@ -4,23 +4,22 @@
 <jsp:useBean id="dao" class="com.beauty.admin.member.AdminMemberDAO"/>
 <%
 	String cb[] = request.getParameterValues("check");
-	
+
 	if (cb == null) {
 		%>
 			<script>
-				alert('삭제 할 회원을 체크해주세요!');
+				alert('휴면등록 할 회원을 체크해주세요!');
 				history.back();
 			</script>
 		<%
-	}
-	if (!(cb == null)){
+	} else {
 		for (int i = 0; i < cb.length; i++) {
 			int no = Integer.parseInt(cb[i]);
-			dao.memberDelete(no);
+			dao.memberDormantUpdate(no);
 		}
 		%>
 			<script>
-				alert('회원 삭제 완료!');
+				alert('회원 휴면등록 완료!');
 				location.href='/admin/member/member.jsp';
 			</script>
 		<%

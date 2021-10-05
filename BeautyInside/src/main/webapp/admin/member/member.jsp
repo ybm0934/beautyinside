@@ -147,13 +147,16 @@
                 </script>
                	<!-- 수정, 삭제 -->
                 <div class="delete_btn">
-                	<input type="submit" value="수정" onclick='d'>
-            		<input type="submit" value="삭제" onclick='btn_delete();'>
-            		<input type="button" value="휴면 등록" style="width: 70px;">
-            		<input type="button" value="휴면 해제" style="width: 70px;">
+                	<input type="submit" value="수정" onclick='member_update();'>
+            		<input type="submit" value="삭제" onclick='member_delete();'>
+            		<input type="submit" value="휴면 등록" style="width: 70px;" onclick="javascript: main_fm.action='../member/member_dormant_update.jsp';">
+            		<input type="submit" value="휴면 해제" style="width: 70px;" onclick="javascript: main_fm.action='../member/member_dormant_release.jsp';">
             	</div>
             	<script>
-            		function btn_delete() {
+            		function member_update() {
+						main_fm.action='../member/member_update.jsp'; // 줄여보자
+					}
+            		function member_delete() {
             			let result = confirm('정말 삭제하시겠습니까?');
 						if (result) {
 							main_fm.action='../member/member_delete.jsp';

@@ -64,13 +64,93 @@ public class AdminMemberDAO {
 		}
 		return null; // 오류
 	}
+	// 회원 수정 목록 출력 메소드
+	public ArrayList<AdminMemberDTO> memberUpdateList(int no) {
+		
+		ArrayList<AdminMemberDTO> arr = new ArrayList<AdminMemberDTO>();
+		
+		String sql = "select * from member where no = ?";
+		try {
+			conn = pool.getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				AdminMemberDTO dto = new AdminMemberDTO();
+				dto.setNo(rs.getInt("no"));
+				dto.setId(rs.getString("id"));
+				dto.setPwd(rs.getString("pwd"));
+				dto.setName(rs.getString("name"));
+				dto.setBirth(rs.getString("birth"));
+				dto.setTel(rs.getString("tel"));
+				dto.setGender(rs.getString("gender"));
+				dto.setEmail(rs.getString("email"));
+				dto.setZipcod(rs.getInt("zipcode"));
+				dto.setAddress1(rs.getString("address1"));
+				dto.setAddress2(rs.getString("address2"));
+				dto.setRegdate(rs.getDate("regdate"));
+				dto.setDormant(rs.getString("dormant"));
+				arr.add(dto);
+			}
+			return arr; // 목록 반환
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				pool.dbClose(rs, ps, conn);
+			} catch (Exception e2) {
+				
+			}
+		}
+		return null; // 오류
+	}
 	// 회원 삭제 메소드 
-	public int memberDelete(int value) {
+	public int memberDelete(int no) {
 		String sql = "delete from member where no = ?";
 		try {
 			conn = pool.getConnection();
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, value);
+			ps.setInt(1, no);
+			int count = ps.executeUpdate();
+			return count;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				pool.dbClose(ps, conn);
+			} catch (Exception e2) {
+				
+			}
+		}
+		return -1; // 오류
+	}
+	// 회원 휴면등록 메소드
+	public int memberDormantUpdate(int no) {
+		String sql = "update member set dormant = 'Y' where no = ?";
+		try {
+			conn = pool.getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			int count = ps.executeUpdate();
+			return count;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				pool.dbClose(ps, conn);
+			} catch (Exception e2) {
+				
+			}
+		}
+		return -1; // 오류
+	}
+	// 회원 휴면해제 메소드
+	public int memberDormantRelease(int no) {
+		String sql = "update member set dormant = 'N' where no = ?";
+		try {
+			conn = pool.getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, no);
 			int count = ps.executeUpdate();
 			return count;
 		} catch (Exception e) {
