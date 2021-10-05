@@ -147,7 +147,7 @@
                 </script>
                	<!-- 수정, 삭제 -->
                 <div class="delete_btn">
-                	<input type="submit" value="수정" onclick=''>
+                	<input type="submit" value="수정" onclick='d'>
             		<input type="submit" value="삭제" onclick='btn_delete();'>
             		<input type="button" value="휴면 등록" style="width: 70px;">
             		<input type="button" value="휴면 해제" style="width: 70px;">
