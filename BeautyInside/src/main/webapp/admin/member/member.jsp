@@ -106,7 +106,7 @@
 			                                    <td class="content"><%= dto.getTel() %></td>
 			                                    <td class="content"><%= dto.getGender() %></td>
 			                                    <td class="content"><%= dto.getEmail() %></td>
-			                                    <td class="content"><%= dto.getZipcod() %></td>
+			                                    <td class="content"><%= dto.getZipcode() %></td>
 			                                    <td class="content"><%= dto.getAddress1() %><%= dto.getAddress2() %></td>
 			                                    <td class="content"><%= dto.getRegdate() %></td>
 			                                    <td class="content"><%= dto.getDormant() %></td>

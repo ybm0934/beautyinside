@@ -2,6 +2,9 @@ package com.beauty.admin.member;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Iterator;
+
+import javax.servlet.http.HttpServletRequest;
 
 import com.beauty.connection.*;
 
@@ -10,9 +13,12 @@ public class AdminMemberDAO {
 	private PreparedStatement ps;
 	private ResultSet rs;
 	ConnectionPoolMgr pool;
+
+	
 	
 	public AdminMemberDAO() {
 		// 오라클 드라이버
+		AdminMemberDTO dto = new AdminMemberDTO();
 		pool = new ConnectionPoolMgr();
 	}
 	// 회원관리 목록 표시 메소드 (검색 목록 표시)
@@ -45,7 +51,7 @@ public class AdminMemberDAO {
 				dto.setTel(rs.getString("tel"));
 				dto.setGender(rs.getString("gender"));
 				dto.setEmail(rs.getString("email"));
-				dto.setZipcod(rs.getInt("zipcode"));
+				dto.setZipcode(rs.getInt("zipcode"));
 				dto.setAddress1(rs.getString("address1"));
 				dto.setAddress2(rs.getString("address2"));
 				dto.setRegdate(rs.getDate("regdate"));
@@ -65,18 +71,30 @@ public class AdminMemberDAO {
 		return null; // 오류
 	}
 	// 회원 수정 목록 출력 메소드
-	public ArrayList<AdminMemberDTO> memberUpdateList(int no) {
+	public ArrayList<AdminMemberDTO> memberUpdateList(AdminMemberDTO dto) {		
 		
 		ArrayList<AdminMemberDTO> arr = new ArrayList<AdminMemberDTO>();
 		
-		String sql = "select * from member where no = ?";
+		String cd[] = dto.getCd();
+		
+		String sql = "select * from member where NO IN ( ?"; 
+		
+		for (int i = 1; i < cd.length; i++) {
+			sql += " , ?";
+		}	
+	 	sql += ")";
+	 	
 		try {
 			conn = pool.getConnection();
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, no);
+			
+			for (int i = 0; i < cd.length; i++) {
+				ps.setInt(i + 1, Integer.parseInt(cd[i]));
+			}
+		 	
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				AdminMemberDTO dto = new AdminMemberDTO();
+				dto = new AdminMemberDTO();
 				dto.setNo(rs.getInt("no"));
 				dto.setId(rs.getString("id"));
 				dto.setPwd(rs.getString("pwd"));
@@ -85,7 +103,7 @@ public class AdminMemberDAO {
 				dto.setTel(rs.getString("tel"));
 				dto.setGender(rs.getString("gender"));
 				dto.setEmail(rs.getString("email"));
-				dto.setZipcod(rs.getInt("zipcode"));
+				dto.setZipcode(rs.getInt("zipcode"));
 				dto.setAddress1(rs.getString("address1"));
 				dto.setAddress2(rs.getString("address2"));
 				dto.setRegdate(rs.getDate("regdate"));

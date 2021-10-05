@@ -2,6 +2,7 @@ package com.beauty.admin.member;
 
 import java.sql.*;
 
+
 public class AdminMemberDTO {
 	
 	private int no; // 회원 번호
@@ -18,6 +19,14 @@ public class AdminMemberDTO {
 	private Date regdate; // 등록일
 	private String dormant; // 휴면 계정 여부
 	
+	private String cd[];
+	
+	public String[] getCd() {
+		return cd;
+	}
+	public void setCd(String[] cd) {
+		this.cd = cd;
+	}
 	public int getNo() {
 		return no;
 	}
@@ -66,11 +75,11 @@ public class AdminMemberDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getZipcod() {
+	public int getZipcode() {
 		return zipcode;
 	}
-	public void setZipcod(int zipcod) {
-		this.zipcode = zipcod;
+	public void setZipcode(int zipcode) {
+		this.zipcode = zipcode;
 	}
 	public String getAddress1() {
 		return address1;

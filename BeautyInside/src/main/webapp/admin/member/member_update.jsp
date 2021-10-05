@@ -4,8 +4,14 @@
 <%@ page import="com.beauty.admin.member.AdminMemberDTO" %>
 <% request.setCharacterEncoding("UTF-8"); %>
 <jsp:useBean id="dao" class="com.beauty.admin.member.AdminMemberDAO"/>
+<jsp:useBean id="dto" class="com.beauty.admin.member.AdminMemberDTO"/>
 <%
+	ArrayList<AdminMemberDTO> arr = new ArrayList<>();
 	String cb[] = request.getParameterValues("check");
+	if(cb != null){
+		dto.setCd(cb);
+		arr = dao.memberUpdateList(dto);
+	}
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -63,14 +69,8 @@
 	                            </thead>
 	                            <tbody>
                            				<%
-                           					if (!(cb == null)) {
-                           						for (int i = 0; i < cb.length; i++) {
-                           							
-    	                           					int no = Integer.parseInt(cb[i]);
-
-    	                           					ArrayList<AdminMemberDTO> arr = dao.memberUpdateList(no);
-													// 오류 수정 해야함 !!!    	               	
-    	
+                           					if ((arr.size() > 0)) {
+                           						for (int i = 0; i < arr.size(); i++) {
     	                           					%>
     	                           						<tr>
 	    		                               				<td><input type="checkbox" name="check" value=""></td>
@@ -81,13 +81,12 @@
 	    		    	                                    <td class="content"><%= arr.get(i).getTel() %></td>
 	    		    	                                    <td class="content"><%= arr.get(i).getGender() %></td>
 	    		    	                                    <td class="content"><%= arr.get(i).getEmail() %></td>
-	    		    	                                    <td class="content"><%= arr.get(i).getZipcod() %></td>
+	    		    	                                    <td class="content"><%= arr.get(i).getZipcode() %></td>
 	    		    	                                    <td class="content"><%= arr.get(i).getAddress1() %><%= arr.get(i).getAddress2()%></td>
 	    		    	                                    <td class="content"><%= arr.get(i).getRegdate() %></td>
 	    		    	                                    <td class="content"><%= arr.get(i).getDormant() %></td>
                                                      	</tr>
     	    	                                    <%
-    	                           					
     	                           				}
                            					} else {
                            						%>
