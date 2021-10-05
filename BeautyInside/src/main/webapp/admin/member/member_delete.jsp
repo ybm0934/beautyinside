@@ -1,24 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>
+<jsp:useBean id="dao" class="com.beauty.admin.member.AdminMemberDAO"/>
 <%
 	String cb[] = request.getParameterValues("check");
-
-	for (int i = 0; i < cb.length; i++) {
-		System.out.print(cb[i]);
-	}
-
-%>
-<script>
-	let result = confirm('정말 삭제하시겠습니까?');
 	
-	if (result) {
-		alert('회원 삭제 완료!');
-		location.href='/admin/member/member.jsp';
-	} else if (<%= cb.length %> == 0) {
-		history.back();
-	} else {
-		history.back();
+	if (cb == null) {
+		%>
+			<script>
+				alert('삭제 할 회원을 체크해주세요!');
+				history.back();
+			</script>
+		<%
+	} 
+	if (!(cb == null)){
+		for (int i = 0; i < cb.length; i++) {
+			int ck = Integer.parseInt(cb[i]);
+			dao.memberDelete(ck);
+		}
+		%>
+			<script>
+				alert('회원 삭제 완료!');
+				location.href='/admin/member/member.jsp';
+			</script>
+		<%
 	}
-	// 수정 부분!!
-</script>
+%>

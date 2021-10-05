@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("UTF-8"); %>
 <%@ page import="com.beauty.admin.member.AdminMemberDTO" %>  
 <%@ page import="java.util.*" %>
 <jsp:useBean id="dao" class="com.beauty.admin.member.AdminMemberDAO"/>
@@ -140,17 +141,27 @@
                 </script>
                 <input type="button" value="전체해제" onclick="selectRelease()">
                 <script type="text/javascript">
-                	function select() {
-						
+                	function selectRelease() {
+                		$('[name=check]').prop('checked', false);
 					}
                 </script>
                	<!-- 수정, 삭제 -->
                 <div class="delete_btn">
-                	<input type="button" value="수정" onclick="">
-            		<input type="button" value="삭제" onclick="javascript: main_fm.action='admin/member/member_delete.jsp'">
+                	<input type="submit" value="수정" onclick=''>
+            		<input type="submit" value="삭제" onclick='btn_delete();'>
             		<input type="button" value="휴면 등록" style="width: 70px;">
             		<input type="button" value="휴면 해제" style="width: 70px;">
             	</div>
+            	<script>
+            		function btn_delete() {
+            			let result = confirm('정말 삭제하시겠습니까?');
+						if (result) {
+							main_fm.action='../member/member_delete.jsp';
+						} else {
+							history.back();
+						}
+					}
+            	</script>
             </div>
             </form>
             <!-- 페이징 버튼 -->
