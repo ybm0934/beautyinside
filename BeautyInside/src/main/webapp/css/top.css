@@ -36,6 +36,7 @@ caption {
     padding-right: 50px;
     padding-bottom: 5px;
     font-size: 20px;
+    margin-top: 5px;
 }
 
 .sign {
@@ -52,6 +53,36 @@ caption {
 .sign a:hover {
     color: red;
     transition-duration: 0.5s;
+}
+
+.usersign {
+	font-family: 'Krub', sans-serif;
+    font-size: 0.8em;
+}
+
+.userid_spn {
+	color: blue;
+	font-weight: bold;
+}
+
+.wellcome_spn {
+    color: gray;
+}
+
+.remainTime_spn {
+	color: black;
+	font-weight: bold;
+}
+
+#time_spn a {
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+}
+
+#time_spn a:hover {
+	transition-duration: 0.5s;
+    color: #dd9933;
 }
 
 #main_ul {

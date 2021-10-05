@@ -1,24 +1,92 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String userid = (String) session.getAttribute("userid");
+	long logtime = 0;
+	if(session.getAttribute("logtime") != null) {
+		logtime = (long) session.getAttribute("logtime");
+	}
+	
+	// int GMT = 1000 * 60 * 60 * 9; // 그리니치 천문대 기준 9시간 설정
+	// long remainTime = (System.currentTimeMillis() - logtime) - GMT; // 경과된 시간 계산
+	long ten = 1000 * 60 * 10; // 10분
+	SimpleDateFormat sdf = new SimpleDateFormat("mm:ss");
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>:: BEAUTY INSIDE ::</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/top.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			setInterval(function() { setClock() }, 1000);
+			
+			var logtime = <%=logtime %>;
+			var ten = logtime + (1000 * 60 * 10); // +10분 세팅
+			
+			function setClock() {
+				var now = new Date().getTime();
+				var distance = ten - now; // 10분 밀리초 환산
+				
+				// 남은 시간 경과되면 세션 만료
+				if(distance < 0) {
+					//location.href = '/member/logout.jsp';
+					
+					return false;
+				}
+				
+				var _ss = 1000; // 초
+				var _mm = _ss * 60; // 분
+				var _hh = _mm * 60; // 시
+				
+				// 밀리초를 시분초로 변환하는 공식
+				var mm = Math.floor((distance % _hh) / _mm);
+				var ss = Math.floor((distance % _mm) / _ss);
+				
+				mm = mm.toString();
+				ss = ss.toString();
+				
+				$('#time_spn a').html(('0' + mm).slice(-2) + ':' + ('0' + ss).slice(-2));
+			}
+			
+			// 남은 시간 연장하기
+			$('#extend').click(function(){
+				sessionStorage.setItem('userid', <%=userid %>);
+				sessionStorage.setItem('logtime', <%=System.currentTimeMillis() %>);
+				session.setMaxInactiveInterval(60 * 10); // 세션 만료 시간 10분
+				
+				//location.reload();
+			});
+		});
+	</script>	
 </head>
 <header id="header">
     <div id="top">
-    <% %>
+    <%if(userid == null) { %>
         <span class="sign">
-            <a href="<%=request.getContextPath() %>/member/login.jsp" alt="로그인">로그인</a>
+            <a href="<%=request.getContextPath() %>/member/login.jsp">로그인</a>
         </span>
         <span class="sign" style="color:gray; font-size: 0.7em;"> | </span>
         <span class="sign">
-            <a href="<%=request.getContextPath() %>/member/register.jsp" alt="회원가입">회원가입</a>
+            <a href="<%=request.getContextPath() %>/member/register.jsp">회원가입</a>
         </span>
-	<% %>
+	<%}else { %>
+		<span class="usersign userid_spn"><%=userid %></span>
+		<span class="usersign wellcome_spn">님 반갑습니다!</span>
+		<span class="usersign remainTime_spn">
+			[ <span id="time_spn">
+				<a href="#" id="extend"><%=sdf.format(ten) %></a>
+			</span> ]
+		</span>
+		<span class="usersign">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+		<span class="sign">
+			<a href="/member/logout.jsp">로그아웃</a>
+		</span>
+	<%} %>
     </div>
     <ul id="main_ul">
         <li>
@@ -58,13 +126,13 @@
         </li>
         <li>
             <span class="sns_logo_spn">
-                <a href="https://www.facebook.com" alt="facebook" target="_blank">
+                <a href="https://www.facebook.com" target="_blank">
                     <img src="/img/ico/facebook.png" alt="sns_logo">
                 </a>
-                <a href="https://www.instagram.com" alt="instagram" target="_blank">
+                <a href="https://www.instagram.com" target="_blank">
                     <img src="/img/ico/instagram.png" alt="sns_logo">
                 </a>
-                <a href="https://www.twitter.com" alt="twitter" target="_blank">
+                <a href="https://www.twitter.com" target="_blank">
                     <img src="/img/ico/twitter.png" alt="sns_logo">
                 </a>
             </span>

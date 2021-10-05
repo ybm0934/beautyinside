@@ -1,12 +1,9 @@
-@charset "UTF-8";
+/* 메인 페이지 CSS */
 
+@charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Krub:wght@200&display=swap');
-
-
-
-/* 메인 페이지 CSS */
 
 img {
     image-rendering: auto;

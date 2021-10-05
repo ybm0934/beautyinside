@@ -27,6 +27,7 @@
     background-image: url('../../img/background-ga41219cb7_1920.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     color: white;
     opacity: 0.9;
 }
@@ -112,6 +113,16 @@
 
 .saveid_div span {
     cursor: pointer;
+}
+
+.error_div {
+	margin: 10px 0 10px 0;
+}
+
+#error_spn {
+	color: red;
+	font-weight: bold;
+	text-align: center;
 }
 
 .btn_div {}
