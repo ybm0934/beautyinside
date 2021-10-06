@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+/* 게시판 글쓰기 CSS */
+
+#wrap {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+#wrap h1 {
+    text-align: center;
+}
+
+.btn {
+    width: 130px;
+    height: 50px;
+    cursor: pointer;
+}
+
+input:focus {
+    outline: none;
+}
+
+.textbox {
+    padding: 10px;
+    border: 1px solid lightgray;
+}
+
+
+/* 글쓰기 테이블 영역 */
+
+#write_table {
+    width: 100%;
+    border-top: 2px solid lightgray;
+    border-bottom: 2px solid lightgray;
+    border-collapse: collapse;
+}
+
+#write_table caption {
+    visibility: hidden;
+}
+
+#write_btn {
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+}
+
+#write_btn:hover {
+    border: 1px solid blue;
+    background-color: blue;
+}
+
+#write_btn:active {
+    border: 1px solid black;
+    background-color: black;
+}
+
+#cancel_btn {
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+}
+
+#cancel_btn:active {
+    border: 1px solid black;
+    background-color: lightgray;
+    color: black;
+}
+
+#write_table tr th {
+    padding:30px;
+}
+
+#write_table tr th:not(:last-child) {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid lightgray;
+}
+
+#write_table tr th:last-child {
+    padding: 15px;
+}
+
+#write_table tr td {
+    border-bottom: 1px solid lightgray;
+    padding: 20px;
+}
+
+#title {
+    width: 700px;
+}
+
+.ck-editor__editable {
+    min-height: 500px;
+}

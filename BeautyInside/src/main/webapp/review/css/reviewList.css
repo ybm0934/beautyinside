@@ -1,0 +1,127 @@
+@charset "UTF-8";
+
+/* 게시판 리스트 CSS */
+
+#reviewList_div {}
+
+#reviewList_div .btn {
+    width: 80px;
+    height: 40px;
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+#reviewList_div .btn:active {
+    background-color: gray;
+}
+
+
+/* 테이블 영역 */
+
+#list_table {
+    margin: 30px auto;
+    border-top: 2px solid lightgray;
+    border-bottom: 2px solid lightgray;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#list_table thead tr th {
+    background-color: #f7f7f7;
+    padding: 13px;
+}
+
+#list_table tfoot tr td {
+    border: 1px solid lightgray;
+}
+
+#no_td {
+	color: gray;
+}
+
+#list_table tbody tr td {
+    border-top: 1px solid lightgray;
+}
+
+#list_table tbody tr td:not(:nth-child(2)) {
+    text-align: center;
+    padding: 13px;
+}
+
+#list_table tbody tr td:nth-child(2) {
+    padding-left: 15px;
+}
+
+#list_table tbody tr:hover {
+	background-color: #f7f7f7;
+	font-weight: bold;
+}
+
+.title_link {
+	text-decoration: none;
+	color: black;
+}
+
+
+/* 게시판 하단 영역 */
+
+.list_foot_div {
+    text-align: right;
+}
+
+.list_search_div {
+    margin-top: 80px;
+    text-align: center;
+}
+
+#category {
+    padding: 10px;
+    vertical-align: middle;
+}
+
+input:focus {
+    outline: none;
+}
+
+.textbox {
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.list_paging_div {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.list_paging_div span {
+	border: 1px solid gray;
+	background-color: navy;
+	padding: 10px;
+	cursor: pointer;
+    color: white;
+	font-weight: bold;
+}
+
+.list_paging_div a {
+	border: 1px solid gray;
+    text-decoration: none;
+	padding: 10px;
+	color: black;
+}
+
+.list_paging_div a:hover {
+	border: 1px solid black;
+	background-color: black;
+	color: white;
+}
+
+.list_paging_div a:active {
+	border: 1px solid gray;
+	background-color: white;
+    text-decoration: none;
+	padding: 10px;
+	color: black;
+}
