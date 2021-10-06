@@ -1,18 +1,22 @@
-<%@page import="java.util.Date"%>
-<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="com.beauty.member.MemberDAO"%>
+<%@page import="com.beauty.member.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	String userid = (String) session.getAttribute("userid");
-	long logtime = 0;
+	long logtime = 100000000000000L;
 	if(session.getAttribute("logtime") != null) {
 		logtime = (long) session.getAttribute("logtime");
 	}
 	
 	// int GMT = 1000 * 60 * 60 * 9; // 그리니치 천문대 기준 9시간 설정
 	// long remainTime = (System.currentTimeMillis() - logtime) - GMT; // 경과된 시간 계산
-	long ten = 1000 * 60 * 10; // 10분
-	SimpleDateFormat sdf = new SimpleDateFormat("mm:ss");
+	// long ten = 1000 * 60 * 10; // 10분
+	// SimpleDateFormat sdf = new SimpleDateFormat("mm:ss");
+	
+	MemberDTO memberDto = new MemberDTO();
+	MemberDAO memberDao = new MemberDAO();
+	memberDto = memberDao.selectByNo(userid);
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -23,19 +27,20 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 		$(document).ready(function() {
-			setInterval(function() { setClock() }, 1000);
-			
 			var logtime = <%=logtime %>;
-			var ten = logtime + (1000 * 60 * 10); // +10분 세팅
+			var ten = logtime + (1000 * 60 * 10 + 2000); // +10분 세팅 + 새로고침 딜레이 2초
+			
+			setInterval(function() {
+				setClock();
+			}, 1000);
 			
 			function setClock() {
 				var now = new Date().getTime();
 				var distance = ten - now; // 10분 밀리초 환산
 				
 				// 남은 시간 경과되면 세션 만료
-				if(distance < 0) {
-					//location.href = '/member/logout.jsp';
-					
+				if(distance <= 0) {
+					location.href = '/member/logout.jsp';
 					return false;
 				}
 				
@@ -50,16 +55,22 @@
 				mm = mm.toString();
 				ss = ss.toString();
 				
-				$('#time_spn a').html(('0' + mm).slice(-2) + ':' + ('0' + ss).slice(-2));
+				$('#time_spn a').html('[ ' + ('0' + mm).slice(-2) + ':' + ('0' + ss).slice(-2) + ' ]');
 			}
 			
-			// 남은 시간 연장하기
 			$('#extend').click(function(){
-				sessionStorage.setItem('userid', <%=userid %>);
-				sessionStorage.setItem('logtime', <%=System.currentTimeMillis() %>);
-				session.setMaxInactiveInterval(60 * 10); // 세션 만료 시간 10분
-				
-				//location.reload();
+				$.ajax({
+					url : '<%=request.getContextPath() %>/member/extend.jsp',
+					type : 'POST',
+					success : function(data){
+						if(confirm('새로고침 하시겠습니까?')) {
+							location.reload();
+						}
+					},
+					error : function(){
+						alert('extend 통신 실패!');
+					}
+				});
 			});
 		});
 	</script>	
@@ -75,12 +86,12 @@
             <a href="<%=request.getContextPath() %>/member/register.jsp">회원가입</a>
         </span>
 	<%}else { %>
-		<span class="usersign userid_spn"><%=userid %></span>
+		<span class="usersign userid_spn"><%=memberDto.getName() %></span>
 		<span class="usersign wellcome_spn">님 반갑습니다!</span>
 		<span class="usersign remainTime_spn">
-			[ <span id="time_spn">
-				<a href="#" id="extend"><%=sdf.format(ten) %></a>
-			</span> ]
+			<span id="time_spn">
+				<a href="#" id="extend"></a>
+			</span>
 		</span>
 		<span class="usersign">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
 		<span class="sign">

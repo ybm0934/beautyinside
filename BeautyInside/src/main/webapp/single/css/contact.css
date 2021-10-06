@@ -66,6 +66,7 @@
     box-sizing: border-box;
     padding: 15px;
     outline: none;
+    overflow: hidden;
 }
 
 textarea::placeholder {

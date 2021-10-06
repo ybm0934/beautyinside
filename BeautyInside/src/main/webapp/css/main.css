@@ -5,10 +5,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Krub:wght@200&display=swap');
 
-img {
-    image-rendering: auto;
-}
-
 #main_div {
     background-image: url('/img/flowers-g0decc2ffd_1920.jpg');
     background-size: cover;

@@ -17,7 +17,7 @@
 		// 세션 생성
 		session.setAttribute("userid", id); // 로그인 아이디
 		session.setAttribute("logtime", System.currentTimeMillis()); // 로그인 시간 기록
-		session.setMaxInactiveInterval(60 * 10); // 세션 만료 시간 10분
+		session.setMaxInactiveInterval(60 * 10 + 2); // 세션 만료 시간 10분 + 새로고침 딜레이 2초
 		
 		// 아이디 저장하기 체크
 		if(saveid.equals("true")) {
@@ -34,8 +34,8 @@
 					
 					if(ckName.equals("saveid")) {
 						cks[i].setMaxAge(0);
+						cks[i].setPath("/");
 						response.addCookie(cks[i]);
-						System.out.println("saveid 해제");
 						
 						break;
 					}

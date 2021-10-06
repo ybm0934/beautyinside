@@ -11,6 +11,7 @@ html, body {
 	padding: 0;
 	width: 100%;
 	height: 100%;
+    image-rendering: auto;
 }
 
 img {
@@ -36,7 +37,7 @@ caption {
     padding-right: 50px;
     padding-bottom: 5px;
     font-size: 20px;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 .sign {
@@ -61,7 +62,7 @@ caption {
 }
 
 .userid_spn {
-	color: blue;
+	color: #dd9933;
 	font-weight: bold;
 }
 
