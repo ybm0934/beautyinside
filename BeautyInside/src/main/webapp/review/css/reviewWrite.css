@@ -3,13 +3,22 @@
 /* 게시판 글쓰기 CSS */
 
 #wrap {
-    margin: 0 auto;
-    width: 1000px;
+	height: auto;
+	min-height: 100%;
+	padding-bottom: 100px;
+	top: 16%;
 }
 
-#wrap h1 {
-    text-align: center;
+#reviewWrite_div {
+	width: 70%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;	
+	padding-top: 100px;
 }
+
+#write_table {}
 
 .btn {
     width: 130px;

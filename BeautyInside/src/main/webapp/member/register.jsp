@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/top.jsp" %>
 <%@ include file="/top_a.jsp" %>
-<%@ include file="/member/loginCheck.jsp" %>
+<%@ include file="/member/loginCheckNot.jsp" %>
 <link rel="stylesheet" type="text/css" href="css/register.css">
 <script>
 	$(document).ready(function(){

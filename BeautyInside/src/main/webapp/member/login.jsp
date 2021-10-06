@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/top.jsp" %>
 <%@ include file="/top_a.jsp" %>
-<%@ include file="/member/loginCheck.jsp" %>
+<%@ include file="/member/loginCheckNot.jsp" %>
 <%
 	Cookie[] cks = request.getCookies();
 	

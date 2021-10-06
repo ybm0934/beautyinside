@@ -6,9 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>에러 페이지</title>
+<style>
+	#error_div {
+		text-align: center;
+	}
+</style>
 </head>
 <body>
-	<div>
+	<div id="error_div">
 		<h1 style="color:red;">500 에러 발생</h1>
 		<br>
 		<h2>요청하신 페이지에 문제가 발생하였습니다.</h2>

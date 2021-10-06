@@ -6,9 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>에러 페이지</title>
+<style>
+	#error_div {
+		text-align: center;
+	}
+</style>
 </head>
 <body>
-	<div>
+	<div id="error_div">
 		<h1 style="color:blue">404 에러 발생</h1>
 		<br>
 		<h2>찾으시는 페이지가 없습니다.</h2>

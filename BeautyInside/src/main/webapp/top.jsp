@@ -2,6 +2,8 @@
 <%@page import="com.beauty.member.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page errorPage="/error/404code.jsp" %>
+<%@page errorPage="/error/500code.jsp" %>
 <%
 	String userid = (String) session.getAttribute("userid");
 	long logtime = 100000000000000L;
@@ -63,7 +65,7 @@
 					url : '<%=request.getContextPath() %>/member/extend.jsp',
 					type : 'POST',
 					success : function(data){
-						if(confirm('새로고침 하시겠습니까?')) {
+						if(confirm('로그인 시간을 연장 하시겠습니까?')) {
 							location.reload();
 						}
 					},
@@ -150,4 +152,4 @@
         </li>
     </ul>
 </header>
-<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+<body>

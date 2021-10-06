@@ -1,13 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>글쓰기</title>
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/board/css/write.css">
+<%@ include file="/top.jsp" %>
+<%@ include file="/top_a.jsp" %>
+<%@ include file="/member/loginCheck.jsp" %>
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/review/css/reviewWrite.css">
     <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
     	$(document).ready(function(){
     		$('#write_btn').click(function(){
@@ -20,14 +17,14 @@
     		});
     	});
     </script>
-</head>
-<body>
-    <div id="wrap">
-        <form name="write" method="post" action="<%=request.getContextPath() %>/board/write_ok.jsp" enctype="multipart/form-data">
-            <h1>게시판 글쓰기</h1>
+<div id="wrap">
+    <div id="reviewWrite_div">
+        <form name="write" method="post" action="<%=request.getContextPath() %>/review/reviewWrite_ok.jsp" enctype="multipart/form-data">
             <table id="write_table">
                 <caption>글쓰기 테이블</caption>
-                <thead></thead>
+                <thead>
+                	<input type="hidden" name="name" value="<%=memberDto.getName() %>">
+                </thead>
                 <tfoot>
                     <tr>
                         <th colspan="2">
@@ -38,21 +35,16 @@
                 </tfoot>
                 <tbody>
                     <tr>
-                        <th>닉네임</th>
-                        <td>
-                            <input type="text" name="name" class="textbox" id="name" placeholder="닉네임을 입력하세요." autofocus required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>비밀번호</th>
-                        <td>
-                            <input type="password" name="pwd" class="textbox" id="pwd" placeholder="비밀번호를 입력하세요." required>
-                        </td>
-                    </tr>
-                    <tr>
                         <th>제 목</th>
                         <td>
                             <input type="text" name="title" class="textbox" id="title" placeholder="제목을 입력하세요." required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>사진 올리기</th>
+                        <td>
+                            <input type="file" name="fileName" accept="image/gif, image/jpeg, image/png, imgae/tiff">
+                            <span>(최대 30MB)</span>
                         </td>
                     </tr>
                     <tr>
@@ -61,18 +53,11 @@
                             <textarea name="content" id="editor"></textarea>
                         </td>
                     </tr>
-                    <tr>
-                        <th>첨부파일</th>
-                        <td>
-                            <input type="file" name="fileName">
-                            <span>(최대 30MB)</span>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </form>
     </div>
-</body>
+</div>
 <script>
     ClassicEditor
         .create( document.querySelector( '#editor' ) )
@@ -80,4 +65,4 @@
             console.error( error );
         } );
 </script>
-</html>
+<%@ include file="/bottom.jsp" %>

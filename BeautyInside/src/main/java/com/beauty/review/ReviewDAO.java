@@ -76,7 +76,7 @@ public class ReviewDAO {
 
 			con = pool.getConnection();
 
-			String sql = "INSERT INTO review(NO, id, NAME, title, CONTENT, fileName, fileSize) VALUES(board_seq.nextval, ?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO review(NO, id, name, title, CONTENT, fileName, fileSize) VALUES(review_seq.nextval, ?, ?, ?, ?, ?, ?)";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, reviewDto.getId());
 			ps.setString(2, reviewDto.getName());

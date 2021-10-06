@@ -1,7 +1,7 @@
+<%@page import="com.beauty.review.CommentDAO"%>
+<%@page import="com.beauty.review.CommentDTO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="yong.board.CommentDTO"%>
-<%@page import="yong.board.BoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -15,17 +15,16 @@ request.setCharacterEncoding("UTF-8");
 	CommentDTO comDto = new CommentDTO();
 	comDto.setOgNo(ogNo);
 	comDto.setName(name);
-	comDto.setPwd(pwd);
 	comDto.setContent(content);
 	
-	ReviewDAO boardDao = new ReviewDAO();
-	int cnt = boardDao.commentWrite(comDto);
+	CommentDAO CommentDAO = new CommentDAO();
+	int cnt = CommentDAO.commentWrite(comDto);
 	
 	ArrayList<CommentDTO> list = null;
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
 	
 	if(cnt > 0) {
-		list = boardDao.commentList();
+		list = CommentDAO.commentList();
 	} else {
 %>
 	<script>

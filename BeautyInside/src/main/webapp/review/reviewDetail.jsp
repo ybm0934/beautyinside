@@ -1,60 +1,47 @@
+<%@page import="com.beauty.review.CommentDAO"%>
+<%@page import="com.beauty.review.CommentDTO"%>
+<%@page import="com.beauty.review.ReviewDTO"%>
+<%@page import="com.beauty.review.ReviewDAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="yong.board.CommentDTO"%>
 <%@page import="java.util.ArrayList"%>
-<%@ page import="yong.board.BoardDTO"%>
-<%@ page import="yong.board.BoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="/top.jsp" %>
+<%@ include file="/top_a.jsp" %>
 <%
-String no = request.getParameter("no");
+	String no = request.getParameter("no");
 
-	ReviewDAO boardDao = new ReviewDAO();
-	ReviewDTO boardDto = new ReviewDTO();
+	ReviewDAO reviewDao = new ReviewDAO();
+	ReviewDTO reviewDto = new ReviewDTO();
 	
-	boardDto = boardDao.detail(Integer.parseInt(no));
+	reviewDto = reviewDao.reviewByNo(Integer.parseInt(no), userid);
 	
-	String fileName = boardDto.getFileName();
-	int downCount = boardDto.getDownCount();
+	String fileName = reviewDto.getFileName();
 	
-	String attatch = (fileName == null) ? "" : fileName + "(" + downCount + ")";
+	CommentDAO comDao = new CommentDAO();
 	
-	ArrayList<CommentDTO> list = boardDao.commentList();
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+	ArrayList<CommentDTO> list = comDao.commentList();
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd. HH:mm:ss");
 %>
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>글 상세보기</title>
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/board/css/detail.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/review/css/reviewDetail.css">
     <script>
 	    $(document).ready(function(){
 	    	$('#list_btn').click(function(){
 	    		location.href = '<%=request.getContextPath() %>/board/list.jsp';
 	    	});
 	    	
-	    	// 답변 쓰기 이동
-	    	$('#reWrite_btn').click(function(){
-	    		location.href = '<%=request.getContextPath() %>/board/reWrite.jsp?no=<%=no %>&groupno=<%=boardDto.getGroupno()%>&step=<%=boardDto.getStep()%>&sortno=<%=boardDto.getSortno()%>&title=<%=boardDto.getTitle()%>';
-	    	});
-	        
 	        // 댓글 등록 Ajax
 	        $('#reply_regit_btn').click(function(){
 	            $.ajax({
-	               url : '<%=request.getContextPath() %>/board/reply_ok.jsp',
+	               url : '<%=request.getContextPath() %>/review/commentWrite_ok.jsp',
 	               type : 'POST',
 	               data : {
 	            	   ogNo : <%=no %>,
-	            	   name : $('#name').val(),
-	            	   pwd : $('#pwd').val(),
 	            	   comment : $('#comment').val()
 	               },
 	               datatype : 'JSON',
 	               success : function(data){
 	                   $('#reply_table tbody').html(data);
-	                   $('#name').val('');
-	                   $('#pwd').val('');
 	                   $('#comment').val('');
 	               },
 	               error : function(){
@@ -104,7 +91,6 @@ String no = request.getParameter("no");
 	    });
 	</script>
 </head>
-<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
     <div id="wrap">
 		<h1>글 상세보기</h1>
 		<table id="write_table">
@@ -122,23 +108,23 @@ String no = request.getParameter("no");
 		    </tfoot>
 		    <tbody>
 		        <tr>
-		            <td colspan="4" id="title_td"><%=boardDto.getTitle() %></td>
+		            <td colspan="4" id="title_td"><%=reviewDto.getTitle() %></td>
 		        </tr>
 		        <tr>
 		            <th>닉네임</th>
-		            <td><%=boardDto.getName() %></td>
+		            <td><%=reviewDto.getName() %></td>
 		            <th>조회수</th>
-		            <td><%=boardDto.getCount() %></td>
+		            <td><%=reviewDto.getCount() %></td>
 		        </tr>
 		        <tr>
 		            <th>첨부파일</th>
 		            <td colspan="3">
-		            	<a href="#"><%=attatch %></a>
+		            	<a href="#"><% %></a>
 		            </td>
 		        </tr>
 		        <tr>
 		            <td colspan="4">
-		            	<div id="content"><%=boardDto.getContent() %></div>
+		            	<div id="content"><%=reviewDto.getContent() %></div>
 		            </td>
 		        </tr>
 		    </tbody>
@@ -190,5 +176,4 @@ String no = request.getParameter("no");
 			</tbody>
 		</table>
     </div>
-</body>
-</html>
+<%@ include file="/bottom.jsp" %>
