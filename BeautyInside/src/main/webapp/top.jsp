@@ -2,8 +2,6 @@
 <%@page import="com.beauty.member.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page errorPage="/error/404code.jsp" %>
-<%@page errorPage="/error/500code.jsp" %>
 <%
 	String userid = (String) session.getAttribute("userid");
 	long logtime = 100000000000000L;
@@ -29,8 +27,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 		$(document).ready(function() {
+			var timer = 30; // 유효 시간 설정
 			var logtime = <%=logtime %>;
-			var ten = logtime + (1000 * 60 * 10 + 2000); // +10분 세팅 + 새로고침 딜레이 2초
+			var ten = logtime + (1000 * 60 * timer + 2000); // 새로고침 딜레이 2초
 			
 			setInterval(function() {
 				setClock();

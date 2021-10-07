@@ -3,41 +3,55 @@
 /* 리뷰 게시판 리스트 CSS */
 
 #wrap {
-	height: 100vh;
+	min-height: 100%;
+	height: auto;
+	padding-bottom: 100px;
 }
 
 #reviewList_div {
 	width: 80%;
 	position: relative;
-	top: 16%;
 	display: flex;
 	flex-direction: column;
+	padding: 170px 0 100px 0;	
 	margin: 0 auto;
 }
 
 #reviewList_div .btn {
     width: 80px;
     height: 40px;
-    border: 1px solid #228be6;
-    background-color: #228be6;
+    border: 1px solid #2d2d2d;
+    background-color: #2d2d2d;
     color: white;
     cursor: pointer;
     vertical-align: middle;
 }
 
 #reviewList_div .btn:hover {
-    background-color: #0c79d8;
+    background-color: black;
 }
 
 #reviewList_div .btn:active {
-    background-color: #228be6;
+    background-color: #2d2d2d;
+}
+
+#reviewList_div h1 {
+	margin: 0;
+}
+
+#select_div {
+	text-align: right;
+}
+
+#select_div select {
+	padding: 10px;
+	outline: none;
 }
 
 
 /* 테이블 영역 */
 
 #list_table {
-    margin: 30px auto;
     border-top: 2px solid lightgray;
     border-bottom: 2px solid lightgray;
     border-collapse: collapse;
@@ -45,7 +59,8 @@
 }
 
 #list_table thead tr th {
-    background-color: #e8f6f6;
+    background-color: #2d2d2d;
+    color: white;
     padding: 10px;
 }
 
@@ -80,11 +95,22 @@
 	color: black;
 }
 
+.fileSpn {
+	margin-left: 10px;
+	vertical-align: middle;
+	font-weight: bold;
+}
+
+.fileSpn img {
+	width: 17px;
+}
+
 
 /* 게시판 하단 영역 */
 
 .list_foot_div {
     text-align: right;
+    margin-top: 30px;
 }
 
 .list_search_div {
@@ -112,7 +138,7 @@ input:focus {
 }
 
 .list_paging_div span {
-	border: 1px solid gray;
+	border: 1px solid navy;
 	background-color: navy;
 	padding: 10px;
 	cursor: pointer;
@@ -128,8 +154,8 @@ input:focus {
 }
 
 .list_paging_div a:hover {
-	border: 1px solid black;
-	background-color: black;
+	border: 1px solid #2d2d2d;
+	background-color: #2d2d2d;
 	color: white;
 }
 

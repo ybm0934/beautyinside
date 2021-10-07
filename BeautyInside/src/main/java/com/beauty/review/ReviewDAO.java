@@ -30,7 +30,7 @@ public class ReviewDAO {
 
 			con = pool.getConnection();
 
-			String sql = "SELECT * FROM review";
+			String sql = "SELECT no, title, name, regdate, (sysdate-regdate) * 24 as newTerm, count, fileName, orgFileName FROM review";
 			if (keyword != null && !keyword.isEmpty()) {
 				sql += " WHERE " + category + " LIKE '%" + keyword + "%'";
 			}
@@ -44,17 +44,23 @@ public class ReviewDAO {
 				String title = rs.getString("title");
 				String name = rs.getString("name");
 				Timestamp regdate = rs.getTimestamp("regdate");
+				double newTerm = rs.getInt("newTerm");
 				int count = rs.getInt("count");
+				String fileName = rs.getString("fileName");
+				String orgFileName = rs.getString("orgFileName");
 
-				ReviewDTO boardDto = new ReviewDTO();
+				ReviewDTO reviewDto = new ReviewDTO();
 
-				boardDto.setNo(no);
-				boardDto.setTitle(title);
-				boardDto.setName(name);
-				boardDto.setRegdate(regdate);
-				boardDto.setCount(count);
+				reviewDto.setNo(no);
+				reviewDto.setTitle(title);
+				reviewDto.setName(name);
+				reviewDto.setRegdate(regdate);
+				reviewDto.setNewTerm(newTerm);
+				reviewDto.setCount(count);
+				reviewDto.setFileName(fileName);
+				reviewDto.setOrgfileName(orgFileName);
 
-				list.add(boardDto);
+				list.add(reviewDto);
 			} // while
 
 			System.out.println("글 목록 결과 list.size() = " + list.size());
@@ -99,7 +105,7 @@ public class ReviewDAO {
 
 	// 상세보기
 	public ReviewDTO reviewByNo(int no, String userid) throws SQLException {
-		ReviewDTO reviewDto = new ReviewDTO();
+		ReviewDTO reviewDto = null;
 
 		try {
 			System.out.println("reviewByNo 실행\r\n");
@@ -130,6 +136,7 @@ public class ReviewDAO {
 					System.out.println("조회수 증가 결과 cnt : " + cnt);
 				}
 
+				reviewDto = new ReviewDTO();
 				reviewDto.setName(name);
 				reviewDto.setId(id);
 				reviewDto.setTitle(title);

@@ -1,33 +1,41 @@
 @charset "UTF-8";
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+
 /* 게시판 상세보기 CSS */
 
 #wrap {
-    margin: 0 auto;
-    width: 800px;
+    min-height: 100%;
+	height: auto;
+	padding-bottom: 100px;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
-#wrap h1 {
-    text-align: center;
+#reviewDetail_div {
+	width: 60%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	padding: 130px 0 100px 0;	
+	margin: 0 auto;
 }
 
 .btn {
     width: 80px;
     height: 40px;
     cursor: pointer;
-    border: 1px solid black;
-    background-color: white;
-    color: black;
+    border: 1px solid #2d2d2d;
+	background-color: #2d2d2d;
+	color: white;
+}
+
+.btn:hover {
+    background-color: black;
 }
 
 .btn:active {
-    border: 1px solid black;
-    background-color: lightgray;
-}
-
-
-caption {
-    visibility: hidden;
+    border: 1px solid #2d2d2d;
+    background-color: #2d2d2d;
 }
 
 
@@ -50,7 +58,8 @@ tfoot tr td {
 }
 
 #write_table tr th:not(:last-child) {
-    background-color: #f7f7f7;
+    background-color: #2d2d2d;
+    color: white;
     border-bottom: 1px solid lightgray;
 }
 
@@ -60,21 +69,56 @@ tfoot tr td {
 
 #write_table tr td {
     border-bottom: 1px solid lightgray;
-    padding: 20px;
+    padding: 10px 15px 10px 15px;
+}
+
+#write_table tr:not(:last-child) td {
+	font-weight: bold;
 }
 
 #title_td {
 	padding: 10px;
 	font-weight: bold;
-	font-size: 1.5em;
+	font-size: 2em;
+	background-color: #2d2d2d;
+	color: white;
+}
+
+.icoSpn {
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+.icoEye {
+	margin-left: 20px;
 }
 
 #content {
     min-height: 300px;
 }
 
+.detailImg_div {
+	margin-top: 20px;
+}
+
+.detailImg {
+	width: 50%;
+}
+
+.contentTb_div {
+	margin:50px 0 50px 0;
+}
+
 
 /* 댓글 테이블 영역 */
+
+#reply_div {
+	width: 70%;
+	margin: 0 auto;
+	margin-top: 20px;
+	border: 1px solid lightgray;
+	padding: 30px;
+}
 
 .textbox {
     padding: 10px;
@@ -114,54 +158,83 @@ tfoot tr td {
 
 #reply_table {
     width: 100%;
-    border-top: 2px solid lightgray;
-    border-bottom: 2px solid lightgray;
     border-collapse: collapse;
 }
 
-#reply_table tr th {
-    padding: 10px;
+#reply_table tr {
+	border: 1px solid lightgray;
 }
 
 #reply_table tr td {
-    padding: 15px;
+    padding: 10px;
 }
 
-.re_tbody_first_tr {
-	border-bottom: 1px solid lightgray;
-	background-color: #f5f5f5;
+.reply_txtarea_div {
+	margin-top: 5px 0;
 }
 
-.re_tbody_second_tr {
-	border-bottom:1px solid lightgray;
+.reply_regBtn_div {
+	margin-top: 15px 0;
 }
 
-.re_tbody_first_tr_td {
+.reply_trtd {
+	background-color: #3a3a3a;
+	color: white;
+}
+
+.reply_trtd_2 {
+	margin-bottom: 10px;
+}
+
+.reply_imgSpn {
+	vertical-align: middle;
+	margin: 0 2px;
+}
+
+.reply_imgSpn img {
+	width: 15px;
+}
+
+.reply_dateSpn {
+	margin-left: 10px;
 	color:gray;
 	font-size:0.8em;
 }
 
 .re_textarea {
-    border: 1px solid gray;
-    width: 630px;
-    padding: 15px;
-    resize: none;
-    vertical-align: middle;
-    min-height: 80px;
     line-height: 23px;
+    width: 100%;
+    box-sizing: border-box;
+    resize: none;
+    min-height: 170px;
+    outline: none;
+    padding: 15px;
+    border: 2px solid gray;
+    color: #3a3a3a;
+}
+
+.replrepl_div {
+	margin: 20px 0;	
+	padding-left: 5px;
 }
 
 .re_spn {
     color: gray;
     cursor: pointer;
     font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .re_spn:hover {
-    font-weight: bold;
+    text-decoration: underline;
+}
+
+.re_spn:active {
+	color: black;
 }
 
 .comment {
     color: gray;
-    line-height: 30px;
+    line-height: 27px;
 }

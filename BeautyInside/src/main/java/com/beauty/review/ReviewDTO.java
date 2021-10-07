@@ -11,7 +11,9 @@ public class ReviewDTO {
 	private String content; // 내용
 	private int count; // 조회수
 	private Timestamp regdate; // 등록일
+	private double newTerm; // 새글 확인
 	private String fileName; // 파일명
+	private String orgfileName; // 파일명
 	private double fileSize; // 파일 크기
 
 	public int getNo() {
@@ -70,12 +72,28 @@ public class ReviewDTO {
 		this.regdate = regdate;
 	}
 
+	public double getNewTerm() {
+		return newTerm;
+	}
+
+	public void setNewTerm(double newTerm) {
+		this.newTerm = newTerm;
+	}
+
 	public String getFileName() {
 		return fileName;
 	}
 
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
+	}
+
+	public String getOrgfileName() {
+		return orgfileName;
+	}
+
+	public void setOrgfileName(String orgfileName) {
+		this.orgfileName = orgfileName;
 	}
 
 	public double getFileSize() {
@@ -89,8 +107,8 @@ public class ReviewDTO {
 	@Override
 	public String toString() {
 		return "ReviewDTO [no=" + no + ", id=" + id + ", name=" + name + ", title=" + title + ", content=" + content
-				+ ", count=" + count + ", regdate=" + regdate + ", fileName=" + fileName + ", fileSize=" + fileSize
-				+ "]";
+				+ ", count=" + count + ", regdate=" + regdate + ", newTerm=" + newTerm + ", fileName=" + fileName
+				+ ", orgfileName=" + orgfileName + ", fileSize=" + fileSize + "]";
 	}
 
 }

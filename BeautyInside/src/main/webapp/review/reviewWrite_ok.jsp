@@ -11,19 +11,21 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	
-	//String savePath = application.getRealPath(request.getContextPath() + "/reivew/upload"); // 업로드 실제 경로
-	String savePath = "D:\\upload";
+	String savePath = application.getRealPath("/review/upload"); // 업로드 절대 경로
 	String encType = "UTF-8"; // 인코딩 타입
 	int maxSize = 1024 * 1024 * 30; // 최대 크기 30MB
 	
-	// DefaultFileRenamePolicy() : 파일명 중복 시 덮어쓰기 방지
+	// DefaultFileRenamePolicy : 파일명 중복 시 덮어쓰기 방지. 파일명 + 1, 2, 3... 처리
 	try {
 		MultipartRequest mr = new MultipartRequest(request, savePath, maxSize, encType, new DefaultFileRenamePolicy());
 		
-		String fileName = mr.getFilesystemName("fileName");
-		System.out.println("파일 이름 : " + fileName);
+		String fileName = mr.getFilesystemName("fileName"); // 중복 파일명
+		String orgFileName = mr.getOriginalFileName("fileName"); // 원본 파일명
+		System.out.println("중복 파일 이름 : " + fileName);
+		System.out.println("원본 파일 이름 : " + orgFileName);
 		System.out.println("저장 경로 : " + savePath);
 		
+		// 파일 사이즈를 MB로 변환
 		double fileSize = 0;
 		if(fileName != null){
 			File file = mr.getFile("fileName");
@@ -37,16 +39,15 @@
 		String content = mr.getParameter("content");
 		
 		ReviewDTO reviewDto = new ReviewDTO();
-		
 		reviewDto.setId(userid);
 		reviewDto.setName(name);
 		reviewDto.setTitle(title);
 		reviewDto.setContent(content);
 		reviewDto.setFileName(fileName);
+		reviewDto.setOrgfileName(orgFileName);
 		reviewDto.setFileSize(fileSize);
 		
 		ReviewDAO reviewDao = new ReviewDAO();
-		
 		int cnt = reviewDao.reviewWrite(reviewDto);
 		
 		if(cnt > 0) {

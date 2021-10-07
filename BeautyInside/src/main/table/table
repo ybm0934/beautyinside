@@ -82,7 +82,8 @@ CREATE TABLE review(
     CONTENT clob NOT NULL, --내용
     COUNT number DEFAULT 0, --조회수
     regdate date DEFAULT SYSDATE, --등록일
-    fileName varchar2(50) NULL, --업로드 파일명
+    fileName varchar2(200) NULL, --중복 파일명
+    orgFileName varchar2(200) NULL, --원본 파일명
     fileSize number DEFAULT 0 --업로드 파일 크기
 );
 
@@ -118,7 +119,27 @@ INCREMENT BY 1
 NOCYCLE;
 
 
+--예약 테이블
+DROP TABLE reserve;
+CREATE TABLE reserve
+(
+    no         NUMBER PRIMARY KEY,
+    name       VARCHAR2 (20) NOT NULL,
+    email      VARCHAR2 (50),
+    tel        VARCHAR2 (20),
+    service    VARCHAR2 (50),
+    rsvDate    DATE NOT NULL,
+    regdate    DATE DEFAULT SYSDATE,
+    status     VARCHAR2 (20)
+);
 
+
+--예약 시퀀스
+DROP SEQUENCE reserve_seq;
+CREATE SEQUENCE reserve_seq
+START WITH 1
+INCREMENT BY 1
+NOCYCLE;
 
 
 

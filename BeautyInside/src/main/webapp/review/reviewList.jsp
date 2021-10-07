@@ -1,3 +1,5 @@
+<%@page import="com.beauty.review.CommentDTO"%>
+<%@page import="com.beauty.review.CommentDAO"%>
 <%@page import="com.beauty.review.ReviewDTO"%>
 <%@page import="com.beauty.review.ReviewDAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -11,14 +13,17 @@
 	
 	String category = request.getParameter("category");
 	String keyword = request.getParameter("keyword");
+	System.out.println("pageSize = " + request.getParameter("pageSize"));
 	
 	if(category == null) category = "title";
 	if(keyword == null) keyword = "";
 	
 	ReviewDAO reviewDao = new ReviewDAO();
 	List<ReviewDTO> list = reviewDao.reviewList(category, keyword);
+	SimpleDateFormat odf = new SimpleDateFormat("yyyy.MM.dd.");
+	SimpleDateFormat ndf = new SimpleDateFormat("HH:mm");
 	
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.");
+	ArrayList<CommentDTO> comList = null;
 	
 	// 페이징 처리
 	int currentPage = 1; // 현재 페이지
@@ -30,6 +35,9 @@
 	
 	int totalRecord = list.size(); // 총 레코드 수
 	int pageSize = 10; // 한 페이지에 보여질 레코드 수
+	if(request.getParameter("pageSize") != null) {
+		pageSize = Integer.parseInt(request.getParameter("pageSize"));
+	}
 	int totalPage = (int) Math.ceil((double) totalRecord / pageSize); // 총 페이지 수
 	int blockSize = 10; // 한 블럭에 보여줄 페이지 수
 	int firstPage = currentPage - ((currentPage - 1) % blockSize); // 블럭 시작 페이지
@@ -51,7 +59,24 @@
 </script>
 <div id="wrap">
 	<div id="reviewList_div">
-		<form name="list" method="post" action="<%=request.getContextPath()%>/review/css/reviewList.jsp">
+		<h1>리뷰 게시판</h1>
+		<form name="list" method="post" action="<%=request.getContextPath()%>/review/reviewList.jsp">
+		<div id="select_div">
+			<select name="pageSelect" onchange="location.href=this.value">
+				<option value="<%=request.getContextPath() %>/review/reviewList.jsp?pageSize=10&category=<%=category%>&keyword=<%=keyword%>"
+					<%if(pageSize == 10) { %>
+						selected="selected"
+					<%} %>>10개씩 보기</option>
+				<option value="<%=request.getContextPath() %>/review/reviewList.jsp?pageSize=30&category=<%=category%>&keyword=<%=keyword%>"
+					<%if(pageSize == 30) { %>
+						selected="selected"
+					<%} %>>30개씩 보기</option>
+				<option value="<%=request.getContextPath() %>/review/reviewList.jsp?pageSize=50&category=<%=category%>&keyword=<%=keyword%>"
+					<%if(pageSize == 50) { %>
+						selected="selected"
+					<%} %>>50개씩 보기</option>
+			</select>
+		</div>
 		<table id="list_table">
 			<caption>글목록 테이블</caption>
 			<colgroup>
@@ -84,14 +109,36 @@
 		       			if(num < 1) break;
 		       			ReviewDTO dto = list.get(curPos++);
 		       			num--;
+		       			
+		       			if(dto.getNewTerm() > 24) {
+	        				odf.format(dto.getRegdate());
+	        			}else if(dto.getNewTerm() <= 24){
+	        				ndf.format(dto.getRegdate());
+		        		}
+		       			
+		       			CommentDAO comDao = new CommentDAO();
+		       			comList = comDao.commentList(dto.getNo());
 		    	%>
 		        <tr>
 		        	<td><%=dto.getNo() %></td>
 		        	<td>
-		        		<a href="<%=request.getContextPath() %>/review/reviewDetail.jsp?no=<%=dto.getNo() %>" class="title_link"><%=dto.getTitle() %></a>
+		        		<a href="<%=request.getContextPath() %>/review/reviewDetail.jsp?no=<%=dto.getNo() %>" class="title_link">
+		        			<%=dto.getTitle() %>
+						</a>
+		        		<%if(dto.getFileName() != null) { %>
+		        		<span class="fileSpn">
+		        			<img src="/img/ico/imgico.png" alt="이미지 여부">
+		        		</span>
+		        		<%} %>
+		        		<%if(comList.size() > 0) { %>
+		        		<span class="fileSpn">
+		        			<img src="/img/ico/chat.png" alt="댓글 여부">
+		        			<%=comList.size() %>
+		        		</span>
+		        		<%} %>
 		        	</td>
 		        	<td><%=dto.getName() %></td>
-		        	<td><%=sdf.format(dto.getRegdate()) %></td>
+		        	<td><%=ndf.format(dto.getRegdate()) %></td>
 		        	<td><%=dto.getCount() %></td>
 		        </tr>
 		    	<%
@@ -105,21 +152,21 @@
 		</div>
 		<div class="list_paging_div">
 			<%if(firstPage > 1) { %>
-				<a href="<%=request.getContextPath() %>/review/reviewList.jsp?currentPage=<%=1%>&category=<%=category%>&keyword=<%=keyword%>" class="paging_tag">&lt;&lt;</a>
-				<a href="<%=request.getContextPath() %>/review/reviewList.jsp?currentPage=<%=firstPage - 1%>&category=<%=category%>&keyword=<%=keyword%>" class="paging_tag">PREV</a>
+				<a href="<%=request.getContextPath() %>/review/reviewList.jsp?currentPage=<%=1%>&pageSize=<%=pageSize %>&category=<%=category%>&keyword=<%=keyword%>" class="paging_tag">&lt;&lt;</a>
+				<a href="<%=request.getContextPath() %>/review/reviewList.jsp?currentPage=<%=firstPage - 1%>&pageSize=<%=pageSize %>&category=<%=category%>&keyword=<%=keyword%>" class="paging_tag">PREV</a>
 			<%} %>
 			<% for(int i = firstPage; i <= lastPage; i++){
 			if(i > totalPage) break;
 			if(i == currentPage) { %>
 				<span><%=i %></span>
 			<%		}else { %>
-				<a href="<%=request.getContextPath() %>/review/reviewList.jsp?currentPage=<%=i%>&category=<%=category%>&keyword=<%=keyword%>" class="paging_tag"><%=i %></a>
+				<a href="<%=request.getContextPath() %>/review/reviewList.jsp?currentPage=<%=i%>&pageSize=<%=pageSize %>&category=<%=category%>&keyword=<%=keyword%>" class="paging_tag"><%=i %></a>
 			<%		}// if
 				}// for
 			%>
 			<%if(lastPage < totalPage){ %>
-				<a href="<%=request.getContextPath() %>/review/reviewList.jsp?currentPage=<%=lastPage + 1%>&category=<%=category%>&keyword=<%=keyword%>" class="paging_tag">NEXT</a>
-				<a href="<%=request.getContextPath() %>/review/reviewList.jsp?currentPage=<%=totalPage%>&category=<%=category%>&keyword=<%=keyword%>" class="paging_tag">&gt;&gt;</a>
+				<a href="<%=request.getContextPath() %>/review/reviewList.jsp?currentPage=<%=lastPage + 1%>&pageSize=<%=pageSize %>&category=<%=category%>&keyword=<%=keyword%>" class="paging_tag">NEXT</a>
+				<a href="<%=request.getContextPath() %>/review/reviewList.jsp?currentPage=<%=totalPage%>&pageSize=<%=pageSize %>&category=<%=category%>&keyword=<%=keyword%>" class="paging_tag">&gt;&gt;</a>
 			<%} %>
 		</div>
 		<div class="list_search_div">

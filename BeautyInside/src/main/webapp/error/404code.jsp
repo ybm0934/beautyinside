@@ -1,6 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page isErrorPage="true" %>
+<%
+	/*
+		200 - 요청이 정삭적으로 처리됨
+		307 - 임시로 페이지가 리다이렉트됨
+		400 - 클라이언트의 요청이 잘못된 구문으로 구성됨
+		401 - 접근이 허용되지 않음
+		404 - 지정된 URL을 처리하기 위한 자원이 존재하지 않음
+		405 - 요청된 메서드는 허용되지 않음
+		500 - 서버 내부 에러, JSP에서 Exception이 발생하는 경우를 포함
+		503 - 서버가 일시적으로 서비스를 제공할 수 없음. 과부하가 걸리거나 임시보수중일 때 해당됨.
+	*/
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +26,7 @@
 </head>
 <body>
 	<div id="error_div">
-		<h1 style="color:blue">404 에러 발생</h1>
+		<h1 style="color:blue">죄송합니다. 페이지가 작동하지 않습니다.</h1>
 		<br>
 		<h2>찾으시는 페이지가 없습니다.</h2>
 		<h2>주소창을 다시 확인하여 주시기 바랍니다.</h2>

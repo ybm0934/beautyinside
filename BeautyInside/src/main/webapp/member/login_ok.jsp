@@ -8,7 +8,6 @@
 	String id = request.getParameter("id");
 	String pwd = request.getParameter("pwd");
 	String saveid = request.getParameter("saveid");
-	System.out.println("saveid : " + saveid);
 	
 	MemberDAO memberDao = new MemberDAO();
 	int n = memberDao.login(id, pwd);
@@ -17,7 +16,7 @@
 		// 세션 생성
 		session.setAttribute("userid", id); // 로그인 아이디
 		session.setAttribute("logtime", System.currentTimeMillis()); // 로그인 시간 기록
-		session.setMaxInactiveInterval(60 * 10 + 2); // 세션 만료 시간 10분 + 새로고침 딜레이 2초
+		session.setMaxInactiveInterval(60 * 30 + 2); // 세션 만료 시간 30분 + 새로고침 딜레이 2초
 		
 		// 아이디 저장하기 체크
 		if(saveid.equals("true")) {

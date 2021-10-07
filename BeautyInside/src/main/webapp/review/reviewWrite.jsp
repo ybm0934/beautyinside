@@ -8,11 +8,17 @@
     <script>
     	$(document).ready(function(){
     		$('#write_btn').click(function(){
+    			if($('#title').val() == '') {
+    				alert('제목을 입력하세요.');
+    				$('#title').focus();
+    				
+    				return false;
+    			}
     		});
     		
     		$('#cancel_btn').click(function(){
     			if(confirm('내용이 모두 지워질 수 있습니다. 취소하시겠습니까?')){
-    				location.href = '<%=request.getContextPath() %>/board/list.jsp';
+    				location.href = '<%=request.getContextPath() %>/review/reviewList.jsp';
     			}
     		});
     	});
@@ -37,20 +43,19 @@
                     <tr>
                         <th>제 목</th>
                         <td>
-                            <input type="text" name="title" class="textbox" id="title" placeholder="제목을 입력하세요." required>
+                            <input type="text" name="title" class="textbox" id="title" placeholder="제목을 입력하세요." spellcheck="false">
                         </td>
                     </tr>
                     <tr>
                         <th>사진 올리기</th>
                         <td>
                             <input type="file" name="fileName" accept="image/gif, image/jpeg, image/png, imgae/tiff">
-                            <span>(최대 30MB)</span>
+                            <span style="font-size:0.8em; color:gray;">(최대 30MB)</span>
                         </td>
                     </tr>
                     <tr>
-                        <th>내 용</th>
-                        <td>
-                            <textarea name="content" id="editor"></textarea>
+                        <td colspan=2>
+                            <textarea name="content" id="editor" spellcheck="false"></textarea>
                         </td>
                     </tr>
                 </tbody>

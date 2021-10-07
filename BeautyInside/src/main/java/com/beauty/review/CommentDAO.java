@@ -29,12 +29,13 @@ public class CommentDAO {
 
 			con = pool.getConnection();
 
-			String sql = "INSERT INTO comments(no, ogno, groupno, name, content, regdate) "
-					+ "VALUES(comments_seq.nextval, ?, comments_seq.nextval, ?, ?, sysdate)";
+			String sql = "INSERT INTO comments(no, ogno, groupno, id, name, content, regdate) "
+					+ "VALUES(comments_seq.nextval, ?, comments_seq.nextval, ?, ?, ?, sysdate)";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, comDto.getOgNo());
-			ps.setString(2, comDto.getName());
-			ps.setString(3, comDto.getContent());
+			ps.setString(2, comDto.getId());
+			ps.setString(3, comDto.getName());
+			ps.setString(4, comDto.getContent());
 
 			cnt = ps.executeUpdate();
 
@@ -50,7 +51,7 @@ public class CommentDAO {
 	}// commentWrite
 
 	// 댓글 목록
-	public ArrayList<CommentDTO> commentList() throws SQLException {
+	public ArrayList<CommentDTO> commentList(int reviewNo) throws SQLException {
 		ArrayList<CommentDTO> list = new ArrayList<CommentDTO>();
 
 		try {
@@ -58,8 +59,9 @@ public class CommentDAO {
 
 			con = pool.getConnection();
 
-			String sql = "SELECT * FROM comments ORDER BY no ASC";
+			String sql = "SELECT * FROM comments WHERE ogNo = ? ORDER BY no ASC";
 			ps = con.prepareStatement(sql);
+			ps.setInt(1, reviewNo);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				int no = rs.getInt("no");

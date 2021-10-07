@@ -3,10 +3,8 @@
 /* 게시판 글쓰기 CSS */
 
 #wrap {
-	height: auto;
 	min-height: 100%;
 	padding-bottom: 100px;
-	top: 16%;
 }
 
 #reviewWrite_div {
@@ -15,7 +13,7 @@
 	display: flex;
 	flex-direction: column;
 	margin: 0 auto;	
-	padding-top: 100px;
+	padding-top: 6%;
 }
 
 #write_table {}
@@ -33,6 +31,7 @@ input:focus {
 .textbox {
     padding: 10px;
     border: 1px solid lightgray;
+    font-size: 20px;
 }
 
 
@@ -50,49 +49,45 @@ input:focus {
 }
 
 #write_btn {
-    border: 1px solid black;
-    background-color: black;
+    border: 1px solid #2d2d2d;
+    background-color: #2d2d2d;
     color: white;
 }
 
 #write_btn:hover {
-    border: 1px solid blue;
-    background-color: blue;
-}
-
-#write_btn:active {
     border: 1px solid black;
     background-color: black;
 }
 
+#write_btn:active {
+    border: 1px solid #2d2d2d;
+    background-color: #2d2d2d;
+}
+
 #cancel_btn {
-    border: 1px solid black;
+    border: 1px solid lightgray;
     background-color: white;
     color: black;
 }
 
 #cancel_btn:active {
-    border: 1px solid black;
-    background-color: lightgray;
+    background-color: #f7f7f7;
     color: black;
 }
 
 #write_table tr th {
-    padding:30px;
+    padding: 20px;
 }
 
 #write_table tr th:not(:last-child) {
-    background-color: #f7f7f7;
+    background-color: #2d2d2d;
     border-bottom: 1px solid lightgray;
+    color: white;
 }
 
-#write_table tr th:last-child {
-    padding: 15px;
-}
-
-#write_table tr td {
+#write_table tr:not(:last-child) td {
     border-bottom: 1px solid lightgray;
-    padding: 20px;
+    padding: 15px 0 15px 15px;
 }
 
 #title {
@@ -100,5 +95,5 @@ input:focus {
 }
 
 .ck-editor__editable {
-    min-height: 500px;
+    min-height: 550px;
 }
