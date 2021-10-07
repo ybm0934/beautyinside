@@ -8,7 +8,7 @@
 	if (cb == null) {
 		%>
 			<script>
-				alert('휴면해제 할 회원을 체크해주세요!');
+				alert('휴면해제할 회원을 체크해주세요!');
 				history.back();
 			</script>
 		<%

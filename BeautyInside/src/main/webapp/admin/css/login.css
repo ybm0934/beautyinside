@@ -2,10 +2,12 @@
 body {
 	background-image: url('/admin/img/login_main.jpg');
 	background-repeat: no-repeat;
-	background-size: 1710px 980px;
+	background-size: cover;
+	background-attachment: fixed;
+	/* background-size: 1710px 980px; */
 }
 h1 {
-    margin-top: 300px;
+    margin-top: 370px;
     text-align: center;
     font-size: 100px;
     font-family: 'Lexend Deca', sans-serif;
@@ -20,7 +22,8 @@ h1 {
     font-size: 20px;
     border: none;
     border-bottom: 1px solid gray ;
-    background-color: #FAFAFA;
+    /* background-color: #FAFAFA; */
+    background-color: rgba(0, 0, 0, 0);
     outline: none;
 }
 .login_btn {
@@ -32,12 +35,17 @@ h1 {
     border: none;
     border: 1px solid gray;
     border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
 }
 .login_btn:hover {
-    background-color: #A5907E;
-    box-shadow: 0px 15px 20px rgba(170, 166, 166, 0.4);
-    color: #fff;
-    transform: translateY(-3px);
+    background-color: black;
+    color: white;
 }
 footer {
     text-align: center;

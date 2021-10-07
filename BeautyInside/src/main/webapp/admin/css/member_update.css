@@ -19,7 +19,7 @@ h1.a:after {
 }
 .body_scroll {
     width: 1280px;
-    height: 428px;
+    height: 482px;
     overflow-y: scroll;
 	overflow-x: scroll;
     border-top: 1px solid black;
@@ -39,80 +39,40 @@ h1.a:after {
 .body_table tr th {
 	white-space: nowrap;
 	text-align: center;
-	background-color: #f0f0f0;
-}
-#tr_null {
-	border-bottom: none;
-}
-#tr_null td {
-	padding-right: 350px;
+	background-color: #292929;
+	color: white;
 }
 .title {
     text-align: center;
     font-weight: bold;
 }
 .content {
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid #292929;
     padding: 10px 10px 10px 10px;
     text-align: center;                
     white-space: nowrap;
     overflow: hidden;
 }
-.selectAll_btn {
-    margin-top: 10px;
-}
-.page_btn {
+.update_btn {
 	text-align: center;
-	margin-bottom: 30px;
+    margin-top: 20px;
 }
-.page_btn a {
-	padding: 10px;
-	color: black;
-	text-decoration: none;
-}
-.page_btn span {
-	padding: 10px;
-	background-color: gray;
-	color: white;
-	border-radius: 100px;
-}
-.page_btn a:hover {
-	background-color: gray;
-	color: white;
-	border-radius: 100px;
-}
-.selectAll_btn input {
-	background-color: #f0f0f0;
+.update_btn input {
+	background-color: #292929;
     border-radius: 10px;
     font-family: 'Roboto', sans-serif;
     border: none;
+    width: 120px;
+    height: 40px;
+    font-size: 15px;
+    color: white;
 }
-.selectAll_btn input:hover {
- 	background-color: #A5907E;
-    box-shadow: 0px 15px 20px rgba(170, 166, 166, 0.4);
-    color: #fff;
-    transform: translateY(-3px);
+.update_btn input:hover {
+	background-color: white;
+    color: black;
 }
-.select_search {
-	display: flex;
-	justify-content: center;
-}
-.select_search select{
-	border-radius: 10px;
-	margin-right: 10px;
-	padding-left: 10px;
-	padding-right: 10px;
-}
-.delete_btn {
-	float: right;
-}
-.delete_btn input {
-	width: 50px;
-}
-.text_search {
-	border: 1px solid gray;
-	border-radius: 10px;
-	margin-right: 10px;
-	padding-left: 10px;
-	padding-right: 10px;
+footer div {
+	text-align: center;
+	padding-top: 30px;
+	font-family: 'Hahmlet', serif;
 }

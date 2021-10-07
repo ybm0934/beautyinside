@@ -19,14 +19,94 @@ public class AdminMemberDTO {
 	private Date regdate; // 등록일
 	private String dormant; // 휴면 계정 여부
 	
-	private String cd[];
 	
+	// member_update.jsp
+	private String cd[];
 	public String[] getCd() {
 		return cd;
 	}
 	public void setCd(String[] cd) {
 		this.cd = cd;
 	}
+	// member_update_action.jsp
+	private String no_update[];
+	private String name_update[];
+	private String birth_update[];
+	private String tel_update[];
+	private String gender_update[];
+	private String email_update[];
+	private String zipcode_update[];
+	private String address1_update[];
+	private String address2_update[];
+	private String regdate_update[];
+	private String dormant_update[];
+	public String[] getNo_update() {
+		return no_update;
+	}
+	public void setNo_update(String[] no_update) {
+		this.no_update = no_update;
+	}
+	public String[] getName_update() {
+		return name_update;
+	}
+	public void setName_update(String[] name_update) {
+		this.name_update = name_update;
+	}
+	public String[] getBirth_update() {
+		return birth_update;
+	}
+	public void setBirth_update(String[] birth_update) {
+		this.birth_update = birth_update;
+	}
+	public String[] getTel_update() {
+		return tel_update;
+	}
+	public void setTel_update(String[] tel_update) {
+		this.tel_update = tel_update;
+	}
+	public String[] getGender_update() {
+		return gender_update;
+	}
+	public void setGender_update(String[] gender_update) {
+		this.gender_update = gender_update;
+	}
+	public String[] getEmail_update() {
+		return email_update;
+	}
+	public void setEmail_update(String[] email_update) {
+		this.email_update = email_update;
+	}
+	public String[] getZipcode_update() {
+		return zipcode_update;
+	}
+	public void setZipcode_update(String[] zipcode_update) {
+		this.zipcode_update = zipcode_update;
+	}
+	public String[] getAddress1_update() {
+		return address1_update;
+	}
+	public void setAddress1_update(String[] address1_update) {
+		this.address1_update = address1_update;
+	}
+	public String[] getAddress2_update() {
+		return address2_update;
+	}
+	public void setAddress2_update(String[] address2_update) {
+		this.address2_update = address2_update;
+	}
+	public String[] getRegdate_update() {
+		return regdate_update;
+	}
+	public void setRegdate_update(String[] regdate_update) {
+		this.regdate_update = regdate_update;
+	}
+	public String[] getDormant_update() {
+		return dormant_update;
+	}
+	public void setDormant_update(String[] dormant_update) {
+		this.dormant_update = dormant_update;
+	}
+	// 메인 
 	public int getNo() {
 		return no;
 	}

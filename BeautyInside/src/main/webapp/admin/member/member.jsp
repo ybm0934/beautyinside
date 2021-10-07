@@ -31,6 +31,8 @@
 		int lastPage = firstPage + (blockSize - 1); // 버튼의 마지막지점
 		int curPos = (currentPage - 1) * pageSize; // rownum
 		int num = totalRecord - (curPos); // 브레이크
+	// 총 회원
+	int memberCount = dao.memberCount();
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -52,6 +54,9 @@
         <article>
         	<h1 class="a">회원관리</h1>
         	<!-- 메인 테이블 -->
+        	<div style="text-align: center;">
+        		<span style="font-size: 14px">[총 회원수: <%= memberCount %>]</span>
+        	</div>
         	<form name="main_fm" method="post">
           	<table class="back_table">
                 <tr>
@@ -147,15 +152,12 @@
                 </script>
                	<!-- 수정, 삭제 -->
                 <div class="delete_btn">
-                	<input type="submit" value="수정" onclick='member_update();'>
-            		<input type="submit" value="삭제" onclick='member_delete();'>
-            		<input type="submit" value="휴면 등록" style="width: 70px;" onclick="javascript: main_fm.action='../member/member_dormant_update.jsp';">
-            		<input type="submit" value="휴면 해제" style="width: 70px;" onclick="javascript: main_fm.action='../member/member_dormant_release.jsp';">
+                	<input type="submit" value="선택 수정" onclick="javascript: main_fm.action='../member/member_update.jsp';">
+            		<input type="submit" value="선택 삭제" onclick='member_delete();'>
+            		<input type="submit" value="휴면 등록" onclick="javascript: main_fm.action='../member/member_dormant_update.jsp';">
+            		<input type="submit" value="휴면 해제" onclick="javascript: main_fm.action='../member/member_dormant_release.jsp';">
             	</div>
             	<script>
-            		function member_update() {
-						main_fm.action='../member/member_update.jsp'; // 줄여보자
-					}
             		function member_delete() {
             			let result = confirm('정말 삭제하시겠습니까?');
 						if (result) {
@@ -204,8 +206,10 @@
 	            <div class="select_search">
 	            	<select name="search_title" id=sear>
 	            		<option value="" selected="selected" hidden="hidden">검색조건</option>
-	            		<option value="name">이름</option>
 	            		<option value="id">아이디</option>
+	            		<option value="name">이름</option>
+	            		<option value="gender">성별</option>
+	            		<option value="dormant">휴면여부</option>
 	            	</select>
 	            	<script type="text/javascript">
 	            		let flag = '<%= search_title %>';
