@@ -2,7 +2,13 @@
 
 /* 로그인 영역 CSS */
 
-#wrap {
+#wrap  {
+	-webkit-touch-callout: none;
+	user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	
 	height: 100vh;
 	background-color: #eeeeee;
 }

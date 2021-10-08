@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/top.jsp" %>
 <link rel="stylesheet" type="text/css" href="css/main.css">
-<link rel="stylesheet" type="text/css" href="/single/css/contact.css">
 <script>
     $(document).ready(function() {
 		// 앵커 슬라이드 효과
@@ -39,7 +38,7 @@
     </div>
     <div class="main_div_class" id="blank"></div>
     <div class="main_div_class" id="about"></div>
-    <div class="main_div_class" id="service"></div>
+    <%@ include file="/single/service.jsp" %>
     <div class="main_div_class" id="blank2"></div>
     <div id="portfolio">
         <table id="portfolio_table">

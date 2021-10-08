@@ -67,39 +67,80 @@
 	    });
 	    
 	    // 대댓글 창 띄우기
-        function rerefunc(num) {
+	    var flag = false;
+        function rrWrite(num, name) {
         	$(document).ready(function(){
-        		alert(num);
+        		console.log('rrWirte 실행');
+        		console.log('파라미터 num = ' + num + ', name = ' + name);
         		
-	        	var flag = false;
-	        	
 	        	var recomment = '';
-	            recomment += '<tr>';
-	            recomment +=    '<td class="reply_trtd">';
-	            recomment +=    	'<div class="reply_txtarea_div">';
-	            recomment +=        	'<textarea class="re_textarea" id="write_rere_textarea" placeholder="~님께 답글쓰기" spellcheck="false"></textarea>';
+	            recomment += '<tr id="reCom'+ num +'">';
+	            recomment +=    '<td>';
+	            recomment +=    	'<div>';
+	            recomment +=        	'<textarea name="rere_textarea" class="re_textarea" placeholder="' + name + '님께 답글쓰기" spellcheck="false"></textarea>';
 	            recomment +=    	'</div>';
 	            recomment +=    	'<div class="reply_regBtn_div">';
-	            recomment +=       	 	'<input type="button" class="re_btn" id="rere_cancel_btn" value="취소">&nbsp;';
+	            recomment +=       	 	'<input type="button" class="re_btn rere_cancel_btn" id="reCancel" value="취소">&nbsp;';
 	            recomment +=        	'<input type="button" class="re_btn regit_btn" id="rere_regit_btn" value="등록">';
 	            recomment +=    	'</div>';
 	            recomment +=    '</td>';
 	            recomment += '</tr>';
 	
 	            if(flag == false) {
-	                $('tr').has('#number').after(recomment);
+	            	console.log('flag = ' + flag);
+	                $('#re' + num).after(recomment);
 	            }else {
 	                return false;
 	            }
 	            
 	            flag = true;
-	        
-		        $('#rere_cancel_btn').click(function(){
-		            $('tr').has('#number').siblings('.rr_tr').remove();
+		        $('#reCancel').click(function() {
+		        	$('#reCom' + num).remove();
 		            flag = false;
+		            console.log('flag = ' + flag);
+		        });
+		        
+		        $('#rere_regit_btn').click(function(){
+		        	if($('textarea[name=rere_textarea]').val() = '') {
+		        		alert('댓글을 입력해주세요.');
+		        		$('textarea[name=rere_textarea]').focus();
+		        		
+		        		return false;
+		        	}else {
+		        		$.ajax({
+			        		url : '<%=request.getContextPath() %>/review/reCommentWrite_ok.jsp',
+			        		type : 'POST',
+			        		datatype : 'JSON',
+			        		data : {
+			        			no : num,
+			        			ogNo : <%=no %>,
+			        			id : <%=userid %>,
+			        			name : name,
+			        			content : $('textarea[name=rere_textarea]').val(),
+			        			userid : <%=userid %>
+			        		},
+			        		success : function(data) {
+			        			
+			        		},
+			        		error : function() {
+			        			alert('대댓글 등록 실패!');
+			        		}
+			        	}); // ajax
+		        	}
 		        });
         	});
-        }
+        }// rrWrite
+	    
+	    // 댓글 수정
+	    function rrEdit(no, content) {
+	    	$(document).ready(function(){});
+	    }// rrEdit
+	    
+	    // 댓글 삭제
+	    function rrDelete(no) {
+	    	$(document).ready(function(){});
+	    }// rrDelete
+	    
 	</script>
 <div id="wrap">
     <div id="reviewDetail_div">
@@ -119,7 +160,9 @@
 		    </tfoot>
 		    <tbody>
 		        <tr>
-		            <td colspan="2" id="title_td"><%=reviewDto.getTitle() %></td>
+		            <td colspan="2" id="title_td">
+		            	<span id="title_tdSpn"><%=reviewDto.getTitle() %></span>
+		            </td>
 		        </tr>
 		        <tr>
 		            <td>
@@ -160,12 +203,12 @@
 				<thead></thead>
 				<tfoot>
 	                <tr>
-	                    <td style="text-align: right;">
+	                    <td>
 	                    	<div class="reply_txtarea_div">
 	                        	<textarea name="comment" id="comment" class="re_textarea" placeholder="<%=placeholder %>" spellcheck="false"></textarea>
 	                    	</div>
 	                    	<div class="reply_regBtn_div">
-	                        	<input type="button" class="re_btn regit_btn" id="reply_regit_btn" value="등록">
+	                        	<input type="button" class="re_btn regit_btn" id="reply_regit_btn" value="등록">	
 	                    	</div>
 	                    </td>
 	                </tr>
@@ -186,11 +229,19 @@
 							<span class="reply_dateSpn"><%=sdf.format(comDto.getRegdate()) %></span>
 						</td>
 					</tr>
-					<tr>
+					<tr id="re<%=comDto.getNo() %>" class="reply_tr">
 					    <td class="reply_trtd_2">
-					        <span class="comment"><%=dtoCon %></span>
+					    	<div class="replyComment_div">
+					        	<span class="comment"><%=dtoCon %></span>
+					    	</div>
 					        <div class="replrepl_div">
-								<a id="re<%=comDto.getOgNo() %>" class="re_spn" onclick="rerefunc('<%=comDto.getOgNo() %>');">답글쓰기</a>
+					        <%if(!comDto.getId().equals(userid)) { %>
+								<a class="re_spn" onclick="rrWrite('<%=comDto.getNo() %>', '<%=comDto.getName() %>');">답글쓰기</a>
+					        <%}else { %>
+								<a class="re_spn" onclick="rrEdit('<%=comDto.getNo() %>', '<%=comDto.getContent() %>');">수정하기</a>
+								&nbsp;
+								<a class="re_spn" onclick="rrDelete('<%=comDto.getNo() %>');">삭제하기</a>
+					        <%} %>
 					        </div>
 					    </td>
 					</tr>

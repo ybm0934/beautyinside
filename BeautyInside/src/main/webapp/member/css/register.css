@@ -1,6 +1,12 @@
 @charset "UTF-8";
 
 #wrap {
+	-webkit-touch-callout: none;
+	user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	
 	background-image: url('../../img/pure (6).jpg');
     background-size: cover;
     background-repeat: no-repeat;

@@ -3,6 +3,12 @@
 /* 주소 검색 CSS */
 
 body {
+	-webkit-touch-callout: none;
+	user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	
     margin: 0 auto;
     background-color: #efefef;
 }

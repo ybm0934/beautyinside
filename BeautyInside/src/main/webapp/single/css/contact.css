@@ -5,6 +5,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
 
 #contact {
+	-webkit-touch-callout: none;
+	user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0);
     background-image: url('../../img/desk-g1d033e3f8_1920.jpg');

@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+/* 서비스 메뉴 CSS */
+
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+
+#service_div {
+    -webkit-touch-callout: none;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+
+    height: auto;
+    min-height: 100%;
+    width: 70%;
+    margin: 0 auto;
+}
+
+#service_title {
+	padding-top: 200px;
+}
+
+#service_title h1 {
+    text-align: center;
+    font-family: 'Crimson Text', serif;
+    font-size: 6em;
+}
+
+#service_table {
+    width: 100%;
+    border-collapse: collapse;
+    border-top: 1px solid gray;
+    margin: 0 auto;
+}
+
+#service_table tbody tr th, #service_table tbody tr td {
+    border-bottom:1px solid gray;
+    padding: 20px;
+    font-size: 1.2em;
+}
+
+#service_table tbody tr th {
+    text-align: left;
+}
+
+#service_table tbody tr td {
+    text-align: right;
+}

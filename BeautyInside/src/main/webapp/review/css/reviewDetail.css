@@ -5,6 +5,12 @@
 /* 게시판 상세보기 CSS */
 
 #wrap {
+	-webkit-touch-callout: none;
+	user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	
     min-height: 100%;
 	height: auto;
 	padding-bottom: 100px;
@@ -16,7 +22,7 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	padding: 130px 0 100px 0;	
+	padding: 130px 0 50px 0;	
 	margin: 0 auto;
 }
 
@@ -48,7 +54,7 @@
     border-collapse: collapse;
 }
 
-tfoot tr td {
+#write_table tfoot tr td {
 	text-align: right;
 }
 
@@ -77,11 +83,13 @@ tfoot tr td {
 }
 
 #title_td {
-	padding: 10px;
-	font-weight: bold;
-	font-size: 2em;
 	background-color: #2d2d2d;
+}
+
+#title_tdSpn {
+	font-size: 2em;
 	color: white;
+	margin-left: 10px;
 }
 
 .icoSpn {
@@ -102,7 +110,7 @@ tfoot tr td {
 }
 
 .detailImg {
-	width: 50%;
+	width: 100%;
 }
 
 .contentTb_div {
@@ -113,11 +121,13 @@ tfoot tr td {
 /* 댓글 테이블 영역 */
 
 #reply_div {
-	width: 70%;
+	width: 100%;
 	margin: 0 auto;
 	margin-top: 20px;
-	border: 1px solid lightgray;
-	padding: 30px;
+}
+
+#reply_div h3 {
+	margin-left: 5px;
 }
 
 .textbox {
@@ -131,7 +141,7 @@ tfoot tr td {
     cursor: pointer;
 }
 
-#rere_cancel_btn {
+.rere_cancel_btn {
     border: 1px solid #3a3a3a;
     background-color: white;
     color: #3a3a3a;
@@ -154,6 +164,7 @@ tfoot tr td {
 
 .re_btn:active {
     background-color: #3a3a3a;
+    color: white;
 }
 
 #reply_table {
@@ -161,20 +172,26 @@ tfoot tr td {
     border-collapse: collapse;
 }
 
-#reply_table tr {
-	border: 1px solid lightgray;
+#reply_table tbody tr td {
+    padding: 10px 0 10px 15px;
 }
 
-#reply_table tr td {
-    padding: 10px;
+#reply_table tfoot {
+	border-bottom: 2px solid lightgray;
 }
 
 .reply_txtarea_div {
-	margin-top: 5px 0;
+	margin-top: 10px;
 }
 
 .reply_regBtn_div {
-	margin-top: 15px 0;
+	margin-top: 15px;
+	margin-bottom: 40px;
+	text-align: right;
+}
+
+.reply_tr {
+	border: 1px solid lightgray;
 }
 
 .reply_trtd {
@@ -182,9 +199,7 @@ tfoot tr td {
 	color: white;
 }
 
-.reply_trtd_2 {
-	margin-bottom: 10px;
-}
+.reply_trtd_2 {}
 
 .reply_imgSpn {
 	vertical-align: middle;
@@ -209,8 +224,12 @@ tfoot tr td {
     min-height: 170px;
     outline: none;
     padding: 15px;
-    border: 2px solid gray;
+    border: 2px solid #afafaf;
     color: #3a3a3a;
+}
+
+.replyComment_div {
+	min-height: 40px;
 }
 
 .replrepl_div {
@@ -235,6 +254,6 @@ tfoot tr td {
 }
 
 .comment {
-    color: gray;
+    color: #3a3a3a;
     line-height: 27px;
 }

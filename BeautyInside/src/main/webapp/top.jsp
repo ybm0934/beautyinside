@@ -151,4 +151,4 @@
         </li>
     </ul>
 </header>
-<body>
+<body oncontextmenu = "return false">

@@ -1,8 +1,14 @@
 @charset "UTF-8";
 
-/* 게시판 글쓰기 CSS */
+/* 리뷰 게시판 글쓰기 CSS */
 
 #wrap {
+	-webkit-touch-callout: none;
+	user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	
 	min-height: 100%;
 	padding-bottom: 100px;
 }
@@ -92,6 +98,7 @@ input:focus {
 
 #title {
     width: 700px;
+    border: 0;
 }
 
 .ck-editor__editable {

@@ -23,6 +23,12 @@ caption {
 }
 
 #header {
+	-webkit-touch-callout: none;
+	user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	
     font-family: 'Hahmlet', serif;
     text-align: center;
     padding-bottom: 25px;
@@ -33,6 +39,12 @@ caption {
 }
 
 #top {
+	-webkit-touch-callout: none;
+	user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	
     text-align: right;
     padding-right: 50px;
     padding-bottom: 5px;

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<link rel="stylesheet" type="text/css" href="/single/css/contact.css">
 <div class="main_div_class" id="contact">
 	<form name="contact" method="post" action="<%=request.getContextPath() %>/single/contact_ok.jsp">
         <h1>CONTACT</h1>

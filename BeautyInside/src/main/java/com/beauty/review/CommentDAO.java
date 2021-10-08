@@ -59,7 +59,7 @@ public class CommentDAO {
 
 			con = pool.getConnection();
 
-			String sql = "SELECT * FROM comments WHERE ogNo = ? ORDER BY no ASC";
+			String sql = "SELECT * FROM comments WHERE ogNo = ? ORDER BY groupNo ASC, sortNo ASC";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, reviewNo);
 			rs = ps.executeQuery();
@@ -186,5 +186,39 @@ public class CommentDAO {
 
 		return cnt;
 	}// commentDelete
+	
+	// 대댓글 쓰기
+	public int reCommentWrite(CommentDTO comDto) throws SQLException {
+		int cnt = 0;
+
+		try {
+			System.out.println("reCommentWrite 실행\r\n");
+
+			con = pool.getConnection();
+			
+			String sql = "UPDATE comments SET sortNo = sortNo + 1 WHERE groupNo = ? AND sortNo > ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, comDto.getGroupNo());
+			
+			sql = "INSERT INTO comments(no, ogNo, groupNo, id, name, content, regdate) "
+					+ "VALUES(comments_seq.nextval, ?, ?, ?, ?, sysdate)";
+			ps.setInt(1, comDto.getOgNo());
+			ps.setInt(2, comDto.getNo());
+			ps.setString(2, comDto.getId());
+			ps.setString(3, comDto.getName());
+			ps.setString(4, comDto.getContent());
+
+			cnt = ps.executeUpdate();
+
+			System.out.println("댓글쓰기 결과 cnt = " + cnt);
+			System.out.println("댓글쓰기 파라미터 comDto = " + comDto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.dbClose(ps, con);
+		}
+
+		return cnt;
+	}// reCommentWrite
 
 }
