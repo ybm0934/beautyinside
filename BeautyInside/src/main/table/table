@@ -106,6 +106,7 @@ CREATE TABLE comments
     sortNo     NUMBER DEFAULT 0,
     ID         VARCHAR2 (20),
     NAME       VARCHAR2 (20) NOT NULL,
+    target     VARCHAR2 (20) NULL,
     CONTENT    CLOB NOT NULL,
     regdate    DATE DEFAULT SYSDATE
 );

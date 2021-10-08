@@ -49,7 +49,7 @@
 		               type : 'POST',
 		               data : {
 		            	   ogNo : <%=no %>,
-		            	   id : '<%=userid %>',
+		            	   userid : '<%=userid %>',
 		            	   name : '<%=memberDto.getName() %>',
 		            	   content : $('#comment').val()
 		               },
@@ -66,15 +66,12 @@
 	        }); // 댓글 등록 Ajax
 	    });
 	    
-	    // 대댓글 창 띄우기
+	    // 대댓글 창 띄우고 쓰기
 	    var flag = false;
-        function rrWrite(num, name) {
+        function rrWrite(no, groupNo, sortNo, name) {
         	$(document).ready(function(){
-        		console.log('rrWirte 실행');
-        		console.log('파라미터 num = ' + num + ', name = ' + name);
-        		
 	        	var recomment = '';
-	            recomment += '<tr id="reCom'+ num +'">';
+	            recomment += '<tr id="reCom'+ no +'">';
 	            recomment +=    '<td>';
 	            recomment +=    	'<div>';
 	            recomment +=        	'<textarea name="rere_textarea" class="re_textarea" placeholder="' + name + '님께 답글쓰기" spellcheck="false"></textarea>';
@@ -87,21 +84,19 @@
 	            recomment += '</tr>';
 	
 	            if(flag == false) {
-	            	console.log('flag = ' + flag);
-	                $('#re' + num).after(recomment);
+	                $('#re' + no).after(recomment);
 	            }else {
 	                return false;
 	            }
 	            
 	            flag = true;
 		        $('#reCancel').click(function() {
-		        	$('#reCom' + num).remove();
+		        	$('#reCom' + no).remove();
 		            flag = false;
-		            console.log('flag = ' + flag);
 		        });
 		        
 		        $('#rere_regit_btn').click(function(){
-		        	if($('textarea[name=rere_textarea]').val() = '') {
+		        	if($('textarea[name=rere_textarea]').val() == '') {
 		        		alert('댓글을 입력해주세요.');
 		        		$('textarea[name=rere_textarea]').focus();
 		        		
@@ -112,15 +107,18 @@
 			        		type : 'POST',
 			        		datatype : 'JSON',
 			        		data : {
-			        			no : num,
 			        			ogNo : <%=no %>,
-			        			id : <%=userid %>,
-			        			name : name,
-			        			content : $('textarea[name=rere_textarea]').val(),
-			        			userid : <%=userid %>
+			        			groupNo : groupNo,
+			        			sortNo : sortNo,
+			        			userid : '<%=userid %>',
+			        			name : '<%=memberDto.getName() %>',
+			        			target : name,
+			        			content : $('textarea[name=rere_textarea]').val()
 			        		},
 			        		success : function(data) {
-			        			
+			        			$('#reply_table tbody').html(data);
+			                   	$('#comment').val('');
+			                   	flag = false;
 			        		},
 			        		error : function() {
 			        			alert('대댓글 등록 실패!');
@@ -197,7 +195,7 @@
 		    </tbody>
 		</table>
 		<div id="reply_div">
-			<h3>댓글 <span style="color:red;"><%=comList.size() %></span>개</h3>
+			<h3>댓글 <span id="listSizeSpn"><%=comList.size() %></span>개</h3>
 	        <table id="reply_table">
 				<caption>댓글 테이블</caption>
 				<thead></thead>
@@ -220,31 +218,44 @@
 							CommentDTO comDto = comList.get(i);
 							String dtoCon = comDto.getContent().replace("\n", "<br>");
 					%>
-					<tr>
-						<td class="reply_trtd">
-							<span class="reply_imgSpn">
-								<img src="/img/ico/bubbleChat.png" alt="댓글 이미지">
-							</span>
-							<span class="reply_nameSpn"><%=comDto.getName() %></span>
-							<span class="reply_dateSpn"><%=sdf.format(comDto.getRegdate()) %></span>
-						</td>
-					</tr>
-					<tr id="re<%=comDto.getNo() %>" class="reply_tr">
-					    <td class="reply_trtd_2">
-					    	<div class="replyComment_div">
-					        	<span class="comment"><%=dtoCon %></span>
-					    	</div>
-					        <div class="replrepl_div">
-					        <%if(!comDto.getId().equals(userid)) { %>
-								<a class="re_spn" onclick="rrWrite('<%=comDto.getNo() %>', '<%=comDto.getName() %>');">답글쓰기</a>
-					        <%}else { %>
-								<a class="re_spn" onclick="rrEdit('<%=comDto.getNo() %>', '<%=comDto.getContent() %>');">수정하기</a>
-								&nbsp;
-								<a class="re_spn" onclick="rrDelete('<%=comDto.getNo() %>');">삭제하기</a>
-					        <%} %>
-					        </div>
-					    </td>
-					</tr>
+						<tr>
+						<%	if(comDto.getSortNo() == 0) { %>
+							<td class="reply_trtd">
+						<%	}else { %>
+							<td class="rereply_trtd">
+						<%	} %>
+								<span class="reply_imgSpn">
+									<img src="/img/ico/bubbleChat.png" alt="댓글 이미지">
+								</span>
+								<span class="reply_nameSpn"><%=comDto.getName() %></span>
+								<span class="reply_dateSpn"><%=sdf.format(comDto.getRegdate()) %></span>
+							</td>
+						</tr>
+						<tr id="re<%=comDto.getNo() %>" class="reply_tr">
+						<%	if(comDto.getSortNo() == 0) { %>
+							<td class="reply_trtd_2">
+						<%	}else { %>
+							<td class="rereply_trtd_2">
+						<%	} %>
+						    	<div class="replyComment_div">
+						        	<span class="comment">
+						        	<%if(comDto.getTarget() != null) { %>
+						        		<span class="targetSpn">&#64;<%=comDto.getTarget() %></span>
+						        	<%} %>
+						        		<%=dtoCon %>
+						        	</span>
+						    	</div>
+						        <div class="replrepl_div">
+						        <%if(!comDto.getId().equals(userid)) { %>
+									<a class="re_spn" onclick="rrWrite('<%=comDto.getNo() %>', '<%=comDto.getGroupNo() %>', '<%=comDto.getSortNo() %>', '<%=comDto.getName() %>');">답글쓰기</a>
+						        <%}else { %>
+									<a class="re_spn" onclick="rrEdit('<%=comDto.getNo() %>', '<%=comDto.getContent() %>');">수정하기</a>
+									&nbsp;
+									<a class="re_spn" onclick="rrDelete('<%=comDto.getNo() %>');">삭제하기</a>
+						        <%} %>
+						        </div>
+						    </td>
+						</tr>
 					<%
 						}
 					}

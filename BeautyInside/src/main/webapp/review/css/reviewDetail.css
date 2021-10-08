@@ -18,7 +18,7 @@
 }
 
 #reviewDetail_div {
-	width: 60%;
+	width: 55%;
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -130,6 +130,10 @@
 	margin-left: 5px;
 }
 
+#listSizeSpn {
+	color:red;
+}
+
 .textbox {
     padding: 10px;
 }
@@ -172,10 +176,6 @@
     border-collapse: collapse;
 }
 
-#reply_table tbody tr td {
-    padding: 10px 0 10px 15px;
-}
-
 #reply_table tfoot {
 	border-bottom: 2px solid lightgray;
 }
@@ -195,11 +195,24 @@
 }
 
 .reply_trtd {
+	padding: 10px 0 10px 15px;
 	background-color: #3a3a3a;
 	color: white;
 }
 
-.reply_trtd_2 {}
+.rereply_trtd {
+	padding: 10px 0 10px 50px;
+	background-color: #3a3a3a;
+	color: white;
+}
+
+.reply_trtd_2 {
+	padding: 10px 0 10px 15px;
+}
+
+.rereply_trtd_2 {
+	padding: 10px 0 10px 50px;
+}
 
 .reply_imgSpn {
 	vertical-align: middle;
@@ -234,7 +247,6 @@
 
 .replrepl_div {
 	margin: 20px 0;	
-	padding-left: 5px;
 }
 
 .re_spn {
@@ -256,4 +268,9 @@
 .comment {
     color: #3a3a3a;
     line-height: 27px;
+}
+
+.targetSpn {
+	color: #dd9933;
+	margin-right: 5px;
 }

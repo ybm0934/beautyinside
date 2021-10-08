@@ -10,13 +10,13 @@
 
 	if(cid != null) {
 		int ogNo = Integer.parseInt(request.getParameter("ogNo"));
-		String id = request.getParameter("id");
+		String userid = request.getParameter("userid");
 		String name = request.getParameter("name");
 		String content = request.getParameter("content");
 		
 		CommentDTO comDto = new CommentDTO();
 		comDto.setOgNo(ogNo);
-		comDto.setId(id);
+		comDto.setId(userid);
 		comDto.setName(name);
 		comDto.setContent(content);
 		
@@ -42,7 +42,11 @@
 				String dtoCon = comDto.getContent().replace("\n", "<br>");
 %>
 				<tr>
+				<%	if(comDto.getSortNo() == 0) { %>
 					<td class="reply_trtd">
+				<%	}else { %>
+					<td class="rereply_trtd">
+				<%	} %>
 						<span class="reply_imgSpn">
 							<img src="/img/ico/bubbleChat.png" alt="댓글 이미지">
 						</span>
@@ -50,11 +54,28 @@
 						<span class="reply_dateSpn"><%=sdf.format(comDto.getRegdate()) %></span>
 					</td>
 				</tr>
-				<tr>
-				    <td class="reply_trtd_2">
-				        <span class="comment"><%=dtoCon %></span>
+				<tr id="re<%=comDto.getNo() %>" class="reply_tr">
+				<%	if(comDto.getSortNo() == 0) { %>
+					<td class="reply_trtd_2">
+				<%	}else { %>
+					<td class="rereply_trtd_2">
+				<%	} %>
+				    	<div class="replyComment_div">
+				        	<span class="comment">
+				        	<%if(comDto.getTarget() != null) { %>
+				        		<span class="targetSpn">&#64;<%=comDto.getTarget() %></span>
+				        	<%} %>
+				        		<%=dtoCon %>
+				        	</span>
+				    	</div>
 				        <div class="replrepl_div">
-							<a class="re_spn" id="re<%=comDto.getOgNo() %>" onclick="rerefunc();">답글쓰기</a>
+				        <%if(!comDto.getId().equals(userid)) { %>
+							<a class="re_spn" onclick="rrWrite('<%=comDto.getNo() %>', '<%=comDto.getGroupNo() %>', '<%=comDto.getSortNo() %>', '<%=comDto.getName() %>');">답글쓰기</a>
+				        <%}else { %>
+							<a class="re_spn" onclick="rrEdit('<%=comDto.getNo() %>', '<%=comDto.getContent() %>');">수정하기</a>
+							&nbsp;
+							<a class="re_spn" onclick="rrDelete('<%=comDto.getNo() %>');">삭제하기</a>
+				        <%} %>
 				        </div>
 				    </td>
 				</tr>

@@ -29,8 +29,8 @@ public class CommentDAO {
 
 			con = pool.getConnection();
 
-			String sql = "INSERT INTO comments(no, ogno, groupno, id, name, content, regdate) "
-					+ "VALUES(comments_seq.nextval, ?, comments_seq.nextval, ?, ?, ?, sysdate)";
+			String sql = "INSERT INTO comments(no, ogno, groupno, id, name, target, content, regdate) "
+					+ "VALUES(comments_seq.nextval, ?, comments_seq.nextval, ?, ?, null, ?, sysdate)";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, comDto.getOgNo());
 			ps.setString(2, comDto.getId());
@@ -59,7 +59,7 @@ public class CommentDAO {
 
 			con = pool.getConnection();
 
-			String sql = "SELECT * FROM comments WHERE ogNo = ? ORDER BY groupNo ASC, sortNo ASC";
+			String sql = "SELECT * FROM comments WHERE ogNo = ? ORDER BY groupNo ASC, no ASC, sortNo DESC";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, reviewNo);
 			rs = ps.executeQuery();
@@ -70,6 +70,7 @@ public class CommentDAO {
 				int sortNo = rs.getInt("sortNo");
 				String id = rs.getString("id");
 				String name = rs.getString("name");
+				String target = rs.getString("target");
 				String content = rs.getString("content");
 				Timestamp regdate = rs.getTimestamp("regdate");
 
@@ -80,6 +81,7 @@ public class CommentDAO {
 				comDto.setSortNo(sortNo);
 				comDto.setId(id);
 				comDto.setName(name);
+				comDto.setTarget(target);
 				comDto.setContent(content);
 				comDto.setRegdate(regdate);
 
@@ -190,28 +192,32 @@ public class CommentDAO {
 	// 대댓글 쓰기
 	public int reCommentWrite(CommentDTO comDto) throws SQLException {
 		int cnt = 0;
-
 		try {
 			System.out.println("reCommentWrite 실행\r\n");
 
 			con = pool.getConnection();
 			
-			String sql = "UPDATE comments SET sortNo = sortNo + 1 WHERE groupNo = ? AND sortNo > ?";
+			String sql = "UPDATE comments SET sortNo = sortNo + 1 WHERE ogNo = ? AND groupNo = ? AND sortNo > 0";
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, comDto.getGroupNo());
-			
-			sql = "INSERT INTO comments(no, ogNo, groupNo, id, name, content, regdate) "
-					+ "VALUES(comments_seq.nextval, ?, ?, ?, ?, sysdate)";
 			ps.setInt(1, comDto.getOgNo());
-			ps.setInt(2, comDto.getNo());
-			ps.setString(2, comDto.getId());
-			ps.setString(3, comDto.getName());
-			ps.setString(4, comDto.getContent());
-
+			ps.setInt(2, comDto.getGroupNo());
+			cnt = ps.executeUpdate();
+			System.out.println("대댓글쓰기 sortNo 증가 결과 cnt = " + cnt);
+			
+			sql = "INSERT INTO comments(no, ogNo, groupNo, sortNo, id, name, target, content, regdate) "
+					+ "VALUES(comments_seq.nextval, ?, ?, ?, ?, ?, ?, ?, sysdate)";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, comDto.getOgNo());
+			ps.setInt(2, comDto.getGroupNo());
+			ps.setInt(3, comDto.getSortNo() + 1);
+			ps.setString(4, comDto.getId());
+			ps.setString(5, comDto.getName());
+			ps.setString(6, comDto.getTarget());
+			ps.setString(7, comDto.getContent());
 			cnt = ps.executeUpdate();
 
-			System.out.println("댓글쓰기 결과 cnt = " + cnt);
-			System.out.println("댓글쓰기 파라미터 comDto = " + comDto);
+			System.out.println("대댓글쓰기 결과 cnt = " + cnt);
+			System.out.println("대댓글쓰기 파라미터 comDto = " + comDto);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

@@ -7,9 +7,11 @@ public class CommentDTO {
 	private int no;
 	private int ogNo;
 	private int groupNo;
+	private int step;
 	private int sortNo;
 	private String id;
 	private String name;
+	private String target;
 	private String content;
 	private Timestamp regdate;
 
@@ -37,6 +39,14 @@ public class CommentDTO {
 		this.groupNo = groupNo;
 	}
 
+	public int getStep() {
+		return step;
+	}
+
+	public void setStep(int step) {
+		this.step = step;
+	}
+
 	public int getSortNo() {
 		return sortNo;
 	}
@@ -61,6 +71,14 @@ public class CommentDTO {
 		this.name = name;
 	}
 
+	public String getTarget() {
+		return target;
+	}
+
+	public void setTarget(String target) {
+		this.target = target;
+	}
+
 	public String getContent() {
 		return content;
 	}
@@ -79,8 +97,9 @@ public class CommentDTO {
 
 	@Override
 	public String toString() {
-		return "CommentDTO [no=" + no + ", ogNo=" + ogNo + ", groupNo=" + groupNo + ", sortNo=" + sortNo + ", id=" + id
-				+ ", name=" + name + ", content=" + content + ", regdate=" + regdate + "]";
+		return "CommentDTO [no=" + no + ", ogNo=" + ogNo + ", groupNo=" + groupNo + ", step=" + step + ", sortNo="
+				+ sortNo + ", id=" + id + ", name=" + name + ", target=" + target + ", content=" + content
+				+ ", regdate=" + regdate + "]";
 	}
 
 }

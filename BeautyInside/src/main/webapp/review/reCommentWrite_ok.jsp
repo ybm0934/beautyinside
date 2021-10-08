@@ -9,18 +9,21 @@
 	request.setCharacterEncoding("UTF-8");
 
 	if(cid != null) {
-		int no = Integer.parseInt(request.getParameter("no"));
+		int groupNo = Integer.parseInt(request.getParameter("groupNo"));
 		int ogNo = Integer.parseInt(request.getParameter("ogNo"));
-		String id = request.getParameter("id");
-		String name = request.getParameter("name");
-		String content = request.getParameter("content");
+		int sortNo = Integer.parseInt(request.getParameter("sortNo"));
 		String userid = request.getParameter("userid");
+		String name = request.getParameter("name");
+		String target = request.getParameter("target");
+		String content = request.getParameter("content");
 		
 		CommentDTO comDto = new CommentDTO();
-		comDto.setNo(no);
+		comDto.setGroupNo(groupNo);
 		comDto.setOgNo(ogNo);
-		comDto.setId(id);
+		comDto.setSortNo(sortNo);
+		comDto.setId(userid);
 		comDto.setName(name);
+		comDto.setTarget(target);
 		comDto.setContent(content);
 		
 		CommentDAO CommentDAO = new CommentDAO();
@@ -46,7 +49,11 @@
 				String dtoCon = comDto.getContent().replace("\n", "<br>");
 %>
 				<tr>
+				<%	if(comDto.getSortNo() == 0) { %>
 					<td class="reply_trtd">
+				<%	}else { %>
+					<td class="rereply_trtd">
+				<%	} %>
 						<span class="reply_imgSpn">
 							<img src="/img/ico/bubbleChat.png" alt="댓글 이미지">
 						</span>
@@ -55,13 +62,22 @@
 					</td>
 				</tr>
 				<tr id="re<%=comDto.getNo() %>" class="reply_tr">
-				    <td class="reply_trtd_2">
+				<%	if(comDto.getSortNo() == 0) { %>
+					<td class="reply_trtd_2">
+				<%	}else { %>
+					<td class="rereply_trtd_2">
+				<%	} %>
 				    	<div class="replyComment_div">
-				        	<span class="comment"><%=dtoCon %></span>
+				        	<span class="comment">
+				        	<%if(comDto.getTarget() != null) { %>
+				        		<span class="targetSpn">&#64;<%=comDto.getTarget() %></span>
+				        	<%} %>
+				        		<%=dtoCon %>
+				        	</span>
 				    	</div>
 				        <div class="replrepl_div">
 				        <%if(!comDto.getId().equals(userid)) { %>
-							<a class="re_spn" onclick="rrWrite('<%=comDto.getNo() %>', '<%=comDto.getName() %>');">답글쓰기</a>
+							<a class="re_spn" onclick="rrWrite('<%=comDto.getNo() %>', '<%=comDto.getGroupNo() %>', '<%=comDto.getSortNo() %>', '<%=comDto.getName() %>');">답글쓰기</a>
 				        <%}else { %>
 							<a class="re_spn" onclick="rrEdit('<%=comDto.getNo() %>', '<%=comDto.getContent() %>');">수정하기</a>
 							&nbsp;
