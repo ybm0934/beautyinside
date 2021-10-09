@@ -1,3 +1,5 @@
+
+
 /* BeautyInside 테이블 */
 
 
@@ -108,7 +110,8 @@ CREATE TABLE comments
     NAME       VARCHAR2 (20) NOT NULL,
     target     VARCHAR2 (20) NULL,
     CONTENT    CLOB NOT NULL,
-    regdate    DATE DEFAULT SYSDATE
+    regdate    DATE DEFAULT SYSDATE,
+    delFlag    VARCHAR2 (2) DEFAULT 'N'
 );
 
 
@@ -141,6 +144,7 @@ CREATE SEQUENCE reserve_seq
 START WITH 1
 INCREMENT BY 1
 NOCYCLE;
+
 
 
 

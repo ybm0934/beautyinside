@@ -56,7 +56,7 @@
 				mm = mm.toString();
 				ss = ss.toString();
 				
-				$('#time_spn a').html('[ ' + ('0' + mm).slice(-2) + ':' + ('0' + ss).slice(-2) + ' ]');
+				$('#time_spn a').html(('0' + mm).slice(-2) + ':' + ('0' + ss).slice(-2));
 			}
 			
 			$('#extend').click(function(){
@@ -91,7 +91,7 @@
 		<span class="usersign wellcome_spn">님 반갑습니다!</span>
 		<span class="usersign remainTime_spn">
 			<span id="time_spn">
-				<a href="#" id="extend"></a>
+				[ <a href="#" id="extend">30:00</a> ]
 			</span>
 		</span>
 		<span class="usersign">&nbsp;&nbsp;|&nbsp;&nbsp;</span>

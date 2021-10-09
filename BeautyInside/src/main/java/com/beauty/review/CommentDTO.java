@@ -14,6 +14,7 @@ public class CommentDTO {
 	private String target;
 	private String content;
 	private Timestamp regdate;
+	private String delFlag;
 
 	public int getNo() {
 		return no;
@@ -95,11 +96,19 @@ public class CommentDTO {
 		this.regdate = regdate;
 	}
 
+	public String getDelFlag() {
+		return delFlag;
+	}
+
+	public void setDelFlag(String delFlag) {
+		this.delFlag = delFlag;
+	}
+
 	@Override
 	public String toString() {
 		return "CommentDTO [no=" + no + ", ogNo=" + ogNo + ", groupNo=" + groupNo + ", step=" + step + ", sortNo="
 				+ sortNo + ", id=" + id + ", name=" + name + ", target=" + target + ", content=" + content
-				+ ", regdate=" + regdate + "]";
+				+ ", regdate=" + regdate + ", delFlag=" + delFlag + "]";
 	}
 
 }

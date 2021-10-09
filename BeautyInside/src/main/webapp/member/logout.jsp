@@ -3,5 +3,7 @@
 <%
 	session.invalidate();
 
-	response.sendRedirect("/main.jsp");
+	// 마지막 접속했던 페이지로 이동
+	String back = request.getHeader("Referer");
+	response.sendRedirect(back);
 %>

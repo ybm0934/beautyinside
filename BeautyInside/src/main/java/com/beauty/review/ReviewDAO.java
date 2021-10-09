@@ -104,7 +104,7 @@ public class ReviewDAO {
 	}// reviewWrite
 
 	// 상세보기
-	public ReviewDTO reviewByNo(int no, String userid) throws SQLException {
+	public ReviewDTO reviewByNo(int no) throws SQLException {
 		ReviewDTO reviewDto = null;
 
 		try {
@@ -117,33 +117,25 @@ public class ReviewDAO {
 			ps.setInt(1, no);
 			rs = ps.executeQuery();
 			if (rs.next()) {
-				String name = rs.getString("name");
 				String id = rs.getString("id");
+				String name = rs.getString("name");
 				String title = rs.getString("title");
 				String content = rs.getString("content");
 				int count = rs.getInt("count");
 				Timestamp regdate = rs.getTimestamp("regdate");
 				String fileName = rs.getString("fileName");
+				String orgfileName = rs.getString("orgfileName");
 				double fileSize = rs.getDouble("fileSize");
-				
-				// 조회 수 증가
-				if (userid != null) { // 로그인 한 사람만 조회수 증가
-					sql = "update review set count = count + 1 where no = ? and id != ?";
-					ps = con.prepareStatement(sql);
-					ps.setInt(1, no);
-					ps.setString(2, userid); // 자신의 글은 조회수 증가 방지
-					int cnt = ps.executeUpdate();
-					System.out.println("조회수 증가 결과 cnt : " + cnt);
-				}
 
 				reviewDto = new ReviewDTO();
-				reviewDto.setName(name);
 				reviewDto.setId(id);
+				reviewDto.setName(name);
 				reviewDto.setTitle(title);
 				reviewDto.setContent(content);
 				reviewDto.setCount(count);
 				reviewDto.setRegdate(regdate);
 				reviewDto.setFileName(fileName);
+				reviewDto.setOrgfileName(orgfileName);
 				reviewDto.setFileSize(fileSize);
 			}
 
@@ -166,12 +158,14 @@ public class ReviewDAO {
 
 			con = pool.getConnection();
 
-			String sql = "UPDATE review SET title = ?, CONTENT = ?, fileName = ?, fileSize = ? WHERE NO = ?";
+			String sql = "UPDATE review SET title = ?, CONTENT = ?, fileName = ?, fileSize = ? WHERE NO = ? and id = ?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, reviewDto.getTitle());
 			ps.setString(2, reviewDto.getContent());
 			ps.setString(3, reviewDto.getFileName());
 			ps.setDouble(4, reviewDto.getFileSize());
+			ps.setInt(5, reviewDto.getNo());
+			ps.setString(6, reviewDto.getId());
 			cnt = ps.executeUpdate();
 
 			System.out.println("리뷰 게시판 글 수정 결과 cnt = " + cnt);
@@ -193,6 +187,7 @@ public class ReviewDAO {
 
 			con = pool.getConnection();
 
+			//delete from comments where ogno = ?
 			String sql = "delete from review where no = ? and id = ?";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, no);

@@ -22,6 +22,10 @@ caption {
 	visibility: hidden;
 }
 
+button {
+	outline: none;
+}
+
 #header {
 	-webkit-touch-callout: none;
 	user-select: none;

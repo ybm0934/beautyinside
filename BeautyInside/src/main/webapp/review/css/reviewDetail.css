@@ -110,7 +110,7 @@
 }
 
 .detailImg {
-	width: 100%;
+	width: 80%;
 }
 
 .contentTb_div {
@@ -217,6 +217,10 @@
 .reply_imgSpn {
 	vertical-align: middle;
 	margin: 0 2px;
+}
+
+.delSpn {
+	color: gray;
 }
 
 .reply_imgSpn img {

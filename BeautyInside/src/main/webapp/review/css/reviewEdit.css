@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+/* 리뷰 게시판 글쓰기 CSS */
+
+#wrap {
+	-webkit-touch-callout: none;
+	user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	
+	min-height: 100%;
+	padding-bottom: 100px;
+}
+
+#reviewWrite_div {
+	width: 70%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;	
+	padding-top: 6%;
+}
+
+#write_table {}
+
+.btn {
+    width: 130px;
+    height: 50px;
+    cursor: pointer;
+}
+
+input:focus {
+    outline: none;
+}
+
+.textbox {
+    padding: 10px;
+    border: 1px solid lightgray;
+    font-size: 20px;
+}
+
+
+/* 글쓰기 테이블 영역 */
+
+#write_table {
+    width: 100%;
+    border-top: 2px solid lightgray;
+    border-bottom: 2px solid lightgray;
+    border-collapse: collapse;
+}
+
+#write_table caption {
+    visibility: hidden;
+}
+
+#write_btn {
+    border: 1px solid #2d2d2d;
+    background-color: #2d2d2d;
+    color: white;
+}
+
+#write_btn:hover {
+    border: 1px solid black;
+    background-color: black;
+}
+
+#write_btn:active {
+    border: 1px solid #2d2d2d;
+    background-color: #2d2d2d;
+}
+
+#cancel_btn {
+    border: 1px solid lightgray;
+    background-color: white;
+    color: black;
+}
+
+#cancel_btn:active {
+    background-color: #f7f7f7;
+    color: black;
+}
+
+#write_table tr th {
+    padding: 20px;
+}
+
+#write_table tr th:not(:last-child) {
+    background-color: #2d2d2d;
+    border-bottom: 1px solid lightgray;
+    color: white;
+}
+
+#write_table tr:not(:last-child) td {
+    border-bottom: 1px solid lightgray;
+    padding: 15px 0 15px 15px;
+}
+
+#title {
+    width: 700px;
+    border: 0;
+}
+
+.ck-editor__editable {
+    min-height: 550px;
+}

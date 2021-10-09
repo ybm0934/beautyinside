@@ -43,7 +43,7 @@
                     <tr>
                         <th>제 목</th>
                         <td>
-                            <input type="text" name="title" class="textbox" id="title" placeholder="제목을 입력하세요." spellcheck="false" maxlength="30">
+                            <input type="text" name="title" class="textbox" id="title" placeholder="제목을 입력하세요." spellcheck="false" maxlength="40">
                         </td>
                     </tr>
                     <tr>
