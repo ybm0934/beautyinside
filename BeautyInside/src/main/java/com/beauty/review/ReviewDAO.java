@@ -149,6 +149,33 @@ public class ReviewDAO {
 		return reviewDto;
 	}// reviewByNo
 
+	// 조회 수 증가
+	public int readCount(int no, String id) throws SQLException {
+		int cnt = 0;
+		if (id == null)
+			return cnt;
+		try {
+			System.out.println("readCount 실행");
+
+			con = pool.getConnection();
+
+			String sql = "update review set count = count + 1 where no = ? and id != ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, no);
+			ps.setString(2, id);
+			cnt = ps.executeUpdate();
+
+			System.out.println("조회 수 증가 결과 cnt = " + cnt);
+			System.out.println("파라미터 no = " + no + ", id = " + id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.dbClose(ps, con);
+		}
+
+		return cnt;
+	}// readCount
+
 	// 수정
 	public int reviewUpdate(ReviewDTO reviewDto) throws SQLException {
 		int cnt = 0;
@@ -187,7 +214,7 @@ public class ReviewDAO {
 
 			con = pool.getConnection();
 
-			//delete from comments where ogno = ?
+			// delete from comments where ogno = ?
 			String sql = "delete from review where no = ? and id = ?";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, no);
@@ -195,24 +222,24 @@ public class ReviewDAO {
 			cnt = ps.executeUpdate();
 
 			System.out.println("리뷰 삭제 결과 cnt = " + cnt);
-			
+
 			// 해당 글 하위 댓글도 모두 삭제
-			if(cnt > 0) {
+			if (cnt > 0) {
 				sql = "delete from comments where ogNo = ?";
 				ps = con.prepareStatement(sql);
 				ps.setInt(1, no);
 				cnt = ps.executeUpdate();
 				System.out.println("댓글 삭제 결과 cnt = " + cnt);
 			}
-			
+
 			System.out.println("파라미터 no = " + no + ", userid = " + userid);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			pool.dbClose(ps, con);
 		}
-		
+
 		return cnt;
 	}// reviewDelete
-	
+
 }

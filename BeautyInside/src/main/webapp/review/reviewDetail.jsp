@@ -12,6 +12,7 @@
 
 	ReviewDAO reviewDao = new ReviewDAO();
 	ReviewDTO reviewDto = new ReviewDTO();
+	reviewDao.readCount(Integer.parseInt(no), userid);
 	reviewDto = reviewDao.reviewByNo(Integer.parseInt(no));
 	if(reviewDto == null) response.sendRedirect("/review/reviewList.jsp");
 	
@@ -311,6 +312,7 @@
 		        </tr>
 		    </tbody>
 		</table>
+		<!-- 댓글 DIV -->
 		<div id="reply_div"></div>
     </div>
 </div>

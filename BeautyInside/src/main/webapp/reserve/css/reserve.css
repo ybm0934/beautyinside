@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+/* 예약하기 CSS */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300&display=swap');
+
+#reserve_div {
+    margin: 0 auto;
+    width: 50%;
+}
+
+#reserve_table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#reserve_table tr th {
+    padding: 15px;
+}
+
+#reserve_table tr td {
+    border: 1px solid lightgray;
+    text-align: center;
+    width: 0%;
+    font-weight: bold;
+    font-family: 'DM Mono', monospace;
+}
+
+#reserve_table tr td a:hover {
+    background-color: #333333;
+    color: white;
+    transition-duration: 0.3s;
+}
+
+#week_tr th {
+	border: 1px solid lightgray;
+	background-color: #333333;
+	color: white;
+	font-family: 'DM Mono', monospace;
+}
+
+.nowSpn {
+	font-size: 3em;
+	vertical-align: middle;
+	margin: 0 20px;
+	font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+.ico {
+	width: 40%;
+	opacity: 0.9;
+}
+
+.ico:hover {
+	width: 45%;
+	transition-duration: 0.3s;
+}
+
+.dateA {
+    padding: 20px;
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.sun a {
+    color: red;
+}
+
+.sat a {
+    color: blue;
+}
+
+.selected {
+	background-color: #333333;
+    color: white;
+    transition-duration: 0.3s;
+}
+
+#time_div {
+	width: 90%;
+    text-align: center;
+    margin: 50px auto;
+}
+
+#field {
+	width: 100%;
+	padding: 30px;
+	box-sizing: border-box;
+}
+
+#field legend {
+	text-align: left;
+}
+
+.timeA {
+    display: inline-block;
+    text-decoration: none;
+    color: #333333;
+    border: 1px solid lightgray;
+    padding: 10px;
+    margin: 5px;
+}
+
+.timeA:hover {
+	background-color: #333333;
+    color: white;
+    transition-duration: 0.3s;
+}
+
+#aside_table {
+	width: 100%;
+	border: 1px solid gray;
+	border-collapse: collapse;
+}
+
+#aside_table tr th, #aside_table tr td {
+	border: 1px solid gray;
+	padding: 15px;
+}

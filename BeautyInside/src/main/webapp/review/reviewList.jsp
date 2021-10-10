@@ -152,21 +152,21 @@
 		</div>
 		<div class="list_paging_div">
 			<%if(firstPage > 1) { %>
-				<a href="<%=request.getContextPath() %>/review/reviewList.jsp?currentPage=<%=1%>&pageSize=<%=pageSize %>&category=<%=category%>&keyword=<%=keyword%>" class="paging_tag">&lt;&lt;</a>
-				<a href="<%=request.getContextPath() %>/review/reviewList.jsp?currentPage=<%=firstPage - 1%>&pageSize=<%=pageSize %>&category=<%=category%>&keyword=<%=keyword%>" class="paging_tag">PREV</a>
+				<a href="<%=request.getContextPath() %>/review/reviewList.jsp?currentPage=<%=1%>&pageSize=<%=pageSize %>&category=<%=category%>&keyword=<%=keyword%>">&lt;&lt;</a>
+				<a href="<%=request.getContextPath() %>/review/reviewList.jsp?currentPage=<%=firstPage - 1%>&pageSize=<%=pageSize %>&category=<%=category%>&keyword=<%=keyword%>">PREV</a>
 			<%} %>
 			<% for(int i = firstPage; i <= lastPage; i++){
 			if(i > totalPage) break;
 			if(i == currentPage) { %>
 				<span><%=i %></span>
 			<%		}else { %>
-				<a href="<%=request.getContextPath() %>/review/reviewList.jsp?currentPage=<%=i%>&pageSize=<%=pageSize %>&category=<%=category%>&keyword=<%=keyword%>" class="paging_tag"><%=i %></a>
+				<a href="<%=request.getContextPath() %>/review/reviewList.jsp?currentPage=<%=i%>&pageSize=<%=pageSize %>&category=<%=category%>&keyword=<%=keyword%>"><%=i %></a>
 			<%		}// if
 				}// for
 			%>
 			<%if(lastPage < totalPage){ %>
-				<a href="<%=request.getContextPath() %>/review/reviewList.jsp?currentPage=<%=lastPage + 1%>&pageSize=<%=pageSize %>&category=<%=category%>&keyword=<%=keyword%>" class="paging_tag">NEXT</a>
-				<a href="<%=request.getContextPath() %>/review/reviewList.jsp?currentPage=<%=totalPage%>&pageSize=<%=pageSize %>&category=<%=category%>&keyword=<%=keyword%>" class="paging_tag">&gt;&gt;</a>
+				<a href="<%=request.getContextPath() %>/review/reviewList.jsp?currentPage=<%=lastPage + 1%>&pageSize=<%=pageSize %>&category=<%=category%>&keyword=<%=keyword%>">NEXT</a>
+				<a href="<%=request.getContextPath() %>/review/reviewList.jsp?currentPage=<%=totalPage%>&pageSize=<%=pageSize %>&category=<%=category%>&keyword=<%=keyword%>">&gt;&gt;</a>
 			<%} %>
 		</div>
 		<div class="list_search_div">
