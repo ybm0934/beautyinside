@@ -8,11 +8,11 @@
 		});
 		
 		$('#about_a').click(function(){
-			location.href = '<%=request.getContextPath() %>/single/about.jsp';
+			location.href = '<%=request.getContextPath() %>/main.jsp?target=#about';
 		});
 		
 		$('#service_a').click(function(){
-			location.href = '<%=request.getContextPath() %>/single/service.jsp';
+			location.href = '<%=request.getContextPath() %>/main.jsp?target=#service';
 		});
 		
 		$('#portfolio_a').click(function(){
@@ -20,7 +20,7 @@
 		});
 		
 		$('#contact_a').click(function(){
-			location.href = '<%=request.getContextPath() %>/single/contact.jsp';
+			location.href = '<%=request.getContextPath() %>/main.jsp?target=#contact';
 		});
 	});
 </script>

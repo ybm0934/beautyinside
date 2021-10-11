@@ -213,23 +213,21 @@ public class ReviewDAO {
 			System.out.println("reviewDelete 실행\r\n");
 
 			con = pool.getConnection();
-
-			// delete from comments where ogno = ?
+			
 			String sql = "delete from review where no = ? and id = ?";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, no);
 			ps.setString(2, userid);
 			cnt = ps.executeUpdate();
-
 			System.out.println("리뷰 삭제 결과 cnt = " + cnt);
-
+			
 			// 해당 글 하위 댓글도 모두 삭제
 			if (cnt > 0) {
 				sql = "delete from comments where ogNo = ?";
 				ps = con.prepareStatement(sql);
 				ps.setInt(1, no);
-				cnt = ps.executeUpdate();
-				System.out.println("댓글 삭제 결과 cnt = " + cnt);
+				int cnt2 = ps.executeUpdate();
+				System.out.println("댓글 삭제 결과 cnt2 = " + cnt2);
 			}
 
 			System.out.println("파라미터 no = " + no + ", userid = " + userid);

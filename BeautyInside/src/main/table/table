@@ -11,7 +11,7 @@ CREATE TABLE MEMBER(
     pwd varchar2(20) NOT NULL,
     NAME varchar2(20) NOT NULL,
     birth varchar2(20),
-    tel varchar2(20),
+    tel varchar2(20) NOT NULL,
     gender varchar2(10),
     email varchar2(30),
     zipcode number,
@@ -132,9 +132,10 @@ CREATE TABLE reserve
     email      VARCHAR2 (50),
     tel        VARCHAR2 (20),
     service    VARCHAR2 (50),
-    rsvDate    DATE NOT NULL,
+    price      VARCHAR2 (20),
+    resDate    VARCHAR2 (30),
     regdate    DATE DEFAULT SYSDATE,
-    status     VARCHAR2 (20)
+    status     VARCHAR2 (20) DEFAULT '대기'
 );
 
 
@@ -144,12 +145,6 @@ CREATE SEQUENCE reserve_seq
 START WITH 1
 INCREMENT BY 1
 NOCYCLE;
-
-
-
-
-
-
 
 
 

@@ -68,7 +68,9 @@
     	
     	// 상세보기 글 삭제
     	$('#cancel_btn').click(function(){
-    		location.href = '<%=request.getContextPath() %>/review/reviewDelete.jsp?no=' + <%=no %>;
+    		if(confirm('글을 삭제하시겠습니까?')) {
+	    		location.href = '<%=request.getContextPath() %>/review/reviewDelete_ok.jsp?no=' + <%=no %>;
+    		}
     	});
 	    	
    		// 댓글 등록 Ajax

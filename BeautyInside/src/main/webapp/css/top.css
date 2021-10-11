@@ -20,6 +20,8 @@ img {
 
 caption {
 	visibility: hidden;
+    position: absolute;
+    font-size: 0;
 }
 
 button {

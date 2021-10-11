@@ -110,10 +110,11 @@
 		       			ReviewDTO dto = list.get(curPos++);
 		       			num--;
 		       			
+		       			String newTerm = "";
 		       			if(dto.getNewTerm() > 24) {
-	        				odf.format(dto.getRegdate());
+	        				newTerm = odf.format(dto.getRegdate());
 	        			}else if(dto.getNewTerm() <= 24){
-	        				ndf.format(dto.getRegdate());
+	        				newTerm = ndf.format(dto.getRegdate());
 		        		}
 		       			
 		       			CommentDAO comDao = new CommentDAO();
@@ -138,7 +139,7 @@
 		        		<%} %>
 		        	</td>
 		        	<td><%=dto.getName() %></td>
-		        	<td><%=ndf.format(dto.getRegdate()) %></td>
+		        	<td><%=newTerm %></td>
 		        	<td><%=dto.getCount() %></td>
 		        </tr>
 		    	<%

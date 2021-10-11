@@ -73,13 +73,6 @@
     background-attachment: fixed;
 }
 
-#blank2 {
-    background-image: url('');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
 #portfolio_table {
     width: 100%;
     border-collapse: collapse;
@@ -106,7 +99,7 @@
     transition-duration: 0.7s;
 }
 
-#blank3 {
+#blank2 {
     background-image: url('/img/rose-g14a9ce0a3_1920.jpg');
     background-size: cover;
     background-repeat: no-repeat;

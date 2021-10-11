@@ -4,10 +4,40 @@
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200;300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+
+@font-face {
+    font-family: 'EliceDigitalBaeum_Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/EliceDigitalBaeum_Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#wrap {
+	-webkit-touch-callout: none;
+	user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	
+	min-height: 100%;
+    height: auto;
+    padding: 140px 0 100px 0;
+    text-align: center;
+}
 
 #reserve_div {
-    margin: 0 auto;
-    width: 50%;
+    width: 45%;
+    display: inline-block;
+}
+
+.title_div h1 {
+    text-align: left;
+    font-family: 'Crimson Text', serif;
+    margin: 0;
+    font-size: 2.5em;
+    color: darkblue;
 }
 
 #reserve_table {
@@ -41,10 +71,10 @@
 }
 
 .nowSpn {
-	font-size: 3em;
+	font-size: 2.5em;
 	vertical-align: middle;
 	margin: 0 20px;
-	font-family: 'IBM Plex Sans KR', sans-serif;
+	font-family: 'EliceDigitalBaeum_Bold';
 }
 
 .ico {
@@ -73,9 +103,9 @@
 }
 
 .selected {
-	background-color: #333333;
-    color: white;
-    transition-duration: 0.3s;
+	background-color: #333333 !important;
+    color: white !important;
+    transition-duration: 0.3s !important;
 }
 
 #time_div {
@@ -88,10 +118,13 @@
 	width: 100%;
 	padding: 30px;
 	box-sizing: border-box;
+	border: 1px solid lightgray;
 }
 
 #field legend {
 	text-align: left;
+	font-family: 'EliceDigitalBaeum_Bold';
+	font-size: 1.2em;
 }
 
 .timeA {
@@ -109,6 +142,13 @@
     transition-duration: 0.3s;
 }
 
+#aside_div {
+	display: inline-block;
+    position: absolute;
+    margin: 200px 0 0 70px;
+    font-family: 'EliceDigitalBaeum_Bold';
+}
+
 #aside_table {
 	width: 100%;
 	border: 1px solid gray;
@@ -116,6 +156,41 @@
 }
 
 #aside_table tr th, #aside_table tr td {
-	border: 1px solid gray;
+	border: 1px solid lightgray;
 	padding: 15px;
+}
+
+#aside_table tr td {
+	color: #dd9933;
+}
+
+#sayArea {
+	border: 1px solid lightgray;
+    width: 100%;
+    resize: none;
+    height: 110px;
+    padding: 10px;
+    outline: none;
+    line-height: 20px;
+    box-sizing: border-box;
+}
+
+.reserveBtnDiv {
+	margin-top: 30px;
+}
+
+.reserveBtn {
+	border: 1px solid #333333;
+	background-color: #333333;
+	color: white;
+	width: 100%;
+	padding: 15px;
+	cursor: pointer;
+	font-size: 1em;
+}
+
+.reserveBtn:hover {
+	border: 1px solid #dd9933;
+	background-color: #dd9933;
+    transition-duration: 0.3s;
 }

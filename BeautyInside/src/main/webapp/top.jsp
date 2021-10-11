@@ -133,7 +133,7 @@
         </li>
         <li>
             <span class="ul_spn">
-                <a href="<%=request.getContextPath() %>/reserve/reserve.jsp">예약</a>
+                <a href="<%=request.getContextPath() %>/reserve/reserveMenu.jsp">예약</a>
             </span>
         </li>
         <li>
@@ -151,4 +151,4 @@
         </li>
     </ul>
 </header>
-<body oncontextmenu = "return false">
+<body oncontextmenu="return false">

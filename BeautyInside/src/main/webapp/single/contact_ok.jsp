@@ -14,5 +14,6 @@
 	MailSend.send(name, email, subject, content);
 %>
 <script>
+	alert('메일이 전송되었습니다.');
 	location.href = '<%=request.getContextPath() %>/main.jsp';
 </script>
