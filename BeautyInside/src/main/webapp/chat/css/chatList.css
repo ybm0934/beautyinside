@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
 #temp {
-    border: 1px solid black;
-    min-width: 500px;
-    max-width: 500px;
+    border: 1px solid lightgray;
+    min-width: 450px;
+    max-width: 450px;
     image-rendering: auto;
 }
 
@@ -11,59 +11,89 @@
 /* 채팅 CSS */
 
 #wrap {
-    min-height: 600px;
     margin: 0 auto;
-    background-color: #b3d1fd;
+    background-color: white;
 }
 
-#todayDiv {
-    background-color: green;
+.topDiv {
     text-align: center;
     padding: 5px;
+    background-color: #333333;
 }
 
-#todaySpn {}
-
-
-#listDiv {
-    border: 1px solid black;
-    min-height: 500px;
-    max-height: 500px;
+.targetSpn {
+    color: white;
 }
 
-.chatPack_you {
-    width: 85%;
-    border-collapse: collapse;
+.todaySpn {
+    color: gray;
     font-size: 0.8em;
 }
 
-.chatPack_you tr td {}
+
+.listDiv {
+    overflow: auto;
+    height: 500px;
+}
+
+.listDiv::-webkit-scrollbar {
+    width: 10px;
+}
+
+.listDiv::-webkit-scrollbar-thumb {
+    background-color: #333333;
+}
+
+.listDiv::-webkit-scrollbar-thumb:hover {
+    background-color: black;
+}
+
+
+/* chatPack_you */
+
+.chatPack {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8em;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.chatPack tr td {
+    width: 50%;
+}
 
 .imgBox {
-    vertical-align: middle;
+    vertical-align: top;
 }
 
 .imgBox img {
-    width: 45px;
-    padding: 10px;
+    width: 50px;
+    padding: 15px 10px 0 15px;
 }
 
 .nameTd {
     padding: 10px 0 5px 5px;
 }
 
-.nameSpn {}
-
-.chatBox {}
-
-.chatTd {
+.chatP {
+    background-color: #efefef;
     border-radius: 10px;
-    background-color: white;
-    padding-left: 10px;
-    padding-right: 10px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    padding: 10px;
+    word-break: break-all;
+    margin: 0;
+    font-size: 1em;
 }
 
-.chatP {}
+.chatP1 {
+    background-color: #efefef;
+}
+
+.dateBox {
+    vertical-align: bottom;
+}
 
 .dateSpn {
     color: #333333;
@@ -71,48 +101,83 @@
 }
 
 
+/* chatPack_me */
 
+.dateBox2 {
+    text-align: right;
+    padding-right: 7px;
+}
 
+.nameTd2 {
+    padding: 10px 5px 5px 0;
+    text-align: right;
+}
 
+.imgBox2 {
+    vertical-align: top;
+}
 
-.chatPack_me {
+.imgBox2 img {
+    width: 50px;
+    padding: 15px 15px 0 10px;
+    opacity: 0.8;
+}
 
+.chatP2 {
+    background-color: #f7ba5e;
 }
 
 
 #sendDiv {
+    border-top: 1px solid lightgray;
     background-color: white;
+    width: 100%;
 }
 
 #textareaDiv {
-    display: inline;
+    display: table-cell;
     width: 100%;
-    border: 1px solid lightgray;
+    padding: 10px 0 10px 10px;
 }
 
 #writeArea {
-    width: 80%;
-    box-sizing: border-box;
+    width: 100%;
     resize: none;
-    height: 100px;
+    height: 80px;
     outline: none;
-    border: 1px solid red;
-    line-height: 20px;
-    margin: 10px;
-    overflow: hidden;
-}
-
-#buttonDiv {
-    display: inline;
-    border: 1px solid blue;
-}
-
-#sendBtn {
-    width: 50px;
-    height: 30px;
-    border: 1px solid lightgray;
-    border-radius: 3px;
-    background-color: yellow;
+    letter-spacing: 1px;
+    line-height: 23px;
+    box-sizing: border-box;
+    border: 1px solid white;
     color: #333333;
 }
 
+#writeArea::-webkit-scrollbar {
+    display: none;
+}
+
+#buttonDiv {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 15px 0 10px;
+}
+
+#sendBtn {
+    width: 65px;
+    height: 35px;
+    border: 1px solid #333333;
+    border-radius: 2px;
+    background-color: #333333;
+    color: white;
+    cursor: pointer;
+}
+
+#sendBtn:hover {
+    border: 1px solid black;
+    background-color: black;
+}
+
+#sendBtn:active {
+    border: 1px solid #333333;
+    background-color: #333333;
+}
