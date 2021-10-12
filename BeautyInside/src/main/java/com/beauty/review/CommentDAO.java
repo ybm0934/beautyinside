@@ -33,8 +33,7 @@ public class CommentDAO {
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, comDto.getOgNo());
 			ps.setString(2, comDto.getId());
-			ps.setString(3, comDto.getName());
-			ps.setString(4, comDto.getContent());
+			ps.setString(3, comDto.getName());			ps.setString(4, comDto.getContent());
 
 			cnt = ps.executeUpdate();
 

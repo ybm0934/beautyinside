@@ -371,7 +371,7 @@
 		        <span class="tel_box2">
 		            <input type="text" name="tel2" id="tel2" class="textbox" placeholder="전화번호 입력" maxlength="8">
 		        </span>
-		        <input type="hidden" name="tel"> 
+		        <input type="hidden" name="tel" id="tel"> 
 		        <span id="tel_error" class="error"></span>
 		    </div>
 		    <div id="address_div">

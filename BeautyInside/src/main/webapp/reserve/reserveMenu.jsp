@@ -4,16 +4,17 @@
 <%@ include file="/top_a.jsp" %>
 <link rel="stylesheet" type="text/css" href="/reserve/css/reserveMenu.css">
 <script>
-	$(document).ready(function(){
-		$('#munu1').click(function(){
-			alert('hi');
-		});
-	});
+	function service(service, price) {
+		document.reserveMenu.service.value = service;
+		document.reserveMenu.price.value = price;
+		
+		document.reserveMenu.submit();
+	}
 </script>
 <div id="wrap">
     <form name="reserveMenu" method="post" action="/reserve/reserve.jsp">
-        <input type="hidden" name="service">
-        <input type="hidden" name="price">
+        <input type="hidden" name="service" id="service">
+        <input type="hidden" name="price" id="price">
     </form>
     <div id="title_div">
         <h1>RESERVE</h1>
@@ -23,7 +24,7 @@
         <tr>
             <td>
                 <div class="imgWrap">
-                    <div class="menu" id="menu1">
+                    <div class="menu" id="menu1" onclick="service('젤 매니큐어', '15000')">
                         <div class="menuTitle">
                             <span class="titleSpn">젤 매니큐어</span>
                         </div>
@@ -43,7 +44,7 @@
             </td>
             <td>
                 <div class="imgWrap">
-                    <div class="menu" id="menu2">
+                    <div class="menu" id="menu2" onclick="service('네일 아트', '25000')">
                         <div class="menuTitle">
                             <span class="titleSpn">네일 아트</span>
                         </div>
@@ -63,7 +64,7 @@
             </td>
             <td>
                 <div class="imgWrap">
-                    <div class="menu" id="menu3">
+                    <div class="menu" id="menu3" onclick="service('매니큐어 손질', '35000')">
                         <div class="menuTitle">
                             <span class="titleSpn">매니큐어 손질</span>
                         </div>
@@ -85,7 +86,7 @@
         <tr>
             <td>
                 <div class="imgWrap">
-                    <div class="menu" id="menu4">
+                    <div class="menu" id="menu4" onclick="service('퓨어 클렌징', '70000')">
                         <div class="menuTitle">
                             <span class="titleSpn">퓨어 클렌징</span>
                         </div>
@@ -105,7 +106,7 @@
             </td>
             <td>
                 <div class="imgWrap">
-                    <div class="menu" id="menu5">
+                    <div class="menu" id="menu5" onclick="service('퓨어 마사지', '70000')">
                         <div class="menuTitle">
                             <span class="titleSpn">퓨어 마사지</span>
                         </div>
@@ -125,7 +126,7 @@
             </td>
             <td>
                 <div class="imgWrap">
-                    <div class="menu" id="menu6">
+                    <div class="menu" id="menu6" onclick="service('수분 공급', '50000')">
                         <div class="menuTitle">
                             <span class="titleSpn">수분 공급</span>
                         </div>

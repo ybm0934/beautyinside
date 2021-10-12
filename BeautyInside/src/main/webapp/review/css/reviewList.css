@@ -28,7 +28,8 @@
 }
 
 #reviewList_div .btn:hover {
-    background-color: black;
+	border: 1px solid darkblue;
+    background-color: darkblue;
 }
 
 #reviewList_div .btn:active {
@@ -41,6 +42,7 @@
 
 #select_div {
 	text-align: right;
+	margin: 10px 0 10px 0;
 }
 
 #select_div select {

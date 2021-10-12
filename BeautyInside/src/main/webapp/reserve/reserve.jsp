@@ -9,8 +9,10 @@
 
 	String service = request.getParameter("service");
 	String price = request.getParameter("price");
-	if(service == null) service = "";
-	if(price == null) price = "";
+	if(service == null || price == null) {
+		service = "";
+		price = "";
+	}
 
 	Calendar cr = Calendar.getInstance();
 	int year = cr.get(Calendar.YEAR);
@@ -58,14 +60,18 @@
 <script>
 	$(document).ready(function(){
 		$('#prevMonth').click(function(){
-			$('input[name=year]').val(<%=prevY %>);
-			$('input[name=month]').val(<%=prevM %>);
+			$('input[name=year]').val('<%=prevY %>');
+			$('input[name=month]').val('<%=prevM %>');
+			$('input[name=service]').val('<%=service %>');
+			$('input[name=price]').val('<%=price %>');
 			$('form[name=reserve]').submit();
 		});
 		
 		$('#nextMonth').click(function(){
-			$('input[name=year]').val(<%=nextY %>);
-			$('input[name=month]').val(<%=nextM %>);
+			$('input[name=year]').val('<%=nextY %>');
+			$('input[name=month]').val('<%=nextM %>');
+			$('input[name=service]').val('<%=service %>');
+			$('input[name=price]').val('<%=price %>');
 			$('form[name=reserve]').submit();
 		});
 		
@@ -142,7 +148,8 @@
 		<form name="reserve" method="post" action="/reserve/reserve.jsp">
 			<input type="hidden" name="year"> 
 			<input type="hidden" name="month"> 
-			<input type="hidden" name="service">
+			<input type="hidden" name="service" value="<%=service %>">
+			<input type="hidden" name="price" value="<%=price %>">
 		</form>
 		<div class="title_div">
 			<h1>Calendar</h1>

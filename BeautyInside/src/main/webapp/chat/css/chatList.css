@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+#temp {
+    border: 1px solid black;
+    min-width: 500px;
+    max-width: 500px;
+    image-rendering: auto;
+}
+
+
+/* 채팅 CSS */
+
+#wrap {
+    min-height: 600px;
+    margin: 0 auto;
+    background-color: #b3d1fd;
+}
+
+#todayDiv {
+    background-color: green;
+    text-align: center;
+    padding: 5px;
+}
+
+#todaySpn {}
+
+
+#listDiv {
+    border: 1px solid black;
+    min-height: 500px;
+    max-height: 500px;
+}
+
+.chatPack_you {
+    width: 85%;
+    border-collapse: collapse;
+    font-size: 0.8em;
+}
+
+.chatPack_you tr td {}
+
+.imgBox {
+    vertical-align: middle;
+}
+
+.imgBox img {
+    width: 45px;
+    padding: 10px;
+}
+
+.nameTd {
+    padding: 10px 0 5px 5px;
+}
+
+.nameSpn {}
+
+.chatBox {}
+
+.chatTd {
+    border-radius: 10px;
+    background-color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.chatP {}
+
+.dateSpn {
+    color: #333333;
+    padding-left: 7px;
+}
+
+
+
+
+
+
+.chatPack_me {
+
+}
+
+
+#sendDiv {
+    background-color: white;
+}
+
+#textareaDiv {
+    display: inline;
+    width: 100%;
+    border: 1px solid lightgray;
+}
+
+#writeArea {
+    width: 80%;
+    box-sizing: border-box;
+    resize: none;
+    height: 100px;
+    outline: none;
+    border: 1px solid red;
+    line-height: 20px;
+    margin: 10px;
+    overflow: hidden;
+}
+
+#buttonDiv {
+    display: inline;
+    border: 1px solid blue;
+}
+
+#sendBtn {
+    width: 50px;
+    height: 30px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    background-color: yellow;
+    color: #333333;
+}
+

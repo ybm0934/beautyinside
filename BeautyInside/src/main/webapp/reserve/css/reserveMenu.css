@@ -47,7 +47,7 @@
 
 .menu {
     width: 100%;
-    border: 1px solid gray;
+    border: 1px solid rgba(0, 0, 0, 0);
     text-align: center;
     cursor: pointer;
     color: white;
@@ -63,42 +63,42 @@
 }
 
 #menu1 {
-    background: url('/img/fure_img (14).jpg') rgba(0, 0, 0, 0.6);
+    background: url('/img/fure_img (14).jpg') rgba(0, 0, 0, 0.5);
     background-blend-mode: multiply;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #menu2 {
-    background: url('/img/manicure-g0cdbc5291_1920.jpg') rgba(0, 0, 0, 0.6);
+    background: url('/img/manicure-g0cdbc5291_1920.jpg') rgba(0, 0, 0, 0.5);
     background-blend-mode: multiply;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #menu3 {
-    background: url('/img/pexels-kristina-paukshtite-704815.jpg') rgba(0, 0, 0, 0.6);
+    background: url('/img/pexels-kristina-paukshtite-704815.jpg') rgba(0, 0, 0, 0.5);
     background-blend-mode: multiply;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #menu4 {
-    background: url('/img/pexels-lemon-6208084.jpg') rgba(0, 0, 0, 0.6);
+    background: url('/img/pexels-lemon-6208084.jpg') rgba(0, 0, 0, 0.5);
     background-blend-mode: multiply;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #menu5 {
-    background: url('/img/pexels-ryutaro-tsukata-5473182.jpg') rgba(0, 0, 0, 0.6);
+    background: url('/img/pexels-ryutaro-tsukata-5473182.jpg') rgba(0, 0, 0, 0.5);
     background-blend-mode: multiply;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #menu6 {
-    background: url('/img/pexels-pixabay-161599.jpg') rgba(0, 0, 0, 0.6);
+    background: url('/img/pexels-pixabay-161599.jpg') rgba(0, 0, 0, 0.5);
     background-blend-mode: multiply;
     background-repeat: no-repeat;
     background-size: cover;
@@ -114,7 +114,9 @@
 
 .menuSubtitle {}
 
-.subtitleSpn {}
+.subtitleSpn {
+	font-size: 0.9em;
+}
 
 .menuPrice {
     margin: 50px 0;

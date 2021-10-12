@@ -25,14 +25,15 @@ public class ReserveDAO {
 			System.out.println("reserve 실행");
 
 			con = pool.getConnection();
-
-			String sql = "INSERT INTO reserve VALUES(reserve_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, DEFAULT, DEFAULT)";
+			System.out.println("파라미터 resDto = " + resDto);
+			String sql = "INSERT INTO reserve(NO, NAME, email, tel, service, price, resdate, reswords, regdate, status) "
+					+ "VALUES(reserve_seq.nextval, ?, ?, ?, ?, ?, ?, ?, DEFAULT, DEFAULT)";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, resDto.getName());
 			ps.setString(2, resDto.getEmail());
 			ps.setString(3, resDto.getTel());
 			ps.setString(4, resDto.getService());
-			ps.setString(5, resDto.getPrice());
+			ps.setInt(5, resDto.getPrice());
 			ps.setString(6, resDto.getResDate());
 			ps.setString(7, resDto.getResWords());
 			cnt = ps.executeUpdate();

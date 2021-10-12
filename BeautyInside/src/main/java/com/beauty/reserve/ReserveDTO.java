@@ -9,7 +9,7 @@ public class ReserveDTO {
 	private String email;
 	private String tel;
 	private String service;
-	private String price;
+	private int price;
 	private String resDate;
 	private String resWords;
 	private Timestamp regdate;
@@ -55,11 +55,11 @@ public class ReserveDTO {
 		this.service = service;
 	}
 
-	public String getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 

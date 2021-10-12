@@ -127,13 +127,14 @@ NOCYCLE;
 DROP TABLE reserve;
 CREATE TABLE reserve
 (
-    no         NUMBER PRIMARY KEY,
-    name       VARCHAR2 (20) NOT NULL,
+    NO         NUMBER PRIMARY KEY,
+    NAME       VARCHAR2 (20) NOT NULL,
     email      VARCHAR2 (50),
-    tel        VARCHAR2 (20),
-    service    VARCHAR2 (50),
-    price      VARCHAR2 (20),
-    resDate    VARCHAR2 (30),
+    tel        VARCHAR2 (20) NOT NULL,
+    service    VARCHAR2 (50) NOT NULL,
+    price      NUMBER NOT NULL,
+    resDate    VARCHAR2 (30) NOT NULL,
+    resWords   CLOB NULL,
     regdate    DATE DEFAULT SYSDATE,
     status     VARCHAR2 (20) DEFAULT '대기'
 );
