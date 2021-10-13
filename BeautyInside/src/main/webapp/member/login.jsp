@@ -28,6 +28,13 @@
 		$('form[name=login]').submit(function(){
 			if($('#id').val() == ''){
 				return false;
+			}else if($('#id').val() == 'admin') {
+				alert('해당 계정으로 접근할 수 없습니다.');
+				$('#id').val('');
+				$('#pwd').val('');
+				$('#id').focus();
+				
+				return false;
 			}else if($('#pwd').val() == '') {
 				return false;
 			}else {

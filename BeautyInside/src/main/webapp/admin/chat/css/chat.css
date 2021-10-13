@@ -33,6 +33,8 @@ table thead tr th {
 }
 table tbody tr td {
     text-align: center;
+    border: 1px solid gray;
+    padding: 15px;
 }
 table tbody tr th {
     text-align: right;

@@ -6,6 +6,7 @@
 	request.setCharacterEncoding("UTF-8");
 
 	String id = request.getParameter("id");
+	if(id.equals("admin")) id = "";
 	String pwd = request.getParameter("pwd");
 	String saveid = request.getParameter("saveid");
 	
