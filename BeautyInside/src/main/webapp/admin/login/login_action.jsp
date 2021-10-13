@@ -11,7 +11,7 @@
 	if (result == 1) {
 		// 로그인 성공
 		String name = dao.loginName(dto.getId());
-		session.setAttribute("NAME", name);
+		//session.setAttribute("NAME", name);
 		%>
 			<script>
 				location.href = '/admin/index/main.jsp';

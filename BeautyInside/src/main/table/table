@@ -147,6 +147,28 @@ INCREMENT BY 1
 NOCYCLE;
 
 
+--채팅 테이블
+DROP TABLE chat;
+CREATE TABLE chat
+(
+    id         VARCHAR2 (20) NOT NULL,
+    name       VARCHAR2 (20) NOT NULL,
+    content    CLOB NOT NULL,
+    regdate    DATE DEFAULT SYSDATE
+);
+
+
+--일자별 요약 검색 테이블
+DROP TABLE SUMMARYDATE;
+CREATE TABLE summarydate (
+   regdate DATE,
+   service number,
+   take NUMBER,
+   userJoin NUMBER,
+   review NUMBER
+);
+
+
 
 
 

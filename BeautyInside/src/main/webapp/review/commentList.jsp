@@ -14,9 +14,6 @@
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd. HH:mm:ss");
 	String placeholder = "아름다운 댓글 문화를 만들어 갑시다.";
 %>
-<script>
-
-</script>
 <h3>댓글 <span id="listSizeSpn"><%=comList.size() %></span>개</h3>
 <table id="reply_table">
 	<caption>댓글 테이블</caption>

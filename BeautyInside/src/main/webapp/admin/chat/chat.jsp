@@ -1,16 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>
-<%
-	if (session.getAttribute("NAME") == null) {
-		%>
-			<script>
-				alert('잘못된 접근입니다!');
-				location.href ='/admin/login/login.jsp';
-			</script>
-		<%
-	}
-%>
 <%@ page import="java.util.*" %>
 <%@ page import="com.beauty.admin.chat.AdminChatDTO" %>
 <jsp:useBean id = "dao" class="com.beauty.admin.chat.AdminChatDAO"/>
@@ -42,6 +32,22 @@
 <link rel="stylesheet" type="text/css" href="/admin/css/reset.css">
 <link rel="stylesheet" type="text/css" href="/admin/chat/css/chat.css">
 <title>관리자페이지-채팅관리</title>
+<%
+	// 임시 테스트용
+	session.setAttribute("userid", "관리자");
+	String admin = (String) session.getAttribute("userid");
+%>
+<script>
+	function chat(id) {
+		// 채팅창 가운데 띄우기
+		var _width = 452;
+		var _height = 670;
+		var _top = (window.screen.height / 2) - (_height / 2);
+		var _left = (window.screen.width / 2) - (_width / 2);
+		
+		window.open('/chat/chat.jsp?id=' + id + '&name=<%=admin %>', 'width = ' + _width + ', height = ' + _height + ', top = ' + _top + ', left = ' + _left);
+	}
+</script>
 </head>
 <body>
 <%@ include file="../index/header.jsp" %>
@@ -65,7 +71,11 @@
             			%>
             				<tr>
 			                    <td><%= dto.getId() %>(<%= dto.getName() %>)</td>
-			                    <td style="border-left: 1px solid black; border-right: 1px solid black;"><%= dto.getContent() %></td>
+			                    <td style="border-left: 1px solid black; border-right: 1px solid black;">
+			                    	<a href="#" onclick="chat('<%=dto.getId() %>');">
+					                    <%= dto.getContent() %>
+			                    	</a>
+			                    </td>
 			                    <td><%= dto.getRegdate() %></td>
 			                </tr>
             			<%

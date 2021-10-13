@@ -225,6 +225,11 @@
 				$('#name_error').html('이름을 입력하세요.');
 				
 				return false;
+			}else if($('#name').val() == '관리자'){
+				$('#name').focus();
+				$('#name_error').html('해당 이름은 사용할 수 없습니다.');
+				
+				return false;
 			}else if(year == '') {
 				$('#birth_year').focus();
 				$('#birth_error').html('년을 입력하세요.');

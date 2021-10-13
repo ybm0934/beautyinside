@@ -1,18 +1,21 @@
 @charset "UTF-8";
 
-#temp {
-    border: 1px solid lightgray;
-    min-width: 450px;
-    max-width: 450px;
-    image-rendering: auto;
-}
-
-
 /* 채팅 CSS */
 
-#wrap {
+body {
     margin: 0 auto;
+}
+
+body::-webkit-scrollbar {
+	display: none;
+}
+
+#wrap {
     background-color: white;
+    image-rendering: auto;
+    min-width: 450px;
+    max-width: 450px;
+    border: 1px solid lightgray;
 }
 
 .topDiv {
@@ -30,6 +33,19 @@
     font-size: 0.8em;
 }
 
+.lastdateDiv {
+	padding: 5px;
+    border-bottom: 1px solid lightgray;
+    text-align: center;
+}
+
+.lastdateDiv span {
+	font-size: 0.8em;
+	color: gray;
+}
+
+
+/* list 시작 */
 
 .listDiv {
     overflow: auto;
@@ -51,16 +67,24 @@
 
 /* chatPack_you */
 
+.chatPack img {
+    width: 40px;
+}
+
 .chatPack {
     width: 100%;
     border-collapse: collapse;
     font-size: 0.8em;
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+.chatPack tr th {
+    width: 10%;
 }
 
 .chatPack tr td {
-    width: 50%;
+	max-width: 265px;
 }
 
 .imgBox {
@@ -68,8 +92,7 @@
 }
 
 .imgBox img {
-    width: 50px;
-    padding: 15px 10px 0 15px;
+    padding: 15px 10px 0 10px;
 }
 
 .nameTd {
@@ -81,7 +104,7 @@
     border-radius: 10px;
     line-height: 20px;
     letter-spacing: 1px;
-    padding: 10px;
+    padding: 6px 10px 6px 10px;
     word-break: break-all;
     margin: 0;
     font-size: 1em;
@@ -98,6 +121,7 @@
 .dateSpn {
     color: #333333;
     padding-left: 7px;
+    padding-right: 40px;
 }
 
 
@@ -105,6 +129,11 @@
 
 .dateBox2 {
     text-align: right;
+}
+
+.dateSpn2 {
+    color: #333333;
+    padding-left: 40px;
     padding-right: 7px;
 }
 
@@ -118,13 +147,12 @@
 }
 
 .imgBox2 img {
-    width: 50px;
-    padding: 15px 15px 0 10px;
-    opacity: 0.8;
+    padding: 15px 10px 0 10px;
+    opacity: 0.7;
 }
 
 .chatP2 {
-    background-color: #f7ba5e;
+    background-color: #f3b353;
 }
 
 

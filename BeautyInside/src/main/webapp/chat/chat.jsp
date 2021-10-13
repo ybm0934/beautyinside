@@ -1,76 +1,130 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="/chat/loginCheck.jsp" %>
+<%
+	request.setCharacterEncoding("UTF-8");
+	String id = request.getParameter("id");
+	String name = request.getParameter("name");
+	System.out.println("###id : " + id);
+	System.out.println("###name : " + name);
+	
+	long today = System.currentTimeMillis();
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.");
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>::Beauty Inside:: 상담원 챗</title>
-    <link rel="stylesheet" type="text/css" href="/chat/css/chatList.css">
+    <title>:: BEAUTY INSIDE 채팅 ::</title>
+    <link rel="stylesheet" type="text/css" href="/chat/css/chat.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+	    function chatList() {
+			$(document).ready(function(){
+				$.ajax({
+					url : '<%=request.getContextPath() %>/chat/chatList.jsp',
+					type : 'POST',
+					datatype : 'JSON',
+					data : {
+						id : '<%=id %>',
+						name : '<%=name %>'
+					},
+					success : function(data) {
+						$('#listDiv').html(data);
+					},
+					error : function() {
+						alert('채팅 리스트 불러오기 실패!');
+						self.close();
+					}
+				}); // ajax
+			});
+		} // chatList
+		
+		setInterval(function() {
+			chatList();
+		}, 1000);
+	
+    	$(document).ready(function(){
+    		$('#writeArea').focus();
+    		
+    		// 아무 것도 입력하지 않았을 시 전송 버튼 비활성화
+    		if($('#writeArea').val() == '') {
+    			$('#sendBtn').attr('disabled', 'disabled');
+    		}
+    		
+    		// 입력 시 활성화
+    		$('#writeArea').keyup(function(e){
+	    		if($.trim($(this).val()).length == 0) {
+	    			$('#sendBtn').attr('disabled', 'disabled');
+	    		}else {
+	    			$('#sendBtn').removeAttr('disabled');
+	    		}
+    		});
+    		
+    		// 전송 버튼 클릭 시 데이터 전송
+    		$('#sendBtn').click(function(){
+   				$('#writeArea').val($.trim($('#writeArea').val()));
+    			chatSend();
+    		});
+    		
+    		// 엔터 누르면 전송
+       		$('#writeArea').keydown(function(e){
+       			if(!(e.shiftKey && e.keyCode == 13) && e.keyCode == 13) {
+	       			if($.trim($(this).val()).length == 0) {
+	       				$(this).val('');
+	       				return false;
+       				}else {
+       					$(this).val($.trim($(this).val()));
+	       				chatSend();
+	       			}
+       			}
+       		});
+    		
+    		function chatSend() {
+    			$.ajax({
+    				url : '<%=request.getContextPath() %>/chat/chatSend_ok.jsp',
+    				type : 'POST',
+    				datatype : 'JSON',
+    				data : {
+    					id : '<%=id %>',
+    					name : '<%=name %>',
+    					content : $('#writeArea').val()
+    				},
+    				success : function(data) {
+    					$('#writeArea').val('');
+    					$('#writeArea').focus();
+    					chatList();
+    					$("#listDiv").scrollTop($("#listDiv")[0].scrollHeight); // 스크롤 맨 아래로
+    				},
+    				error : function() {
+    					alert('채팅 전송 실패!');
+    					self.close();
+    				}
+    			}); // ajax
+    		}
+    	});
+    </script>
 </head>
 <body>
-<div id="temp">
-
-    <div id="wrap">
-        <div class="topDiv">
-            <span class="targetSpn">비비빅님과의 대화</span>
-        </div>
-        <div class="topDiv">
-            <span class="todaySpn">2021년 10월 30일</span>
-        </div>
-        
-        <div class="listDiv">
-            <table class="chatPack">
-                <tr>
-                    <th class="imgBox" rowspan="2">
-                        <img src="/img/ico/girl.png">
-                    </th>
-                    <td class="nameTd">
-                        <span>관리자</span>
-                    </td>
-                    <td class="dateBox" rowspan="2">
-                        <span class="dateSpn">2020.12.31</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class="chatP chatP1">
-                            안녕하세요.안녕하세요.안녕하세요.안녕하세요.안녕하세요.
-                        </p>
-                    </td>
-                </tr>
-            </table>
-            <table class="chatPack">
-                <tr>
-                    <td class="dateBox dateBox2" rowspan="2">
-                        <span class="dateSpn">2012.01.01</span>
-                    </td>
-                    <td class="nameTd2">
-                        <span>비비빅</span>
-                    </td>
-                    <th class="imgBox2" rowspan="2">
-                        <img src="/img/ico/boy.png">
-                    </th>
-                </tr>
-                <tr>
-                    <td>
-                        <p class="chatP chatP2">
-                            안녀아숑.
-                        </p>
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-        <div id="sendDiv">
-            <div id="textareaDiv">
-                <textarea name="" id="writeArea" spellcheck="false"></textarea>
-            </div>
-            <div id="buttonDiv">
-                <input type="button" id="sendBtn" value="전송">
-            </div>
-        </div>
+<div id="wrap">
+    <div class="topDiv">
+        <span class="targetSpn"><%=name %>님과의 대화</span>
+    </div>
+    <div class="topDiv">
+        <span class="todaySpn"><%=sdf.format(today) %></span>
     </div>
     
+    <div class="listDiv" id="listDiv"></div>
+    
+    <div id="sendDiv">
+        <div id="textareaDiv">
+            <textarea name="writeArea" id="writeArea" spellcheck="false"></textarea>
+        </div>
+        <div id="buttonDiv">
+            <input type="button" id="sendBtn" value="전송">
+        </div>
     </div>
+</div>
 </body>
 </html>
