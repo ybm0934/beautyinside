@@ -6,8 +6,9 @@
 	request.setCharacterEncoding("UTF-8");
 	String id = request.getParameter("id");
 	String name = request.getParameter("name");
-	System.out.println("###id : " + id);
-	System.out.println("###name : " + name);
+	String admin = request.getParameter("admin");
+	String select = (admin == null) ? "관리자" : name;
+	System.out.println("###########name : " + name);
 	
 	long today = System.currentTimeMillis();
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.");
@@ -28,7 +29,8 @@
 					datatype : 'JSON',
 					data : {
 						id : '<%=id %>',
-						name : '<%=name %>'
+						name : '<%=name %>',
+						admin: '<%=admin %>'
 					},
 					success : function(data) {
 						$('#listDiv').html(data);
@@ -89,6 +91,7 @@
     				data : {
     					id : '<%=id %>',
     					name : '<%=name %>',
+    					admin : '<%=admin %>',
     					content : $('#writeArea').val()
     				},
     				success : function(data) {
@@ -109,7 +112,7 @@
 <body>
 <div id="wrap">
     <div class="topDiv">
-        <span class="targetSpn"><%=name %>님과의 대화</span>
+        <span class="targetSpn"><%=select %>님과의 대화</span>
     </div>
     <div class="topDiv">
         <span class="todaySpn"><%=sdf.format(today) %></span>

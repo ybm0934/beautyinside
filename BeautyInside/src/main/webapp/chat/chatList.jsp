@@ -10,8 +10,8 @@
 		request.setCharacterEncoding("UTF-8");
 		String id = request.getParameter("id");
 		String name = request.getParameter("name");
-		System.out.println("@@@id : " + id);
-		System.out.println("@@@name : " + name);
+		String admin = request.getParameter("admin");
+		String select = (admin == null) ? name : admin;
 		
 		SimpleDateFormat ndf = new SimpleDateFormat("a hh:mm");
 		SimpleDateFormat odf = new SimpleDateFormat("yyyy.MM.dd a hh:mm");
@@ -24,12 +24,12 @@
 <div class="lastdateDiv">
 	<span>마지막 대화 날짜 : <%=odf.format(list.get(0).getRegdate()) %></span>
 </div>
-<%		
+<%
 			for(int i = 0; i < list.size(); i++) {
 				ChatDTO chatDto = list.get(i);
 				String str = chatDto.getContent().replace("\n", "<br>");
 				
-				if(!chatDto.getName().equals(name)) {
+				if(!chatDto.getName().equals(select)) {
 %>
 <table class="chatPack">
     <tr>
@@ -50,7 +50,7 @@
     </tr>
 </table>
 <%
-				}else if(chatDto.getName().equals(name)) {
+				}else if(chatDto.getName().equals(select)) {
 %>
 <table class="chatPack">
     <tr>
