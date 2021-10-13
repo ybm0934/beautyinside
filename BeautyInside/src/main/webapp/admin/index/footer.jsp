@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<link rel="stylesheet" type="text/css" href="/admin/css/footer.css">
+<link rel="stylesheet" type="text/css" href="/admin/index/css/footer.css">
 <footer>
 	<!-- 하단 푸터 -->
 	<div>

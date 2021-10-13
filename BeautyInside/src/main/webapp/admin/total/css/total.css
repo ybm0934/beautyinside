@@ -1,0 +1,44 @@
+@charset "UTF-8";
+h1 {
+	text-align: center;
+	font-size: 2em;
+	border-top: 1px solid black;
+	padding-top: 30px;
+}
+h1.a:after {
+  content: "";
+  display: block;
+  width: 120px;
+  border-bottom: 3px solid #e7e7e7;
+  margin: 10px auto;
+}
+h2 {
+    text-align: center;
+    font-size: 2em;
+}
+table {
+    width: 600px;
+    border-collapse: collapse;
+	border-spacing: 0;
+    margin: 10px;
+	border: 1px solid black;
+    height: 350px;
+}
+table thead tr th {
+	text-align: center;
+	background-color: #292929;
+	color: white;
+}
+table thead tr td {
+	text-align: center;
+}
+table tbody tr th {
+	text-align: center;
+}
+table tbody tr td {
+    text-align: center;
+}
+.search {
+	display: flex;
+	justify-content: center;
+}

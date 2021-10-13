@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300&display=swap">
 <link rel="stylesheet" type="text/css" href="/admin/css/reset.css">
-<link rel="stylesheet" type="text/css" href="/admin/css/member_update.css">
+<link rel="stylesheet" type="text/css" href="/admin/member/css/member_update.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <title>관리자페이지-회원수정</title>
 </head>
