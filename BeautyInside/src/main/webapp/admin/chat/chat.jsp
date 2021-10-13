@@ -43,7 +43,7 @@
 <link rel="stylesheet" type="text/css" href="/admin/chat/css/chat.css">
 <title>관리자페이지-채팅관리</title>
 <%
-	// 임시 테스트용
+	// 임시 테스트용-
 	String admin = (String) session.getAttribute("name");
 %>
 <script>

@@ -9,7 +9,7 @@
         </div>
         <form name="logout_fm" action="/admin/login/logout_action.jsp">
 	        <div class="header_logout">
-	            <span style="margin: 20px;"><%= session.getAttribute("NAME")%>님</span>
+	            <span style="margin: 20px;"><%= session.getAttribute("name")%>님</span>
 					<span id="logout_btn">
 						<img src="/admin/img/icon_logout.png">
 					</span>
