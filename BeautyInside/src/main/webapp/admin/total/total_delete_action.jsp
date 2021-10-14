@@ -3,7 +3,7 @@
 <jsp:useBean id="dao" class="com.beauty.admin.total.AdminTotalDAO"/>
 <%
 	int result = dao.dateListDelete();
-	System.out.print("델리트" + result);
+
 	if (result == 0) {
 		%>
 			<script>

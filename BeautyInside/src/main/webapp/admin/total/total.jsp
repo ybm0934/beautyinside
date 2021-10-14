@@ -23,7 +23,13 @@
 	
 	String date = request.getParameter("date");
 	
+	int overlap = 0;
+	
 	if (!(date == null)) {
+		overlap = dao.overlap(date);
+	}
+	
+	if (overlap == -1) {
 		// 서비스건수
 		int service = dao.serviceCount(date);
 		// 매출액
@@ -108,26 +114,26 @@
     </div>
     <div>
         <h2 style="margin-top: 65px; margin-bottom: 32px; margin-right: 40px">일자별 요약</h2>
-        <table>
+        <table class="scroll_table">
             <thead>
                 <tr style="height: 20px">
-                    <th>일자</th>
-                    <th>서비스</th>
-                    <th>매출액</th>
-                    <th>가입</th>
-                    <th>리뷰</th>
+                    <th colspan="2" width="200px;">일자</th>
+                    <th colspan="2" width="200px;">서비스</th>
+                    <th colspan="2"	width="200px;">매출액</th>
+                    <th colspan="2" width="200px;">가입</th>
+                    <th colspan="2" width="200px;">리뷰</th>
                 </tr>
             </thead>
             <tbody>
             	<%
             		for (int i = 0; i < list.size(); i++) {
             			%>
-            				 <tr style="border-bottom: 0.5px solid black;">
-			                    <td><%= list.get(i).getRegdate().substring(0,10) %></td>
-			                    <td><%= list.get(i).getService() %>회</td>
-			                    <td><%= list.get(i).getTake() %>원</td>
-			                    <td><%= list.get(i).getUserjoin() %>명</td>
-			                    <td><%= list.get(i).getReview() %>건</td>
+            				 <tr style="border-bottom: 0.5px solid black; height: 55px">
+			                    <td colspan="2"><%= list.get(i).getRegdate().substring(0,10) %></td>
+			                    <td colspan="2"><%= list.get(i).getService() %>회</td>
+			                    <td colspan="2"><%= list.get(i).getTake() %>원</td>
+			                    <td colspan="2"><%= list.get(i).getUserjoin() %>명</td>
+			                    <td colspan="2"><%= list.get(i).getReview() %>건</td>
 			                </tr>
             			<%
             		}

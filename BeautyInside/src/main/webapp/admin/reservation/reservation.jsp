@@ -270,7 +270,7 @@
 		                    	%>
 		                    </td>
 		                    <td rowspan="3">
-		                        <input type="text" name="resdate" value="<%= dto.getResdate() %>" style="text-align: center; border: none; font-size: 15px; width: 40%">
+		                        <input type="text" name="resdate" value="<%= dto.getResdate() %>" style="text-align: center; border: none; font-size: 15px">
 		                    </td>
 		                    <td rowspan="3"><input type="hidden" name="regdate" value="<%= dto.getRegdate() %>"><%= dto.getRegdate().substring(0, 10) %></td>
 		                    <td rowspan="3"><input type="submit" value="변경" style="background-color: #ffd400; border: none; color: white;"></td>

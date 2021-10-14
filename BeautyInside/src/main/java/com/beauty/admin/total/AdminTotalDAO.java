@@ -188,7 +188,28 @@ public class AdminTotalDAO {
 			e.printStackTrace();
 		} finally {
 			try {
+				pool.dbClose(ps, conn);
+			} catch (Exception e2) {
 				
+			}
+		}
+		return -1;
+	}
+	// 검색 예외처리
+	public int overlap(String date) {
+		try {
+			String sql = "select * from summarydate where to_char(regdate, 'yyyymmdd') = "+ date;
+			conn = pool.getConnection();
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				return 1;
+			}
+		} catch (Exception e) {
+			
+		} finally {
+			try {
+				pool.dbClose(rs, ps, conn);
 			} catch (Exception e2) {
 				
 			}

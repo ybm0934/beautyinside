@@ -65,7 +65,7 @@
         <table>
             <thead>
                 <tr>
-                    <th style="width: 150px;">아이디(이름)</th>
+                    <th style="width: 150px;">아이디</th>
                     <th style="width: 500px;">채팅 내용</th>
                     <th style="width: 200px;">날짜</th>
                 </tr>
@@ -79,7 +79,7 @@
             			num--;
             			%>
             				<tr>
-			                    <td><%= dto.getId() %>(<%= dto.getName() %>)</td>
+			                    <td><%= dto.getId() %></td>
 			                    <td>
 			                    	<a href="#" onclick="chat('<%=dto.getId() %>', '<%=dto.getName() %>');">
 					                    <%= dto.getContent() %>

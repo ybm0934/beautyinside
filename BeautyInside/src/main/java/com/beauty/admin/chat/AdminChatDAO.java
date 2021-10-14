@@ -22,8 +22,7 @@ public class AdminChatDAO {
 		ArrayList<AdminChatDTO> arr = new ArrayList<AdminChatDTO>();
 		
 		try {
-			System.out.print("메소드실행");
-			String sql = "SELECT * FROM (SELECT id, name, content, regdate, RANK()OVER(PARTITION BY id ORDER BY to_char(regdate,'yyyy-mm-dd hh24:mi:ss')desc)AS rank FROM chat) WHERE RANK = 1 ORDER BY regdate desc";
+			String sql = "SELECT * FROM (SELECT id, name, content, regdate, RANK()OVER(PARTITION BY id ORDER BY to_char(regdate,'yyyy-mm-dd hh24:mi:ss:ff4')desc)AS rank FROM chat) WHERE RANK = 1 ORDER BY regdate desc";
 			conn = pool.getConnection();
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();

@@ -42,3 +42,10 @@ table tbody tr td {
 	display: flex;
 	justify-content: center;
 }
+.scroll_table {
+	display: block;
+	overflow: auto;
+	width: 600px;
+	height: 350px;
+	border-spacing: 0;
+}
