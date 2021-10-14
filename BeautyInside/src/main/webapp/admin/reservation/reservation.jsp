@@ -111,7 +111,6 @@
         </div>
     </form>
     <div>
-    	<form action="/admin/reservation/reservation_update.jsp">
         <table >
             <thead>
                     <tr>
@@ -125,6 +124,7 @@
                         <th>기능</th>
                     </tr>
             </thead>
+               		 <tbody style="border: 1px solid black;">
                 	<%
                 		// 목록 출력
                 		for (int i = 0; i < pageSize; i++) {
@@ -133,7 +133,7 @@
                 			AdminReservationDTO dto = arr.get(curPos++);
                 			num--;
                 			%>
-                		 <tbody style="border: 1px solid black;">
+    					<form action="/admin/reservation/reservation_update.jsp">
 	                	<tr>
 		                    <td rowspan="3"><input type="hidden" name="no" value="<%= dto.getNo() %>"><%= dto.getNo() %></td>
 		                    <th>예약자</th>
@@ -143,83 +143,83 @@
 		                    	<%
 		                    		if (dto.getService().equals("젤 매니큐어")) {
 		                    			%>
-		                    				<select name=service>
+		                    				<select name="service">
 		                    					<option value="젤 매니큐어" selected="selected" >젤 매니큐어</option>
 		                    					<option value="페디큐어">페디큐어</option>
-		                    					<option value="네일아트">네일아트</option>
+		                    					<option value="네일 아트">네일 아트</option>
 		                    					<option value="매니큐어 손질">매니큐어 손질</option>
 		                    					<option value="퓨어 클렌징">퓨어 클렌징</option>
 		                    					<option value="퓨어 마사지">퓨어 마사지</option>
-		                    					<option value="수분공급">수분공급</option>
+		                    					<option value="수분 공급">수분 공급</option>
 		                    				</select>
 		                    			<%
 		                    		} else if (dto.getService().equals("페디큐어")) {
 		                    			%>
-		                    				<select name=service>
+		                    				<select name="service">
 		                    					<option value="페디큐어" selected="selected" >페디큐어</option>
 		                    					<option value="젤 매니큐어">젤 매니큐어</option>
-		                    					<option value="네일아트">네일아트</option>
+		                    					<option value="네일 아트">네일 아트</option>
 		                    					<option value="매니큐어 손질">매니큐어 손질</option>
 		                    					<option value="퓨어 클렌징">퓨어 클렌징</option>
 		                    					<option value="퓨어 마사지">퓨어 마사지</option>
-		                    					<option value="수분공급">수분공급</option>
+		                    					<option value="수분 공급">수분 공급</option>
 		                    				</select>
 	                    				<%
-		                    		} else if (dto.getService().equals("네일아트")) {
+		                    		} else if (dto.getService().equals("네일 아트")) {
 		                    			%>
-		                    				<select name=service>
-		                    					<option value="네일아트" selected="selected" >네일아트</option>
+		                    				<select name="service">
+		                    					<option value="네일 아트" selected="selected" >네일 아트</option>
 		                    					<option value="젤 매니큐어">젤 매니큐어</option>
 		                    					<option value="페디큐어">페디큐어</option>
 		                    					<option value="매니큐어 손질">매니큐어 손질</option>
 		                    					<option value="퓨어 클렌징">퓨어 클렌징</option>
 		                    					<option value="퓨어 마사지">퓨어 마사지</option>
-		                    					<option value="수분공급">수분공급</option>
+		                    					<option value="수분 공급">수분 공급</option>
 		                    				</select>
                     					<%
 		                    		} else if (dto.getService().equals("매니큐어 손질")) {
 		                    			%>
-		                    				<select name=service>
+		                    				<select name="service">
 		                    					<option value="매니큐어 손질" selected="selected" >매니큐어 손질</option>
 		                    					<option value="젤 매니큐어">젤 매니큐어</option>
 		                    					<option value="페디큐어">페디큐어</option>
-		                    					<option value="네일아트">네일아트</option>
+		                    					<option value="네일 아트">네일 아트</option>
 		                    					<option value="퓨어 클렌징">퓨어 클렌징</option>
 		                    					<option value="퓨어 마사지">퓨어 마사지</option>
-		                    					<option value="수분공급">수분공급</option>
+		                    					<option value="수분 공급">수분 공급</option>
 		                    				</select>
                 						<%
 		                    		} else if (dto.getService().equals("퓨어 클렌징")) {
 		                    			%>
-		                    				<select name=service>
+		                    				<select name="service">
 		                    					<option value="퓨어 클렌징" selected="selected" >퓨어 클렌징</option>
 		                    					<option value="젤 매니큐어">젤 매니큐어</option>
 		                    					<option value="페디큐어">페디큐어</option>
-		                    					<option value="네일아트">네일아트</option>
+		                    					<option value="네일 아트">네일 아트</option>
 		                    					<option value="매니큐어 손질">매니큐어 손질</option>
 		                    					<option value="퓨어 마사지">퓨어 마사지</option>
-		                    					<option value="수분공급">수분공급</option>
+		                    					<option value="수분 공급">수분 공급</option>
 		                    				</select>
             							<%
 		                    		} else if (dto.getService().equals("퓨어 마사지")) {
 		                    			%>
-		                    				<select name=service>
+		                    				<select name="service">
 		                    					<option value="퓨어 마사지" selected="selected" >퓨어 마사지</option>
 		                    					<option value="젤 매니큐어">젤 매니큐어</option>
 		                    					<option value="페디큐어">페디큐어</option>
-		                    					<option value="네일아트">네일아트</option>
+		                    					<option value="네일 아트">네일 아트</option>
 		                    					<option value="매니큐어 손질">매니큐어 손질</option>
 		                    					<option value="퓨어 클렌징">퓨어 클렌징</option>
-		                    					<option value="수분공급">수분공급</option>
+		                    					<option value="수분 공급">수분 공급</option>
 		                    				</select>
         								<%
-		                    		} else if (dto.getService().equals("수분공급")) {
+		                    		} else if (dto.getService().equals("수분 공급")) {
 		                    			%>
-		                    				<select name=service>
-		                    					<option value="수분공급" selected="selected" >수분공급</option>
+		                    				<select name="service">
+		                    					<option value="수분 공급" selected="selected" >수분 공급</option>
 		                    					<option value="젤 매니큐어">젤 매니큐어</option>
 		                    					<option value="페디큐어">페디큐어</option>
-		                    					<option value="네일아트">네일아트</option>
+		                    					<option value="네일 아트">네일 아트</option>
 		                    					<option value="매니큐어 손질">매니큐어 손질</option>
 		                    					<option value="퓨어 클렌징">퓨어 클렌징</option>
 		                    					<option value="퓨어 마사지">퓨어 마사지</option>
@@ -230,40 +230,28 @@
 		                    </td>
 		                    <td rowspan="3">
 		                    	<%
-		                    		if (dto.getStatus().equals("예약대기")) {
+		                    		if (dto.getStatus().equals("예약 대기")) {
 		                    			%>
-		                    				<select name=status>
-		                    					<option value="예약대기" selected="selected">예약대기</option>
-		                    					<option value="예약 중">예약 중</option>
-		                    					<option value="예약완료">예약완료</option>
-		                    					<option value="예약취소">예약취소</option>
+		                    				<select name="status">
+		                    					<option value="예약 대기" selected="selected">예약 대기</option>
+		                    					<option value="예약 완료">예약 완료</option>
+		                    					<option value="예약 취소">예약 취소</option>
 		                    				</select>
 		                    			<%
-		                    		} else if (dto.getStatus().equals("예약 중")) {
+		                    		} else if (dto.getStatus().equals("예약 완료")) {
 		                    			%>
-		                    				<select name=status>
-		                    					<option value="예약 중" selected="selected">예약 중</option>
-		                    					<option value="예약대기">예약대기</option>
-		                    					<option value="예약완료">예약완료</option>
-		                    					<option value="예약취소">예약취소</option>
-		                    				</select>
-	                    				<%
-		                    		} else if (dto.getStatus().equals("예약완료")) {
-		                    			%>
-		                    				<select name=status>
-		                    					<option value="예약완료" selected="selected">예약완료</option>
-		                    					<option value="예약대기">예약대기</option>
-		                    					<option value="예약 중">예약 중</option>
-		                    					<option value="예약취소">예약취소</option>
+		                    				<select name="status">
+		                    					<option value="예약 완료" selected="selected">예약 완료</option>
+		                    					<option value="예약 대기">예약 대기</option>
+		                    					<option value="예약 취소">예약 취소</option>
 		                    				</select>
                     					<%
-		                    		} else if (dto.getStatus().equals("예약취소")) {
+		                    		} else if (dto.getStatus().equals("예약 취소")) {
 		                    			%>
-				                    		<select name=status>
-		                    					<option value="예약취소" selected="selected">예약취소</option>
-		                    					<option value="예약대기">예약대기</option>
-		                    					<option value="예약 중">예약 중</option>
-		                    					<option value="예약완료">예약완료</option>
+				                    		<select name="status">
+		                    					<option value="예약 취소" selected="selected">예약 취소</option>
+		                    					<option value="예약 대기">예약 대기</option>
+		                    					<option value="예약 완료">예약 완료</option>
 		                    				</select>
 		                    			<%
 		                    		}
@@ -283,7 +271,7 @@
 		                   <th>전화번호</th>
 		                   <td colspan="1" style="text-align: left; padding-left: 3%;"><input type="text" name="tel" value="<%= dto.getTel() %>" style="width: 50%; text-align: center; border: none; color: #f55354; font-size: 15px"></td>
 		               </tr>
-		               </tbody>
+       				 </form>
                	 <%
                   	}
                 	if (totalPage == 0) {
@@ -299,7 +287,6 @@
               	%>
             </tbody>
         </table>
-        </form>
     </div>
 	 <div class="page_btn">
             	<% 

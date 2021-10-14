@@ -18,10 +18,10 @@ public class AdminTotalDAO {
 	// 서비스 통계 (수분공급)
 	public ArrayList<String> serviceList(String year) {
 		try {
-			String sql = "select count(decode(service,'수분공급',1)),"
+			String sql = "select count(decode(service,'수분 공급',1)),"
 						+ "count(decode(service,'젤 매니큐어',1)),"
 						+ "count(decode(service,'페디큐어',1)),"
-						+ "count(decode(service,'네일아트',1)),"
+						+ "count(decode(service,'네일 아트',1)),"
 						+ "count(decode(service,'매니큐어 손질',1)),"
 						+ "count(decode(service,'퓨어 클렌징',1)),"
 						+ "count(decode(service,'퓨어 마사지',1))"

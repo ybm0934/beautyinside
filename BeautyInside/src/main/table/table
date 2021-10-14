@@ -135,7 +135,7 @@ CREATE TABLE reserve
     resDate    VARCHAR2 (30) NOT NULL,
     resWords   CLOB NULL,
     regdate    DATE DEFAULT SYSDATE,
-    status     VARCHAR2 (20) DEFAULT '대기'
+    status     VARCHAR2 (20) DEFAULT '예약 대기'
 );
 
 

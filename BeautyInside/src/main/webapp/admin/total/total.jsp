@@ -86,7 +86,7 @@
                 <tr>
                     <th style="width: 33%">젤 매니큐어</th>
                     <th style="border-left: 1px solid black; border-right: 1px solid black;">페디큐어</th>
-                    <th>네일아트</th>
+                    <th>네일 아트</th>
                 </tr>
                 <tr style="border-bottom: 0.5px solid gray;">
                     <td><%= arr.get(1) %>회</td>
@@ -104,7 +104,7 @@
                     <td><%= arr.get(6) %>회</td>
                 </tr>
                 <tr>
-                    <th colspan="3">수분공급<th>
+                    <th colspan="3">수분 공급<th>
                 </tr>
                 <tr>
                     <td colspan="3"><%= arr.get(0) %>회</td>
