@@ -47,15 +47,15 @@
 	String admin = (String) session.getAttribute("name");
 %>
 <script>
-	function chat(id, name) {
+	function chat(id) {
 	    // 채팅창 가운데 띄우기
-	    var _width = 452;
-	    var _height = 670;
+	    var _width = 440;
+	    var _height = 650;
 	    var _top = (window.screen.height / 2) - (_height / 2);
 	    var _left = (window.screen.width / 2) - (_width / 2);
 	    
-	    window.open('/chat/chat.jsp?id=' + id + '&name=' + name + '&admin=<%=admin %>', 'width = ' + _width + ', height = ' + _height + ', top = ' + _top + ', left = ' + _left);
-	 }
+	    window.open('/chat/chat.jsp?id=' + id + '&name=<%=admin %>', 'width = ' + _width + ', height = ' + _height + ', top = ' + _top + ', left = ' + _left);
+	}
 </script>
 </head>
 <body>
