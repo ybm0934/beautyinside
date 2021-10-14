@@ -47,14 +47,14 @@
 	String admin = (String) session.getAttribute("name");
 %>
 <script>
-	function chat(id) {
+	function chat(id, name) {
 	    // 채팅창 가운데 띄우기
 	    var _width = 440;
 	    var _height = 650;
 	    var _top = (window.screen.height / 2) - (_height / 2);
 	    var _left = (window.screen.width / 2) - (_width / 2);
 	    
-	    window.open('/chat/chat.jsp?id=' + id + '&name=<%=admin %>', 'chat', 'width = ' + _width + ', height = ' + _height + ', top = ' + _top + ', left = ' + _left);
+	    window.open('/chat/chat.jsp?id=' + id + '&name=' + name + '&admin=<%=admin %>', 'chat', 'width = ' + _width + ', height = ' + _height + ', top = ' + _top + ', left = ' + _left);
 	}
 </script>
 </head>
@@ -65,7 +65,7 @@
         <table>
             <thead>
                 <tr>
-                    <th style="width: 150px;">아이디</th>
+                    <th style="width: 150px;">아이디(이름)</th>
                     <th style="width: 500px;">채팅 내용</th>
                     <th style="width: 200px;">날짜</th>
                 </tr>
@@ -77,11 +77,13 @@
             			if (num < 1) break;
             			AdminChatDTO dto = arr.get(curPos++);
             			num--;
+            			
+            			String userName = dao.selectName(dto.getId());
             			%>
             				<tr>
-			                    <td><%= dto.getId() %></td>
+			                    <td><%= dto.getId() %>(<%=userName %>)</td>
 			                    <td>
-			                    	<a href="#" onclick="chat('<%=dto.getId() %>', '<%=dto.getName() %>');">
+			                    	<a href="#" onclick="chat('<%=dto.getId() %>', '<%=userName %>');">
 					                    <%= dto.getContent() %>
 			                    	</a>
 			                    </td>

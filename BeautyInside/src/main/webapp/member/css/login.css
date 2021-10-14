@@ -2,6 +2,8 @@
 
 /* 로그인 영역 CSS */
 
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
+
 #wrap  {
 	-webkit-touch-callout: none;
 	user-select: none;
@@ -30,16 +32,18 @@
 /* block1 영역 */
 
 .block1 {
-    background-image: url('../../img/background-ga41219cb7_1920.jpg');
+    /* background-image: url('../../img/wall-612926_1920.jpg'); */
+    background-image: url('../../img/17336663_MotionElements_blue-galaxy-particle_converted_420494-640x360-3s-q1.gif');
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: white;
+    /* background-attachment: fixed; */
     opacity: 0.9;
+    color: black;
+    font-family: 'Balsamiq Sans', cursive;
 }
 
 .block1_title {
-    margin-bottom: 120px;
+    margin-bottom: 150px;
 }
 
 .block1_title span {}

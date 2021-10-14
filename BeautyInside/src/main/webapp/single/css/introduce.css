@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+/* 소개 페이지 CSS */
+
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+
+#introduce {
+    margin: 0 auto;
+    display: flex;
+
+    width: 60%;
+    min-height: 800px;
+    padding-top: 200px;
+}
+
+#titleDiv {
+    position: absolute;
+    left: 40%;
+    z-index: 1;
+}
+
+#titleDiv h1 {
+    color: crimson;
+    font-size: 5em;
+    font-family: 'Crimson Text', serif;
+}
+
+#block1 {
+    width: 100%;
+    background-image: url(/img/20211014_004521721_06.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    min-height: 800px;
+}
+
+#block2 {
+    width: 100%;
+}
+
+#contentDiv {
+    padding: 185px 50px 70px 50px;
+    line-height: 40px;
+}
+
+#contentDiv p {
+    color: #333333;
+}

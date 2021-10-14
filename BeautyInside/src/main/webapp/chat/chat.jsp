@@ -6,7 +6,8 @@
 	request.setCharacterEncoding("UTF-8");
 	String id = request.getParameter("id");
 	String name = request.getParameter("name");
-	String select = (name.equals("관리자")) ? name : "관리자";
+	String admin = request.getParameter("admin");
+	String select = (admin != null) ? name : "관리자" ;
 	
 	long today = System.currentTimeMillis();
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.");
@@ -80,7 +81,7 @@
        			}
        		});
     		
-    		function chatSend() {
+    		function chatSend(){
     			$.ajax({
     				url : '<%=request.getContextPath() %>/chat/chatSend_ok.jsp',
     				type : 'POST',

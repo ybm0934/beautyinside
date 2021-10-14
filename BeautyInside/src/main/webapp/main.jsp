@@ -55,7 +55,7 @@
         <span id="main_title_2">마법같은 메이크업!</span>
     </div>
     <div class="main_div_class" id="blank"></div>
-    <div class="main_div_class" id="about"></div>
+    <%@ include file="/single/introduce.jsp" %>
     <%@ include file="/single/service.jsp" %>
     <div id="portfolio">
         <table id="portfolio_table">

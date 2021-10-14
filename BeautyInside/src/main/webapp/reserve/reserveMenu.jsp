@@ -12,6 +12,7 @@
 	}
 </script>
 <div id="wrap">
+<div id="reserveMenu">
     <form name="reserveMenu" method="post" action="/reserve/reserve.jsp">
         <input type="hidden" name="service" id="service">
         <input type="hidden" name="price" id="price">
@@ -146,5 +147,6 @@
             </td>
         </tr>
     </table>
+</div>
 </div>
 <%@ include file="/bottom.jsp" %>

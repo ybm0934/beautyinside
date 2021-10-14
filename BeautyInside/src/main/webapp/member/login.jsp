@@ -74,8 +74,7 @@
 	        </div>
 	        <div class="block1_div3">
 	            <p>
-	                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-	                The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.
+	                I sincerely welcome you to Beauty Inside. I sincerely welcome you to A. We hope you will receive high quality here.
 	            </p>
 	        </div>
 	    </div>
@@ -85,7 +84,7 @@
 	                <h1>Login Account</h1>
 	            </div>
 	            <div class="block2_subtitle">
-	                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+	                <p>Log in and you can use a variety of services. If you're not a member, join!</p>
 	            </div>
 	            <div class="text_div">
 	                <input type="text" name="id" id="id" class="textbox" placeholder="ID" spellcheck="false" maxlength="20" required="required" value="<%=ckValue %>">

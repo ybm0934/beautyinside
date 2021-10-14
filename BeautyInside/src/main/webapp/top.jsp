@@ -123,12 +123,12 @@
         </li>
         <li>
             <span class="ul_spn">
-                <a href="<%=request.getContextPath() %>/review/reviewList.jsp">후기</a>
+                <a href="#contact" id="contact_a">문의</a>
             </span>
         </li>
         <li>
             <span class="ul_spn">
-                <a href="#contact" id="contact_a">문의</a>
+                <a href="<%=request.getContextPath() %>/review/reviewList.jsp">후기</a>
             </span>
         </li>
         <li>
