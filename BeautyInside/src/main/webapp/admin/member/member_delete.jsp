@@ -15,7 +15,7 @@
 	}
 	if (!(cb == null)){
 		for (int i = 0; i < cb.length; i++) {
-			int no = Integer.parseInt(cb[i]);
+			String no = (cb[i]);
 			dao.memberDelete(no);
 		}
 		%>

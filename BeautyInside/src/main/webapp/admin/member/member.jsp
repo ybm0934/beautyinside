@@ -112,7 +112,7 @@
                            		        	num--;
 	                            			%>
 	                            			<tr>
-	                            				<td><input type="checkbox" name="check" value="<%= dto.getNo() %>"></td>
+	                            				<td><input type="checkbox" name="check" value="<%= dto.getId() %>"></td>
 			                                    <td class="content"><%= dto.getNo() %></td>
 			                                    <td class="content"><%= dto.getId() %></td>
 			                                    <td class="content"><%= dto.getName() %></td>

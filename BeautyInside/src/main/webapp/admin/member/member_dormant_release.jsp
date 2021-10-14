@@ -14,7 +14,7 @@
 		<%
 	} else {
 		for (int i = 0; i < cb.length; i++) {
-			int no = Integer.parseInt(cb[i]);
+			String no = cb[i];
 			dao.memberDormantRelease(no);
 		}
 		%>

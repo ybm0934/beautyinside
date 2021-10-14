@@ -23,16 +23,7 @@
 	<section>
 		<article>
 		<h1 class="a">리뷰관리</h1>
-	    <div class="back_btn">
-	    	<span id=left_img>
-	    		<img src="/admin/img/icon_left.png">
-	    	</span>
-	    	<div style="float: right;">
-	    	<span id=right_img>
-	    		<img src="/admin/img/icon_right.png">
-	    	</span>		
-	    	</div>
-	    </div>
+
         <table class="review_table">
             <tbody>
             	<%

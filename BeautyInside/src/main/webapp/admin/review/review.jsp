@@ -110,7 +110,7 @@
 			                                    <td class="content"><%= dto.getNo() %></td>
 			                                    <td class="content"><%= dto.getId() %></td>
 			                                    <td class="content"><%= dto.getName() %></td>
-			                                    <td class="content"><a href="/admin/review/review_content.jsp?no=<%= dto.getNo() %>"><%= dto.getTitle() %></a></td>
+			                                    <td class="content"><a href="/admin/review/review_content.jsp?no=<%= dto.getNo() %>" style="color: blue"><%= dto.getTitle() %></a></td>
 			                                    <td class="content"><%= dto.getCount() %></td>
 			                                    <td class="content"><%= dto.getRegdate() %></td>
 			                                    <td class="content"><%= dto.getFilename() %></td>

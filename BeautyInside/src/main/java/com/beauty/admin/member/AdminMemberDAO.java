@@ -74,7 +74,7 @@ public class AdminMemberDAO {
 
 		String cd[] = dto.getCd();
 
-		String sql = "select * from member where NO IN ( ?";
+		String sql = "select * from member where id IN ( ?";
 
 		for (int i = 1; i < cd.length; i++) {
 			sql += " , ?";
@@ -86,7 +86,7 @@ public class AdminMemberDAO {
 			ps = conn.prepareStatement(sql);
 
 			for (int i = 0; i < cd.length; i++) {
-				ps.setInt(i + 1, Integer.parseInt(cd[i]));
+				ps.setString(i + 1, cd[i]);
 			}
 
 			rs = ps.executeQuery();
@@ -157,19 +157,41 @@ public class AdminMemberDAO {
 	}
 
 	// 회원 삭제 메소드
-	public int memberDelete(int no) {
-		String sql = "delete from member where no = ?";
+	public int memberDelete(String no) {
 		try {
 			conn = pool.getConnection();
+			int count = 0;
+			String sql = "select * from chat where id = ?";
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, no);
-			int count = ps.executeUpdate();
+			ps.setString(1, no);
+			rs = ps.executeQuery();
+			
+			if (rs.next()) {
+				System.out.println(2);
+				sql = "delete from chat where id = ?";
+				ps = conn.prepareStatement(sql);
+				ps.setString(1, no);
+				count = ps.executeUpdate();
+				if (rs.next()) {
+					sql = "delete from member where id = ?";
+					ps = conn.prepareStatement(sql);
+					ps.setString(1, no);
+					count = ps.executeUpdate();
+				}
+			}
+			if (!(rs.next())) {
+				System.out.println(3);
+				sql = "delete from member where id = ?";
+				ps = conn.prepareStatement(sql);
+				ps.setString(1, no);
+				count = ps.executeUpdate();
+			}
 			return count;
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
-				pool.dbClose(ps, conn);
+				pool.dbClose(rs ,ps, conn);
 			} catch (Exception e2) {
 
 			}
@@ -178,12 +200,12 @@ public class AdminMemberDAO {
 	}
 
 	// 회원 휴면등록 메소드
-	public int memberDormantUpdate(int no) {
-		String sql = "update member set dormant = 'Y' where no = ?";
+	public int memberDormantUpdate(String no) {
+		String sql = "update member set dormant = 'Y' where id = ?";
 		try {
 			conn = pool.getConnection();
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, no);
+			ps.setString(1, no);
 			int count = ps.executeUpdate();
 			return count;
 		} catch (Exception e) {
@@ -194,17 +216,17 @@ public class AdminMemberDAO {
 			} catch (Exception e2) {
 
 			}
-		}
+		}                     
 		return -1; // 오류
 	}
 
 	// 회원 휴면해제 메소드
-	public int memberDormantRelease(int no) {
-		String sql = "update member set dormant = 'N' where no = ?";
+	public int memberDormantRelease(String no) {
+		String sql = "update member set dormant = 'N' where id = ?";
 		try {
 			conn = pool.getConnection();
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, no);
+			ps.setString(1, no);
 			int count = ps.executeUpdate();
 			return count;
 		} catch (Exception e) {
@@ -247,7 +269,7 @@ public class AdminMemberDAO {
 		try {
 			conn = pool.getConnection();
 
-			String sql = "select * from member where no in(" + cks[0];
+			String sql = "select * from member where id in(" + cks[0];
 
 			if (cks != null) {
 				for (int i = 1; i < cks.length; i++) {
