@@ -6,9 +6,7 @@
 	request.setCharacterEncoding("UTF-8");
 	String id = request.getParameter("id");
 	String name = request.getParameter("name");
-	String admin = request.getParameter("admin");
-	String select = (admin == null) ? "관리자" : name;
-	System.out.println("###########name : " + name);
+	String select = (name.equals("관리자")) ? name : "관리자";
 	
 	long today = System.currentTimeMillis();
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.");
@@ -29,8 +27,7 @@
 					datatype : 'JSON',
 					data : {
 						id : '<%=id %>',
-						name : '<%=name %>',
-						admin: '<%=admin %>'
+						name : '<%=name %>'
 					},
 					success : function(data) {
 						$('#listDiv').html(data);
@@ -46,7 +43,7 @@
 		setInterval(function() {
 			chatList();
 		}, 1000);
-	
+		
     	$(document).ready(function(){
     		$('#writeArea').focus();
     		
@@ -91,14 +88,13 @@
     				data : {
     					id : '<%=id %>',
     					name : '<%=name %>',
-    					admin : '<%=admin %>',
     					content : $('#writeArea').val()
     				},
     				success : function(data) {
     					$('#writeArea').val('');
     					$('#writeArea').focus();
     					chatList();
-    					$("#listDiv").scrollTop($("#listDiv")[0].scrollHeight); // 스크롤 맨 아래로
+    					$("#listDiv").scrollTop($("#listDiv")[0].scrollHeight);
     				},
     				error : function() {
     					alert('채팅 전송 실패!');

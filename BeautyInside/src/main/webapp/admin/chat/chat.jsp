@@ -54,7 +54,7 @@
 	    var _top = (window.screen.height / 2) - (_height / 2);
 	    var _left = (window.screen.width / 2) - (_width / 2);
 	    
-	    window.open('/chat/chat.jsp?id=' + id + '&name=<%=admin %>', 'width = ' + _width + ', height = ' + _height + ', top = ' + _top + ', left = ' + _left);
+	    window.open('/chat/chat.jsp?id=' + id + '&name=<%=admin %>', 'chat', 'width = ' + _width + ', height = ' + _height + ', top = ' + _top + ', left = ' + _left);
 	}
 </script>
 </head>

@@ -154,8 +154,8 @@
 <script>
 	function chat() {
 		// 채팅창 가운데 띄우기
-		var _width = 452;
-		var _height = 670;
+		var _width = 440;
+		var _height = 650;
 		var _top = (window.screen.height / 2) - (_height / 2);
 		var _left = (window.screen.width / 2) - (_width / 2);
 		

@@ -151,11 +151,20 @@ NOCYCLE;
 DROP TABLE chat;
 CREATE TABLE chat
 (
-    id         VARCHAR2 (20) NOT NULL,
-    name       VARCHAR2 (20) NOT NULL,
-    content    CLOB NOT NULL,
-    regdate    DATE DEFAULT SYSDATE
+    ID         VARCHAR2 (20) NOT NULL,
+    NAME       VARCHAR2 (20) NOT NULL,
+    CONTENT    CLOB NOT NULL,
+    regdate    TIMESTAMP DEFAULT SYSTIMESTAMP
 );
+
+
+--채팅 시퀀스
+DROP SEQUENCE chat_seq;
+CREATE SEQUENCE chat_seq
+START WITH 1
+INCREMENT BY 1
+NOMAXVALUE
+NOCYCLE;
 
 
 --일자별 요약 검색 테이블

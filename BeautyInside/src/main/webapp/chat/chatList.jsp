@@ -10,8 +10,6 @@
 		request.setCharacterEncoding("UTF-8");
 		String id = request.getParameter("id");
 		String name = request.getParameter("name");
-		String admin = request.getParameter("admin");
-		String select = (admin == null) ? name : admin;
 		
 		SimpleDateFormat ndf = new SimpleDateFormat("a hh:mm");
 		SimpleDateFormat odf = new SimpleDateFormat("yyyy.MM.dd a hh:mm");
@@ -29,12 +27,12 @@
 				ChatDTO chatDto = list.get(i);
 				String str = chatDto.getContent().replace("\n", "<br>");
 				
-				if(!chatDto.getName().equals(select)) {
+				if(!chatDto.getName().equals(name)) {
 %>
 <table class="chatPack">
     <tr>
         <th class="imgBox" rowspan="2">
-            <img src="/img/ico/girl.png">
+            <img src="/img/ico/free-icon-user-5807924.png">
         </th>
         <td class="nameTd">
             <span><%=chatDto.getName() %></span>
@@ -50,7 +48,7 @@
     </tr>
 </table>
 <%
-				}else if(chatDto.getName().equals(select)) {
+				}else if(chatDto.getName().equals(name)) {
 %>
 <table class="chatPack">
     <tr>
@@ -61,7 +59,7 @@
             <span><%=chatDto.getName() %></span>
         </td>
         <th class="imgBox2" rowspan="2">
-            <img src="/img/ico/boy.png">
+            <img src="/img/ico/free-icon-user-5807672.png">
         </th>
     </tr>
     <tr>
