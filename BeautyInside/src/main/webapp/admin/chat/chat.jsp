@@ -15,8 +15,19 @@
 <%@ page import="com.beauty.admin.chat.AdminChatDTO" %>
 <jsp:useBean id = "dao" class="com.beauty.admin.chat.AdminChatDAO"/>
 <%
-	ArrayList<AdminChatDTO> arr = dao.chatList();
 
+	String search_title = request.getParameter("search_title");
+	String search_text = request.getParameter("search_text");
+	
+	if (search_title == null) {
+		search_title = "";
+	}
+	if (search_text == null) {
+		search_text = "";
+	}
+	
+	ArrayList<AdminChatDTO> arr = dao.chatList(search_title, search_text);
+	
 	//페이징 변수
 	int currentPage = 1; // 현재 페이지
 	if(request.getParameter("currentPage") != null){
@@ -61,11 +72,14 @@
 <body>
 <%@ include file="../index/header.jsp" %>
 	<h1 class="a">채팅관리</h1>
+	<div style="text-align: center;">
+        <span style="font-size: 14px">[총 채팅수: <%= totalRecord %>]</span>
+    </div>
     <div>
         <table>
             <thead>
                 <tr>
-                    <th style="width: 150px;">아이디(이름)</th>
+                    <th style="width: 200px;">아이디(이름)</th>
                     <th style="width: 500px;">채팅 내용</th>
                     <th style="width: 200px;">날짜</th>
                 </tr>
@@ -94,10 +108,10 @@
 	        		if (totalPage == 0) {
 	        			%>	                      
 	        				<tr id="tr_null">
-	        					<td colspan="5" align="center" style="padding-top: 150px;"><img src="/admin/img/icon_magnifier_black.png"></td>
+	        					<td colspan="5" align="center" style="padding-top: 200px; border: none;"><img src="/admin/img/icon_magnifier_black.png"></td>
 	        				</tr>
 	        				 <tr id="tr_null">	                            
-	        					<td colspan="5" align="center" id="td_null" style="padding-top: 30px;">채팅이 없습니다!</td>
+	        					<td colspan="5" align="center" id="td_null" style="padding-top: 30px; padding-bottom: 100px; border: none;">채팅이 없습니다!</td>
 	        				</tr>
 	        			<%
 	        		}
@@ -136,6 +150,31 @@
             	%>
             </div>
     </div>
+    <form name="search" action="/admin/chat/chat.jsp">
+            <div class="select_search">
+            	<select name="search_title" id=sear>
+            		<option value="" selected="selected" hidden="hidden">검색조건</option>
+            		<option value="id">아이디</option>
+            		<option value="name">이름</option>
+    			        <option value="content">내용</option>
+            	</select>
+            	<script type="text/javascript">
+            		let flag = '<%= search_title %>';
+            		$('#sear').val(flag);
+            	</script>
+            	<input type="text" name="search_text" class="text_search" value=<%= search_text %>>
+				<script>
+					$(document).ready(function () {
+						$('#search_btn').click(function () {
+							$('form[name=search]').submit();
+						});
+					});
+				</script>
+				<span id="search_btn" style="margin-left: 10px">
+					<img src="/admin/img/icon_magnifier_black.png">
+				</span>
+           	</div>
+       </form>
 <%@ include file="../index/footer.jsp" %>
 </body>
 </html>

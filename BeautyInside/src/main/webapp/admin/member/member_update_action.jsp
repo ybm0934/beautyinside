@@ -33,13 +33,10 @@
 	int result[] = new int [10];
 	for (int i = 0; i < no.length; i++) {
 		int num = dao.memberUpdate(no[i], name[i], birth[i], tel[i], gender[i], email[i], zipcode[i], address1[i], address2[i], regdate[i], dormant[i]);
-		System.out.println("num  = " + num);
+		System.out.print("num  = " + num);
 			result[i] = num; 
-	}
-	for (int i = 0; i < result.length; i++) {
-		System.out.println("result  = " + result[i]);
-		if (result[i] == 0) {
-			msg2 = "입력 안된 곳이 있습니다!";
+		if (num == 0) {
+			msg2 = "입력이 안된 곳이 있습니다!";
 		} else {
 			msg = "회원 수정 완료!";
 		}
@@ -48,12 +45,15 @@
 		%>
 			<script>
 			alert('<%= msg2 %>');
-			location.href='../member/member.jsp';
+			history.back();
+			</script>
+		<%
+	} else {
+		%>
+			<script>
+				alert('<%= msg %>');
+				location.href='../member/member.jsp';
 			</script>
 		<%
 	}
 %>
-<script>
-	alert('<%= msg %>');
-	location.href='../member/member.jsp';
-</script>

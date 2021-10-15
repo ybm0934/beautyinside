@@ -19,7 +19,7 @@ table {
     width: 100%;
     border-collapse: collapse;
 	border-spacing: 0;
-    margin: 10px;
+    margin-top: 20px;
     border-bottom: 1px solid black;
     border-top: 1px solid black;
 }
@@ -43,7 +43,7 @@ table tbody tr th {
 	border-bottom: none;
 }
 #tr_null td {
-	padding-right: 365px;
+	padding-right: 30px;
 }
 .page_btn {
 	text-align: center;
@@ -66,4 +66,13 @@ table tbody tr th {
 	background-color: rgb(192, 192, 192);
 	color: white;
 	border-radius: 100px;
+}
+.select_search {
+   	display: flex;
+	justify-content: center;
+}
+.select_search select{
+	margin-right: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
