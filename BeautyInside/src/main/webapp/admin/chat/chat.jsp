@@ -101,7 +101,7 @@
 					                    <%= dto.getContent() %>
 			                    	</a>
 			                    </td>
-			                    <td><%= dto.getRegdate() %></td>
+			                    <td><%= dto.getRegdate().substring(0, 19) %></td>
 			                </tr>
             			<%
             		}
