@@ -137,6 +137,16 @@
 			                </tr>
             			<%
             		}
+            		if (list.size() == 0) {
+            			%>
+            				<tr id=tr_null>
+            					<td colspan="5" align="center" style="padding-top: 150px; border: none;"><img src="/admin/img/icon_magnifier_black.png"></td>
+            				</tr>
+            				<tr id=tr_null>
+            					<td colspan="5" align="center" id="td_null" style="padding-bottom: 50px; padding-top:10px; border: none;">날짜를 검색해주세요!</td>
+            				</tr>
+            			<%
+            		}
             	%>
             </tbody>
         </table>

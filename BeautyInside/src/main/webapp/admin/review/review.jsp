@@ -67,7 +67,7 @@
         	<div style="text-align: center;">
         		<span style="font-size: 14px">[총 리뷰수: <%= reviewCount %>]</span>
         	</div>
-        	<form name="review_fm" method="get">
+        	<form name="review_fm" method="post">
           	<table class="back_table">
                 <tr>
                     <td>

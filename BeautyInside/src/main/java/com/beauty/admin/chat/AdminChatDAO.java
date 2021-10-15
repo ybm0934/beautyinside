@@ -18,7 +18,7 @@ public class AdminChatDAO {
 	public AdminChatDAO() {
 		pool = new ConnectionPoolMgr();
 	}
-
+	// 채팅 목록 출력 메소드
 	public ArrayList<AdminChatDTO> chatList(String title, String text) {
 
 		ArrayList<AdminChatDTO> arr = new ArrayList<AdminChatDTO>();
@@ -55,7 +55,7 @@ public class AdminChatDAO {
 		}
 		return null;
 	}
-
+	// 사용자 이름 찾기
 	public String selectName(String id) throws SQLException {
 		String userName = "";
 		try {
@@ -80,5 +80,25 @@ public class AdminChatDAO {
 		}
 
 		return userName;
+	}
+	// 채팅 삭제 메소드
+	public int chatDelete(String id) {
+		try {
+			String sql = "delete from chat where id = ?";
+			conn = pool.getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, id);
+			int count = ps.executeUpdate();
+			return count;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				pool.dbClose(ps, conn);
+			} catch (Exception e2) {
+				
+			}
+		}
+		return -1; // 오류
 	}
 }

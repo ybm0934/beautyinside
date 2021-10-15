@@ -49,3 +49,6 @@ table tbody tr td {
 	height: 350px;
 	border-spacing: 0;
 }
+#tr_null td {
+	padding-left: 210px;
+}
