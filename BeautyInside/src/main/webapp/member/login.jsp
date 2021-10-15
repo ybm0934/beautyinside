@@ -84,7 +84,7 @@
 	                <h1>Login Account</h1>
 	            </div>
 	            <div class="block2_subtitle">
-	                <p>Log in and you can use a variety of services. If you're not a member, join!</p>
+	                <p>Log in and you can use a variety of services. If you're not a member, join! We will provide you with the best service.</p>
 	            </div>
 	            <div class="text_div">
 	                <input type="text" name="id" id="id" class="textbox" placeholder="ID" spellcheck="false" maxlength="20" required="required" value="<%=ckValue %>">

@@ -6,8 +6,6 @@
 	request.setCharacterEncoding("UTF-8");
 	String id = request.getParameter("id");
 	String name = request.getParameter("name");
-	String admin = request.getParameter("admin");
-	String select = (admin != null) ? name : "관리자" ;
 	
 	long today = System.currentTimeMillis();
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.");
@@ -32,6 +30,7 @@
 					},
 					success : function(data) {
 						$('#listDiv').html(data);
+						$("#listDiv").scrollTop($("#listDiv")[0].scrollHeight); // // 스크롤 맨 아래로 (수정 요망)
 					},
 					error : function() {
 						alert('채팅 리스트 불러오기 실패!');
@@ -41,6 +40,7 @@
 			});
 		} // chatList
 		
+		chatList();
 		setInterval(function() {
 			chatList();
 		}, 1000);
@@ -64,7 +64,6 @@
     		
     		// 전송 버튼 클릭 시 데이터 전송
     		$('#sendBtn').click(function(){
-   				$('#writeArea').val($.trim($('#writeArea').val()));
     			chatSend();
     		});
     		
@@ -95,7 +94,6 @@
     					$('#writeArea').val('');
     					$('#writeArea').focus();
     					chatList();
-    					$("#listDiv").scrollTop($("#listDiv")[0].scrollHeight);
     				},
     				error : function() {
     					alert('채팅 전송 실패!');
@@ -109,7 +107,7 @@
 <body>
 <div id="wrap">
     <div class="topDiv">
-        <span class="targetSpn"><%=select %>님과의 대화</span>
+        <span class="targetSpn"><%=name %>님과의 대화</span>
     </div>
     <div class="topDiv">
         <span class="todaySpn"><%=sdf.format(today) %></span>

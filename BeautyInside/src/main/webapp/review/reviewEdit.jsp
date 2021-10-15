@@ -43,6 +43,7 @@
         <form name="edit" method="post" action="<%=request.getContextPath() %>/review/reviewEdit_ok.jsp" enctype="multipart/form-data">
 	        <input type="hidden" name="no" value="<%=no %>">
 	        <input type="hidden" name="oldFile" value="<%=reviewDto.getFileName() %>">
+	        <input type="hidden" name="oldOrgFile" value="<%=reviewDto.getOrgfileName() %>">
 	        <input type="hidden" name="fileSize" value="<%=reviewDto.getFileSize() %>">
             <table id="write_table">
                 <caption>리뷰 수정하기 테이블</caption>

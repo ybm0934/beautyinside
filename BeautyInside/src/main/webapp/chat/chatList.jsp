@@ -32,7 +32,11 @@
 <table class="chatPack">
     <tr>
         <th class="imgBox" rowspan="2">
+       	<%if(chatDto.getName().equals("관리자")){ %>
             <img src="/img/ico/free-icon-user-5807924.png">
+        <%}else { %>
+            <img src="/img/ico/free-icon-user-5807672.png">
+        <%} %>
         </th>
         <td class="nameTd">
             <span><%=chatDto.getName() %></span>
@@ -59,7 +63,11 @@
             <span><%=chatDto.getName() %></span>
         </td>
         <th class="imgBox2" rowspan="2">
+        <%if(chatDto.getName().equals("관리자")){ %>
+            <img src="/img/ico/free-icon-user-5807924.png">
+        <%}else { %>
             <img src="/img/ico/free-icon-user-5807672.png">
+        <%} %>
         </th>
     </tr>
     <tr>

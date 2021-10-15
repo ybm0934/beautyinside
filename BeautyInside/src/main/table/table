@@ -83,8 +83,8 @@ CREATE TABLE review(
     CONTENT clob NOT NULL, --내용
     COUNT number DEFAULT 0, --조회수
     regdate date DEFAULT SYSDATE, --등록일
-    fileName varchar2(200) NULL, --중복 파일명
-    orgFileName varchar2(200) NULL, --원본 파일명
+    fileName varchar2(200), --중복 파일명
+    orgFileName varchar2(200), --원본 파일명
     fileSize number DEFAULT 0 --업로드 파일 크기
 );
 

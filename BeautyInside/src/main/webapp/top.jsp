@@ -163,8 +163,6 @@
 	}
 </script>
 <aside id="flyChat">
-	<a href="#" onclick="chat();">
-    	<img src="/img/ico/girl.png">
-	</a>
+    <input type="button" id="chatBtn" value="고객센터" onclick="chat();">
 </aside>
 <body oncontextmenu="return false">

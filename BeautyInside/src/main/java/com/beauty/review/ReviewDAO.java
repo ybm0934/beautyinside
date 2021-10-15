@@ -82,14 +82,15 @@ public class ReviewDAO {
 
 			con = pool.getConnection();
 
-			String sql = "INSERT INTO review(NO, id, name, title, CONTENT, fileName, fileSize) VALUES(review_seq.nextval, ?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO review(NO, id, name, title, CONTENT, fileName, orgfileName, fileSize) VALUES(review_seq.nextval, ?, ?, ?, ?, ?, ?, ?)";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, reviewDto.getId());
 			ps.setString(2, reviewDto.getName());
 			ps.setString(3, reviewDto.getTitle());
 			ps.setString(4, reviewDto.getContent());
 			ps.setString(5, reviewDto.getFileName());
-			ps.setDouble(6, reviewDto.getFileSize());
+			ps.setString(6, reviewDto.getOrgfileName());
+			ps.setDouble(7, reviewDto.getFileSize());
 
 			cnt = ps.executeUpdate();
 			System.out.println("글쓰기 결과 cnt = " + cnt);
@@ -185,14 +186,15 @@ public class ReviewDAO {
 
 			con = pool.getConnection();
 
-			String sql = "UPDATE review SET title = ?, CONTENT = ?, fileName = ?, fileSize = ? WHERE NO = ? and id = ?";
+			String sql = "UPDATE review SET title = ?, CONTENT = ?, fileName = ?, orgfileName = ?, fileSize = ? WHERE NO = ? and id = ?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, reviewDto.getTitle());
 			ps.setString(2, reviewDto.getContent());
 			ps.setString(3, reviewDto.getFileName());
-			ps.setDouble(4, reviewDto.getFileSize());
-			ps.setInt(5, reviewDto.getNo());
-			ps.setString(6, reviewDto.getId());
+			ps.setString(4, reviewDto.getOrgfileName());
+			ps.setDouble(5, reviewDto.getFileSize());
+			ps.setInt(6, reviewDto.getNo());
+			ps.setString(7, reviewDto.getId());
 			cnt = ps.executeUpdate();
 
 			System.out.println("리뷰 게시판 글 수정 결과 cnt = " + cnt);

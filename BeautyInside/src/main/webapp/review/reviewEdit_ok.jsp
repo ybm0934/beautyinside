@@ -37,7 +37,8 @@
 			if(oldFile.exists()) oldFile.delete();
 		}else {
 			fileName = mr.getParameter("oldFile");
-			fileSize = Long.parseLong(mr.getParameter("fileSize"));
+			orgFileName = mr.getParameter("oldOrgFile");
+			fileSize = Double.parseDouble(mr.getParameter("fileSize"));
 		}
 		
 		int no = Integer.parseInt(mr.getParameter("no"));

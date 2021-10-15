@@ -163,16 +163,22 @@ button {
 #flyChat {
 	text-align: right;
 	position: fixed;
-	bottom: 13%;
+	bottom: 3%;
 	right: 2%;
 	z-index: 1;
 }
 
-#flyChat img {
-	width: 70px;
-	opacity: 0.9;
+#flyChat #chatBtn {
+	border: 1px solid #1e73be;
+	background-color: #1e73be;
+	border-radius: 25px;
+	color: white;
+	padding: 13px;
+	width: 90px;
+	cursor: pointer;
 }
 
-#flyChat img:hover {
-	opacity: 1;
+#flyChat #chatBtn:hover {
+	border: 1px solid #1c65a5;
+	background-color: #1c65a5;
 }

@@ -28,9 +28,13 @@
 		// 파일 사이즈를 MB로 변환
 		double fileSize = 0;
 		if(fileName != null){
+			// file 객체 생성
 			File file = mr.getFile("fileName");
 			fileSize = Math.round((file.length() / 1024.0 / 1024.0) * 100.0) / 100.0;
 			System.out.println("파일 사이즈 : " + fileSize + "MB");
+		}else {
+			fileName = "";
+			orgFileName = "";
 		}
 		
 		String userid = (String) session.getAttribute("userid");

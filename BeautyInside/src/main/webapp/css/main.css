@@ -39,7 +39,7 @@
     font-family: 'Hahmlet', serif;
     position: relative;
     top: 30%;
-    color: #febdbd;
+    color: #f99705;
 }
 
 #main_title_2 {
@@ -47,7 +47,7 @@
     top: 28%;
     font-size: 30px;
     font-family: 'Hahmlet', serif;
-    color: #fd9494;
+    color: magenta;
     margin-right: 200px;
     opacity: 0;
 }
@@ -100,7 +100,7 @@
 }
 
 #blank2 {
-    background-image: url('/img/rose-g14a9ce0a3_1920.jpg');
+    background-image: url('/img/');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
