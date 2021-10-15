@@ -17,6 +17,11 @@
     -moz-user-select: none;
     -ms-user-select: none;
     -webkit-user-select: none;
+   	
+   	animation: fadein 3s;
+	-moz-animation: fadein 3s; /* Firefox */
+	-webkit-animation: fadein 3s; /* Safari and Chrome */
+	-o-animation: fadein 3s; /* Opera */
     
     background-image: url('/img/pillows-820149.jpg');
     background-size: cover;
@@ -72,42 +77,42 @@
 }
 
 #menu1 {
-    background: url('/img/fure_img (14).jpg') rgba(0, 0, 0, 0.5);
+    background: url('/img/fure_img (14).jpg') rgba(0, 0, 0, 0.7);
     background-blend-mode: multiply;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #menu2 {
-    background: url('/img/manicure-g0cdbc5291_1920.jpg') rgba(0, 0, 0, 0.5);
+    background: url('/img/manicure-g0cdbc5291_1920.jpg') rgba(0, 0, 0, 0.7);
     background-blend-mode: multiply;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #menu3 {
-    background: url('/img/pexels-kristina-paukshtite-704815.jpg') rgba(0, 0, 0, 0.5);
+    background: url('/img/pexels-kristina-paukshtite-704815.jpg') rgba(0, 0, 0, 0.7);
     background-blend-mode: multiply;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #menu4 {
-    background: url('/img/pexels-lemon-6208084.jpg') rgba(0, 0, 0, 0.5);
+    background: url('/img/pexels-lemon-6208084.jpg') rgba(0, 0, 0, 0.7);
     background-blend-mode: multiply;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #menu5 {
-    background: url('/img/pexels-ryutaro-tsukata-5473182.jpg') rgba(0, 0, 0, 0.5);
+    background: url('/img/pexels-ryutaro-tsukata-5473182.jpg') rgba(0, 0, 0, 0.7);
     background-blend-mode: multiply;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #menu6 {
-    background: url('/img/pexels-pixabay-161599.jpg') rgba(0, 0, 0, 0.5);
+    background: url('/img/pexels-pixabay-161599.jpg') rgba(0, 0, 0, 0.7);
     background-blend-mode: multiply;
     background-repeat: no-repeat;
     background-size: cover;
@@ -149,4 +154,40 @@
     cursor: pointer;
     font-family: 'Pretendard-Regular';
     opacity: 0.8;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

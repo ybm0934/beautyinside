@@ -10,7 +10,7 @@
 <script>
     $(document).ready(function() {
 		// 앵커 슬라이드 효과
-        $('a[href^="#"]').on('click',function (e) {
+        $('a[href^="#"]').on('click', function(e) {
             e.preventDefault();
 
             var target = this.hash;
@@ -34,6 +34,10 @@
         }, 5000);
     });
     
+ 	window.onload = function() {
+ 		acMove(<%=target %>);
+ 	}
+ 	
  	// 파라미터 앵커
  	function acMove(target) {
  		$(document).ready(function(){
@@ -42,10 +46,10 @@
  		});
     }
  	
- 	window.onload = function() {
- 		acMove(<%=target %>);
+ 	// 포트폴리오 이동
+ 	function portfolio() {
+ 		location.href = '/single/portfolio.jsp';
  	}
- 	
 </script>
 <div id="main_div">
     <div class="main_div_class" id="main">
@@ -65,51 +69,51 @@
             <tbody>
                 <tr>
                     <td>
-                        <a href="#">
+                        <a href="#" onclick="portfolio();">
                             <img src="/img/StockSnap_P1KLMCNBPU.jpg" alt="포트폴리오 이미지">
                         </a>
                     </td>
                     <td>
-                        <a href="#">
+                        <a href="#" onclick="portfolio();">
                             <img src="/img/shutterstock_748987114.jpg" alt="포트폴리오 이미지">
                         </a>
                     </td>
                     <td>
-                        <a href="#">
+                        <a href="#" onclick="portfolio();">
                             <img src="/img/245i23905285902.jpg" alt="포트폴리오 이미지">
                         </a>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a href="#">
+                        <a href="#" onclick="portfolio();">
                         	<img src="/img/StockSnap_LRSAT4NCLS.jpg" alt="포트폴리오 이미지">
                         </a>
                     </td>
                     <td>
-                        <a href="#">
+                        <a href="#" onclick="portfolio();">
                             <img src="/img/PICO+GENESIS+FINAL.jpg" alt="포트폴리오 이미지">
                         </a>
                     </td>
                     <td>
-                        <a href="#">
+                        <a href="#" onclick="portfolio();">
                             <img src="/img/StockSnap_VTD0ZZ6HOV.jpg" alt="포트폴리오 이미지">
                         </a>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a href="#">
+                        <a href="#" onclick="portfolio();">
                             <img src="/img/s898787433609788098_p246_i1_w1400.jpeg" alt="포트폴리오 이미지">
                         </a>
                     </td>
                     <td>
-                        <a href="#">
+                        <a href="#" onclick="portfolio();">
                             <img src="/img/shutterstock_1171351564.jpg" alt="포트폴리오 이미지">
                         </a>
                     </td>
                     <td>
-                        <a href="#">
+                        <a href="#" onclick="portfolio();">
                             <img src="/img/headergraphic1-1024x614.jpg" alt="포트폴리오 이미지">
                         </a>
                     </td>

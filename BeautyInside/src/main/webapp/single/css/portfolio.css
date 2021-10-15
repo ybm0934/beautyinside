@@ -1,2 +1,126 @@
 @charset "UTF-8";
 
+/* 포트폴리오 CSS */
+
+#portfolio_div {
+    -webkit-touch-callout: none;
+	user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	
+	background-color: rgba(0, 0, 0, 0.9);
+	background-size: cover;
+	
+	animation: fadein 3s;
+	-moz-animation: fadein 3s; /* Firefox */
+	-webkit-animation: fadein 3s; /* Safari and Chrome */
+	-o-animation: fadein 3s; /* Opera */
+}
+
+#wrap {
+	height: 100vh;
+	padding: 200px 0 0 0;
+    margin: 0 auto;
+    width: 100%;
+}
+
+#portfolio_table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+#portfolio_table tr td {
+    overflow: hidden;
+    padding: 0;
+}
+
+.moveTd {
+    width: 25%;
+}
+
+.moveDiv {
+	padding: 50px;
+}
+
+.moveDiv img {
+    width: 80px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.moveDiv img:hover {
+    opacity: 0.8;
+}
+
+.moveDiv img:active {
+    opacity: 1;
+}
+
+.moveDiv1 {
+    text-align: left;
+}
+
+.moveDiv2 {
+    text-align: right;
+}
+
+.container {
+    transition-duration: 0.8s;
+    white-space: nowrap;
+}
+
+.inner {
+    padding: 0;
+    margin: 0;
+    font-size: 0;
+}
+
+.inner li {
+    list-style: none;
+    display: inline-block;
+    width: 100%;
+}
+
+.inner img {
+    vertical-align: middle;
+    width: 100%;
+    height: 70vh;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

@@ -33,9 +33,9 @@
     <tr>
         <th class="imgBox" rowspan="2">
        	<%if(chatDto.getName().equals("관리자")){ %>
-            <img src="/img/ico/free-icon-user-5807924.png">
+            <img src="/img/ico/admin_profile.png">
         <%}else { %>
-            <img src="/img/ico/free-icon-user-5807672.png">
+            <img src="/img/ico/user_porfile.png">
         <%} %>
         </th>
         <td class="nameTd">
@@ -64,9 +64,9 @@
         </td>
         <th class="imgBox2" rowspan="2">
         <%if(chatDto.getName().equals("관리자")){ %>
-            <img src="/img/ico/free-icon-user-5807924.png">
+            <img src="/img/ico/admin_profile.png">
         <%}else { %>
-            <img src="/img/ico/free-icon-user-5807672.png">
+            <img src="/img/ico/user_porfile.png">
         <%} %>
         </th>
     </tr>

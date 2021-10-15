@@ -39,7 +39,7 @@
     font-family: 'Hahmlet', serif;
     position: relative;
     top: 30%;
-    color: #f99705;
+    color: magenta;
 }
 
 #main_title_2 {
@@ -47,7 +47,7 @@
     top: 28%;
     font-size: 30px;
     font-family: 'Hahmlet', serif;
-    color: magenta;
+    color: #f99705;
     margin-right: 200px;
     opacity: 0;
 }
