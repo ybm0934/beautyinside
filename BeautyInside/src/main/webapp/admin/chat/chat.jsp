@@ -126,6 +126,7 @@
               function chat_delete() {
                  let result = confirm('정말 삭제하시겠습니까?');
             if (result) {
+            	console.log('삭제버튼 눌렸습니다잉~');
                chat_fm.action='../chat/chat_delete.jsp';
             } else {
                history.back();
