@@ -137,7 +137,7 @@
 	                	<tr>
 		                    <td rowspan="3"><input type="hidden" name="no" value="<%= dto.getNo() %>"><%= dto.getNo() %></td>
 		                    <th>예약자</th>
-		                    <td colspan="1" style="text-align: left; padding-left: 4.5%;"><input type="text" name="name" value="<%= dto.getName() %>" style="width: 25%; text-align: center; border: none; color: #754100; font-size: 15px"></td>
+		                    <td colspan="1" style="text-align: left; padding-left: 3.7%;"><input type="text" name="name" value="<%= dto.getName() %>" style="width: 25%; text-align: center; border: none; color: #754100; font-size: 15px"></td>
 		                    <%
 		                    	if (dto.getReswords() == null) {
 		                    		%>
@@ -275,11 +275,11 @@
 		               </tr>
 		               <tr>
 		                   <th>이메일</th>
-		                   <td colspan="1" style="text-align: left; padding-left: 3%;"><input type="text" name="email" value="<%= dto.getEmail() %>" style="width: 70%; text-align: center; border: none; color: skyblue; font-size: 15px"></td>
+		                   <td colspan="1" style="text-align: left; padding-left: 2.7%;"><input type="text" name="email" value="<%= dto.getEmail() %>" style="width: 70%; text-align: center; border: none; color: skyblue; font-size: 15px"></td>
 		               </tr>
 		               <tr style="border-bottom: 1px solid gray;">
 		                   <th>전화번호</th>
-		                   <td colspan="1" style="text-align: left; padding-left: 3%;"><input type="text" name="tel" value="<%= dto.getTel() %>" style="width: 50%; text-align: center; border: none; color: #f55354; font-size: 15px"></td>
+		                   <td colspan="1" style="text-align: left; padding-left: 3.7%;"><input type="text" name="tel" value="<%= dto.getTel() %>" style="width: 50%; text-align: center; border: none; color: #f55354; font-size: 15px"></td>
 		               </tr>
   				 </form>
                	 <%

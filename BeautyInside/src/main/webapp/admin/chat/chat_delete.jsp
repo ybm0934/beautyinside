@@ -7,7 +7,7 @@
 	System.out.println("삭제될 아이디 = " + id);
 	int result = dao.chatDelete(id);
 	System.out.println("삭제 결과 result =" + result);
-	if (result == 1) {
+	if (result > 0) {
 		System.out.println("result 1일떄 들어옴");
 		%>
 			<script>

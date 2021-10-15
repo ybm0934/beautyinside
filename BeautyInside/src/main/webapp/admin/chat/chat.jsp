@@ -80,7 +80,7 @@
         <table>
             <thead>
                 <tr>
-                    <th style="width: 200px;">아이디(이름)</th>
+                    <th style="width: 200px;">아이디</th>
                     <th style="width: 500px;">채팅 내용</th>
                     <th style="width: 200px;">날짜</th>
                     <th style="width: 50px">기능</th>
