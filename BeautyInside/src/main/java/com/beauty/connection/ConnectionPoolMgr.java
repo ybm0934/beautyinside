@@ -7,9 +7,9 @@ public class ConnectionPoolMgr {
 	public ConnectionPoolMgr() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			System.out.println("드라이버 로딩 성공\r\n");
+			System.out.println("드라이버 로딩 성공");
 		} catch (ClassNotFoundException e) {
-			System.out.println("드라이버 로딩 실패\r\n");
+			System.out.println("드라이버 로딩 실패");
 			e.printStackTrace();
 		}
 	} // 생성자
@@ -20,7 +20,7 @@ public class ConnectionPoolMgr {
 		String pwd = "1234";
 
 		Connection con = DriverManager.getConnection(url, user, pwd);
-		System.out.println("DB연결 con : " + con + "\r\n");
+		System.out.println("DB연결 con : " + con);
 
 		return con;
 	}// getConnection

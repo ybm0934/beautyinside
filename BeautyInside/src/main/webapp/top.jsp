@@ -84,7 +84,7 @@
         </span>
         <span class="sign" style="color:gray; font-size: 0.7em;"> | </span>
         <span class="sign">
-            <a href="<%=request.getContextPath() %>/member/register.jsp">회원가입</a>
+            <a href="<%=request.getContextPath() %>/member/clause.jsp">회원가입</a>
         </span>
 	<%}else { %>
 		<span class="usersign userid_spn"><%=memberDto.getName() %></span>

@@ -7,6 +7,11 @@
 	-ms-user-select: none;
 	-webkit-user-select: none;
 	
+	animation: fadein 3s;
+	-moz-animation: fadein 3s; /* Firefox */
+	-webkit-animation: fadein 3s; /* Safari and Chrome */
+	-o-animation: fadein 3s; /* Opera */
+	
 	background-image: url('../../img/pure (6).jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -118,6 +123,27 @@ input::placeholder {
 
 #email_div {}
 
+#email_div #email_certify_btn {
+	width: 100px;
+    height: 40px;
+    font-size: 1em;
+}
+
+#email_certify_btn, #email_certify, #email_resend, #email_certify_ok {
+	width: 100px;
+    height: 40px;
+    font-size: 1em;
+}
+
+.emailTimerDiv {
+	text-align: right;
+}
+
+#emailTimer {
+	font-weight: bold;
+	color: green;
+}
+
 #address_div {}
 
 #address_div #addr_search_btn {
@@ -178,4 +204,40 @@ input::placeholder {
     height: 70px;
     font-weight: bold;
     font-size: 1.5em;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

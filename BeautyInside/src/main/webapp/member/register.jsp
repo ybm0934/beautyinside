@@ -12,8 +12,11 @@
 	        if(checkUnload) return "";
 	    });
 	    
+	    $('input[type=text]').attr('spellcheck', 'false');
+	    
 		//정규 표현식
 		var reg_exp = /[^a-z0-9A-Z]/gi; // 영문 & 숫자만
+		var email_exp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i; // 이메일 정규식
 		
 		$("#id").keyup(function(e) {
 			var input = $(this).val();
@@ -68,6 +71,119 @@
 					}
 				}); // ajax
 			}
+		});
+		
+		// 이메일 인증
+		$('#email_resend').hide();
+		$('#emailCertifyDiv').hide();
+		
+		function emailCertify() {
+			$.ajax({
+				url : '<%=request.getContextPath() %>/member/emailCheck.jsp',
+				type : 'POST',
+				datatype : 'JSON',
+				data : {
+					email : $('#email').val()
+				},
+				success : function(data){
+						$('#email_error').html(data);
+						$('#email_certify').hide();
+						$('#email_resend').show();
+						$('#emailCertifyDiv').show();
+						$('#emailTimer').show();
+						
+						seconds = 180; // 180초 세팅
+				},
+				error : function(){
+					alert('통신 실패');
+				}
+			}); // ajax
+		}
+		
+		// 3분 타이머
+		function emailTimer() {
+			var min = parseInt((seconds) / 60);
+			var sec = seconds % 60;
+			
+			$('#emailTimer').html('( ' + ('0' + min).slice(-2) + ' : ' + ('0' + sec).slice(-2) + ' )');
+			seconds--;
+		}
+		
+		var timer = setInterval(function() {
+			emailTimer();
+			
+			if(seconds < 0) {
+				clearInterval(timer);
+			}else if(seconds < 170) { // 중복 재전송 방지 딜레이 10초 설정
+				repeat = false;
+			}
+		}, 1000);
+		
+		var repeat = false;
+		$('#email_certify').click(function(){
+			var email = $('#email').val();
+			
+			if(email == '') {
+				$('#email').focus();
+				$('#email_error').html('이메일을 입력하세요.');
+				
+				return false;
+			}else if(!email_exp.test(email)) {
+				$('#email').focus();
+				$('#email_error').html('이메일 형식을 확인해주세요.');
+				
+				return false;
+			}else if(repeat == false) {
+				repeat = true;
+				emailCertify();
+			}
+		});
+		
+		// 이메일 인증 재전송
+		$('#email_resend').click(function(){
+			if(repeat == false) {
+				$('#emailCertify').val('');
+				emailCertify();
+			}
+		});
+		
+		// 엔터 중복 전송 막기
+		$('#email_certify, #email_resend').keydown(function(e){
+			if(e.keyCode == 13) {
+				e.preventDefault();
+			}
+		});
+		
+		// 인증 확인
+		$('#email_certify_ok').click(function(){
+			var certify = $('#emailCertify').val();
+			
+			if(certify == '') {
+				$('#emailCertify').focus();
+				$('#email_error').html('인증번호를 입력하세요.');
+				
+				return false;
+			}else {
+				$.ajax({
+					url : '<%=request.getContextPath() %>/member/emailCheck_ok.jsp',
+					type : 'POST',
+					datatype : 'JSON',
+					data : {
+						email : $('#email').val(),
+						key : certify
+					},
+					success : function(data){
+							$('#email_error').html(data);
+					},
+					error : function(){
+						alert('통신 실패');
+					}
+				}); // ajax
+			}
+		});
+		
+		$("#email").keyup(function() {
+			$('#emailCheck').val('');
 		});
 		
 		// 주소검색 새창 가운데 띄우기
@@ -179,6 +295,7 @@
 			
 			// 아이디 중복 확인
 			var flag = $('#idCheck').val();
+			var flag2 = $('#emailCheck').val();
 			
 			// 생일 합치기
 			var year = $('#birth_year').val();
@@ -255,6 +372,11 @@
 				$('#email_error').html('이메일을 입력하세요.');
 				
 				return false;
+			}else if(typeof flag2 == 'undefined' || flag2 == 'false') {
+				$('#email_error').html('이메일 인증을 해주세요.');
+				$('#email').focus();
+				
+				return false;
 			}else if($('#tel2').val() == ''){
 				$('#tel2').focus();
 				$('#tel_error').html('전화번호를 입력하세요.');
@@ -266,16 +388,10 @@
 				
 				return false;
 			}
-			
 		});
 	});
 </script>
 </head>
-<!--
-	oncontextmenu='return false': 우클릭 방지
-	onselectstart='return false': 블록선택 방지
-	ondragstart='return false': 드래그 방지
--->
 <div id="wrap">
 	<div id="register_div">
 		<form name="register" method="post" action="<%=request.getContextPath()%>/member/register_ok.jsp">
@@ -350,13 +466,6 @@
 		        </div>
 		        <span id="gender_error" class="error"></span>
 		    </div>
-		    <div id="email_div">
-		        <h3>이메일</h3>
-		        <div class="box">
-		            <input type="text" name="email" id="email" class="textbox" placeholder="이메일 입력" maxlength="20">
-		        </div>
-		        <span id="email_error" class="error"></span>
-		    </div>
 		    <div id="tel_div">
 		        <h3>전화번호</h3>
 		        <span class="tel_box1">
@@ -378,6 +487,22 @@
 		        </span>
 		        <input type="hidden" name="tel" id="tel"> 
 		        <span id="tel_error" class="error"></span>
+		    </div>
+		    <div id="email_div">
+		        <h3>이메일</h3>
+		        <div class="box">
+		            <input type="text" name="email" id="email" class="textbox" placeholder="이메일 입력" maxlength="30">
+		            <input type="button" id="email_certify" class="btn" value="인 증">
+		            <input type="button" id="email_resend" class="btn" value="재전송">
+		        </div>
+		        <div class="box" id="emailCertifyDiv">
+		            <input type="text" name="emailCertify" id="emailCertify" class="textbox" placeholder="인증번호 입력" maxlength="30">
+		            <input type="button" id="email_certify_ok" class="btn" value="확 인">
+		        </div>
+		        <div class="emailTimerDiv">
+		        	<span id="emailTimer"></span>
+		        </div>
+		        <span id="email_error" class="error"></span>
 		    </div>
 		    <div id="address_div">
 		        <h3>주소</h3>

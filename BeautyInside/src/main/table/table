@@ -178,6 +178,24 @@ CREATE TABLE summarydate (
 );
 
 
+--이메일 인증 테이블
+DROP TABLE emailKey;
+CREATE TABLE emailKey
+(
+    no       NUMBER PRIMARY KEY,
+    email    VARCHAR2 (50) NOT NULL,
+    key      VARCHAR2 (50) NOT NULL,
+    regdate  DATE DEFAULT SYSDATE
+);
+
+--이메일 인증 시퀀스
+DROP SEQUENCE emailKey_seq;
+CREATE SEQUENCE emailKey_seq
+START with 1
+INCREMENT BY 1
+NOCYCLE;
+
+
 
 
 

@@ -50,12 +50,8 @@
     z-index: 1;
 }
 
-.moveDiv img:hover {
-    opacity: 0.8;
-}
-
 .moveDiv img:active {
-    opacity: 1;
+    opacity: 0.5;
 }
 
 .moveDiv1 {

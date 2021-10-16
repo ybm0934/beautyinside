@@ -9,11 +9,13 @@
 
 	boolean flag = memberDao.idCheck(id);
 %>
-<span>
 	<% if(flag == false) { %>
-		사용 가능한 아이디입니다.
+		<span style="color:green !important;">
+			사용 가능한 아이디입니다.
+		</span>
 	<% }else if(flag == true) { %>
-		'<%=id %>' 이미 사용 중인 아이디입니다.
+		<span>
+			'<%=id %>' 이미 사용 중인 아이디입니다.
+		</span>
 	<% } %>
-</span>
 <input type="hidden" id="idCheck" value="<%=flag %>">

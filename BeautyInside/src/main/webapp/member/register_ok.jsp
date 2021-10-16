@@ -15,7 +15,6 @@
 	int zipcode = Integer.parseInt(request.getParameter("zipcode"));
 	String address1 = request.getParameter("address1");
 	String address2 = request.getParameter("address2");
-	System.out.println("@@@@@@@@@@@@@tel : " + tel);
 	
 	MemberDTO memberDto = new MemberDTO();
 	memberDto.setId(id);

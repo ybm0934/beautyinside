@@ -105,7 +105,10 @@
 	                <input type="submit" id="login_btn" class="btn" value="LOGIN">
 	            </div>
 	            <div class="forgot_div">
-	                <span class="forgot_spn">비밀번호 찾기</span>
+	            	<span class="forgot_spn1">아직 회원이 아니신가요?</span>
+	                <span class="forgot_spn2">
+	                	<a href="/member/clause.jsp">Sign up</a>
+	                </span>
 	            </div>
 	        </form>
 	    </div>

@@ -11,6 +11,11 @@
 	-ms-user-select: none;
 	-webkit-user-select: none;
 	
+	animation: fadein 2s;
+	-moz-animation: fadein 2s; /* Firefox */
+	-webkit-animation: fadein 2s; /* Safari and Chrome */
+	-o-animation: fadein 2s; /* Opera */
+	
 	height: 100vh;
 	background-color: #eeeeee;
 }
@@ -156,11 +161,56 @@
 
 .forgot_div {
     margin-top: 40px;
-    color: #0e63ae;
     text-align: center;
 }
 
-.forgot_spn:hover {
-    cursor: pointer;
+.forgot_spn1 {
+	color: gray;
+	font-size: 0.9em;
+}
+
+.forgot_spn2 a {
+    color: #228be6;
+    text-decoration: none;
     font-weight: bold;
+}
+
+.forgot_spn2 a:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
