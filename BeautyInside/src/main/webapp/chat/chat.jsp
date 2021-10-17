@@ -107,7 +107,7 @@
 <body>
 <div id="wrap">
     <div class="topDiv">
-        <span class="targetSpn"><%=name %>님과의 대화</span>
+        <span class="targetSpn">관리자님과의 대화</span>
     </div>
     <div class="topDiv">
         <span class="todaySpn"><%=sdf.format(today) %></span>
