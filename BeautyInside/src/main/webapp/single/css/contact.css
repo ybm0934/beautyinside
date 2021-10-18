@@ -41,8 +41,8 @@
 }
 
 #contact_btn {
-    border: 1px solid #333333;
-    background-color: #333333;
+    border: 1px solid #c44444;
+    background-color: #c44444;
     color: white;
     width: 100%;
     padding: 15px;
@@ -51,8 +51,8 @@
 }
 
 #contact_btn:hover {
-    border: 1px solid #c44444;
-    background-color: #c44444;
+    border: 1px solid orange;
+    background-color: orange;
 }
 
 #contact .textbox {

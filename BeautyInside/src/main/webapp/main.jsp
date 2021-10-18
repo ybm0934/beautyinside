@@ -121,7 +121,11 @@
             </tbody>
         </table>
     </div>
-    <div class="main_div_class" id="blank2"></div>
+    <div class="main_div_class" id="blank2">
+    	<span id="sub_title">BEAUTY INSIDE</span>
+    	<br>
+        <span id="sub_title_2">We will give you beauty in your life.</span>
+    </div>
     <%@ include file="/single/contact.jsp" %>
 </div>
 <%@ include file="/bottom.jsp" %>

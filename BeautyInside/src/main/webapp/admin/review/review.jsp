@@ -115,12 +115,14 @@
 			                                    <td class="content"><%= dto.getRegdate() %></td>
 			                                    <td class="content"><% if (!(dto.getFilename() == null)) dto.getFilename(); %></td>
 			                                    <td class="content"><%= dto.getFilesize() %></td>
-			                                    <td class="content"><input type="button" value="수정" style="width:60px; height:25px; color: white; background-color: #ff4040; border:none" onclick="location.href='/admin/review/review_update.jsp?no=<%= dto.getNo() %>';"><input type="submit" value="삭제" style="width:60px; height: 25px; color: white; background-color: #0080ff; border:none" onclick='review_delete();'><input type="hidden" name="no" value="<%= arr.get(i).getNo()%>"></td>
+			                                    <td class="content"><input type="button" value="수정" style="width:60px; height:25px; color: white; background-color: #ff4040; border:none" onclick="location.href='/admin/review/review_update.jsp?no=<%= dto.getNo() %>';">
+				                                    <input type="submit" value="삭제" style="width:60px; height: 25px; color: white; background-color: #0080ff; border:none" onclick="review_delete('<%= arr.get(i).getNo()%>');">
+			                                    </td>
 			                                    <script>
-										    		function review_delete() {
+										    		function review_delete(no) {
 										    			let result = confirm('정말 삭제하시겠습니까?');
 														if (result) {
-															review_fm.action='../review/review_delete.jsp';
+															review_fm.action='../review/review_delete.jsp?no=' + no;
 														} else {
 															history.back();
 														}

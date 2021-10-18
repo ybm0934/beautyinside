@@ -1,0 +1,12 @@
+
+/* BeautyInside 테이블 샘플 값 */
+
+--회원
+INSERT INTO member
+VALUES(member_seq.nextval, 'admin', '1234', '관리자', '0000-00-00', '000-0000-0000', '남자', 'beauty404@gmail.com', 000000, '', '', DEFAULT, DEFAULT);
+
+
+
+
+
+COMMIT;

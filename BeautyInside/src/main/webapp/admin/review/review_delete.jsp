@@ -4,6 +4,7 @@
 <jsp:useBean id="dao" class="com.beauty.admin.review.AdminReviewDAO"/>
 <%
 	String no = request.getParameter("no");
+	System.out.println("no : " + no);
 	
 	int result = dao.reviewDelete(Integer.parseInt(no));
 	
