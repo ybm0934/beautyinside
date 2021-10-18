@@ -32,3 +32,8 @@
 #footer .sns_logo_spn a {
     text-decoration: none;
 }
+
+#footer .copy a {
+	color: white;
+	text-decoration: none;
+}

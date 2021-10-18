@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/bottom.css">
 <footer id="footer">
-    <span>&copy; 2023 by BeautyInside. Proudly created with beauty.com</span>
+    <span class="copy">
+    	&copy; 2023 by BeautyInside. Proudly created with <a href="/admin/login/login.jsp" target="_blank">beauty.com</a>
+    </span>
     <br>
     <span class="sns_logo_spn">
         <a href="https://www.facebook.com" target="_blank">

@@ -1,12 +1,98 @@
 
 /* BeautyInside 테이블 샘플 값 */
 
+
 --회원
-INSERT INTO member
-VALUES(member_seq.nextval, 'admin', '1234', '관리자', '0000-00-00', '000-0000-0000', '남자', 'beauty404@gmail.com', 000000, '', '', DEFAULT, DEFAULT);
+INSERT INTO member VALUES(member_seq.nextval, 'admin', '1234', '관리자', '0000-00-00', '000-0000-0000', '남자', 'beauty404@gmail.com', 0, ' ', ' ', DEFAULT, DEFAULT);
+INSERT INTO member VALUES(member_seq.nextval, 'y12erim', '1234', '김예림', '1999-01-09', '010-9789-0145', '여자', 'yerim@navercom.com', 6327, '서울특별시 강남구 강남로 100', '1번지', DEFAULT, DEFAULT);
+INSERT INTO member VALUES(member_seq.nextval, 'jzxceon12', '1234', '김지연', '1997-02-01', '010-4574-0000', '여자', 'jiyeon@navercom.com', 6327, '서울특별시 강남구 강남로 100', '0번지', DEFAULT, DEFAULT);
+INSERT INTO member VALUES(member_seq.nextval, 'ga3aga55', '1234', '정가윤', '2002-02-01', '010-7777-0000', '여자', 'gagaga111@gmail.com', 6327, '서울특별시 강남구 강남로 100', '0번지', DEFAULT, DEFAULT);
+INSERT INTO member VALUES(member_seq.nextval, 're1qd48', '1234', '박서희', '1993-11-31', '010-5752-0540', '여자', 'askdlfsda111@gmail.com', 6327, '서울특별시 강남구 강남로 100', '0번지', DEFAULT, DEFAULT);
+INSERT INTO member VALUES(member_seq.nextval, 'O2MN99', '1234', '임지완', '1995-03-15', '010-5555-0511', '남자', 'WJFZ@gmail.com', 6327, '서울특별시 강남구 강남로 100', '0번지', DEFAULT, DEFAULT);
+INSERT INTO member VALUES(member_seq.nextval, 'we3r2919', '1234', '윤도연', '1996-07-11', '010-0011-1521', '여자', 'zzziiieee@gmail.com', 6327, '서울특별시 강남구 강남로 100', '0번지', DEFAULT, DEFAULT);
+INSERT INTO member VALUES(member_seq.nextval, 's3sosomin12', '1234', '이소민', '1998-07-11', '010-1234-7777', '여자', 'leesososo@naver.com', 6327, '서울특별시 강남구 강남로 100', '0번지', DEFAULT, DEFAULT);
+INSERT INTO member VALUES(member_seq.nextval, 'ji4ul676', '1234', '최지율', '1994-04-04', '010-5222-1212', '여자', 'jijizkzk@gmail.com', 6327, '서울특별시 강남구 강남로 100', '0번지', DEFAULT, DEFAULT);
+INSERT INTO member VALUES(member_seq.nextval, 'l5blap', '1234', '송우빈', '1989-05-04', '010-6666-4444', '남자', 'sub777@nate.com', 6327, '서울특별시 강남구 강남로 100', '0번지', DEFAULT, DEFAULT);
+INSERT INTO member VALUES(member_seq.nextval, 'l6elove2', '1234', '김민규', '1988-06-01', '010-6671-4545', '남자', 'kimkim1@gmail.com', 6327, '서울특별시 강남구 강남로 100', '0번지', DEFAULT, DEFAULT);
+INSERT INTO member VALUES(member_seq.nextval, 'hah7ha5455', '1234', '강하연', '2005-07-11', '010-4444-7777', '여자', '90z8zeee@gmail.com', 6327, '서울특별시 강남구 강남로 100', '0번지', DEFAULT, DEFAULT);
+INSERT INTO member VALUES(member_seq.nextval, 'yrim', '1234', '김예림', '1999-01-09', '010-9789-0145', '여자', 'yerim@navercom.com', 6327, '서울특별시 강남구 강남로 100', '1번지', DEFAULT, DEFAULT);
+INSERT INTO member VALUES(member_seq.nextval, 'jzxn12', '1234', '김지연', '1997-02-01', '010-4574-0000', '여자', 'jiyeon@navercom.com', 6327, '서울특별시 강남구 강남로 100', '0번지', DEFAULT, DEFAULT);
+INSERT INTO member VALUES(member_seq.nextval, 'gaa55', '1234', '정가윤', '2002-02-01', '010-7777-0000', '여자', 'gagaga111@gmail.com', 6327, '서울특별시 강남구 강남로 100', '0번지', DEFAULT, DEFAULT);
+INSERT INTO member VALUES(member_seq.nextval, 'rd48', '1234', '박서희', '1993-11-31', '010-5752-0540', '여자', 'askdlfsda111@gmail.com', 6327, '서울특별시 강남구 강남로 100', '0번지', DEFAULT, DEFAULT);
+INSERT INTO member VALUES(member_seq.nextval, 'O299', '1234', '임지완', '1995-03-15', '010-5555-0511', '남자', 'WJFZ@gmail.com', 6327, '서울특별시 강남구 강남로 100', '0번지', DEFAULT, DEFAULT);
+INSERT INTO member VALUES(member_seq.nextval, 'we2919', '1234', '윤도연', '1996-07-11', '010-0011-1521', '여자', 'zzziiieee@gmail.com', 6327, '서울특별시 강남구 강남로 100', '0번지', DEFAULT, DEFAULT);
+INSERT INTO member VALUES(member_seq.nextval, 's3smin12', '1234', '이소민', '1998-07-11', '010-1234-7777', '여자', 'leesososo@naver.com', 6327, '서울특별시 강남구 강남로 100', '0번지', DEFAULT, DEFAULT);
+INSERT INTO member VALUES(member_seq.nextval, 'ji676', '1234', '최지율', '1994-04-04', '010-5222-1212', '여자', 'jijizkzk@gmail.com', 6327, '서울특별시 강남구 강남로 100', '0번지', DEFAULT, DEFAULT);
+INSERT INTO member VALUES(member_seq.nextval, 'lap', '1234', '송우빈', '1989-05-04', '010-6666-4444', '남자', 'sub777@nate.com', 6327, '서울특별시 강남구 강남로 100', '0번지', DEFAULT, DEFAULT);
+INSERT INTO member VALUES(member_seq.nextval, 'love2', '1234', '김민규', '1988-06-01', '010-6671-4545', '남자', 'kimkim1@gmail.com', 6327, '서울특별시 강남구 강남로 100', '0번지', DEFAULT, DEFAULT);
+INSERT INTO member VALUES(member_seq.nextval, 'ha5455', '1234', '강하연', '2005-07-11', '010-4444-7777', '여자', '90z8zeee@gmail.com', 6327, '서울특별시 강남구 강남로 100', '0번지', DEFAULT, DEFAULT);
+
+
+--리뷰 게시글
+INSERT INTO review VALUES(review_seq.nextval, 'asdkfl', '김희진', '서비스 잘 받았습니다!', '감사합니다.', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'zxv19', '최미진', '후기 남겨요 ㅎㅎ', '후기 남겨요 ㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'ASDZ111', '박민채', '여기 완전 짱이에요!!', 'ㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'QWER65465', '이수영', '감사합니다.', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'pppeee11', '박하영', '후기 남깁니당~~~!!', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'AABBCC11010', '윤승아', 'ㅋㅋㅋㅋㅋㅋㅋ', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'leejisu', '이지수', '굿굿굿 ♡', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'Adke123', '곽소은', '서비스 잘 받앗어용~~', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'zppzpzp1', '김다연', '오랜만에 네일 했는데 너무 만족합니다!', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'kkamn1214', '정예나', '깔끔하게 잘해주셨어요 ㅎㅎ 감사합니다!', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'LLLLPP', '김민찬', '주환쌤 마사지 잘 받았습니다 ㅎㅎ', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'asdkfl', '김희진', '서비스 잘 받았습니다!', '감사합니다.', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'zxv19', '최미진', '후기 남겨요 ㅎㅎ', '후기 남겨요 ㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'ASDZ111', '박민채', '여기 완전 짱이에요!!', 'ㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'QWER65465', '이수영', '감사합니다.', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'pppeee11', '박하영', '후기 남깁니당~~~!!', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'AABBCC11010', '윤승아', 'ㅋㅋㅋㅋㅋㅋㅋ', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'leejisu', '이지수', '굿굿굿 ♡', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'Adke123', '곽소은', '서비스 잘 받앗어용~~', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'zppzpzp1', '김다연', '오랜만에 네일 했는데 너무 만족합니다!', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'kkamn1214', '정예나', '깔끔하게 잘해주셨어요 ㅎㅎ 감사합니다!', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'LLLLPP', '김민찬', '주환쌤 마사지 잘 받았습니다 ㅎㅎ', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'asdkfl', '김희진', '서비스 잘 받았습니다!', '감사합니다.', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'zxv19', '최미진', '후기 남겨요 ㅎㅎ', '후기 남겨요 ㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'ASDZ111', '박민채', '여기 완전 짱이에요!!', 'ㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'QWER65465', '이수영', '감사합니다.', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'pppeee11', '박하영', '후기 남깁니당~~~!!', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'AABBCC11010', '윤승아', 'ㅋㅋㅋㅋㅋㅋㅋ', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'leejisu', '이지수', '굿굿굿 ♡', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'Adke123', '곽소은', '서비스 잘 받앗어용~~', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'zppzpzp1', '김다연', '오랜만에 네일 했는데 너무 만족합니다!', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'kkamn1214', '정예나', '깔끔하게 잘해주셨어요 ㅎㅎ 감사합니다!', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'LLLLPP', '김민찬', '주환쌤 마사지 잘 받았습니다 ㅎㅎ', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'asdkfl', '김희진', '서비스 잘 받았습니다!', '감사합니다.', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'zxv19', '최미진', '후기 남겨요 ㅎㅎ', '후기 남겨요 ㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'ASDZ111', '박민채', '여기 완전 짱이에요!!', 'ㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'QWER65465', '이수영', '감사합니다.', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'pppeee11', '박하영', '후기 남깁니당~~~!!', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'AABBCC11010', '윤승아', 'ㅋㅋㅋㅋㅋㅋㅋ', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'leejisu', '이지수', '굿굿굿 ♡', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'Adke123', '곽소은', '서비스 잘 받앗어용~~', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'zppzpzp1', '김다연', '오랜만에 네일 했는데 너무 만족합니다!', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'kkamn1214', '정예나', '깔끔하게 잘해주셨어요 ㅎㅎ 감사합니다!', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+INSERT INTO review VALUES(review_seq.nextval, 'LLLLPP', '김민찬', '주환쌤 마사지 잘 받았습니다 ㅎㅎ', 'ㅎㅎㅎㅎㅎ', 0, DEFAULT, '', '', 0);
+
+
+--
 
 
 
 
 
-COMMIT;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

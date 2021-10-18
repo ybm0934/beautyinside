@@ -160,7 +160,7 @@
 		        <tr>
 		        	<th>
 		            	<a href="#" id="prevMonth">
-			            	<img src="/img/ico/left-arrow.png" alt="이전 월" class="ico">
+			            	<img src="/img/ico/left-arrow2.png" alt="이전 월" class="ico">
 		            	</a>
 		        	</th>
 		            <th colspan="5">
@@ -168,7 +168,7 @@
 		            </th>
 		        	<th>
 		            	<a href="#" id="nextMonth">
-			            	<img src="/img/ico/right-arrow.png" alt="이전 월" class="ico">
+			            	<img src="/img/ico/right-arrow2.png" alt="이전 월" class="ico">
 		            	</a>
 		        	</th>
 		        </tr>
