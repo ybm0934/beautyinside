@@ -43,7 +43,7 @@
 	                </tr>
 	                <tr>
 	                    <th>첨부파일</th>
-	                    <td colspan="3"><%= arr.get(i).getFilename() %></td>
+	                    <td colspan="3"><%if(!(arr.get(i).getFilename() == null)) arr.get(i).getFilename(); %></td>
 	                    <th>작성일</th>
 	                    <td colspan="3"><%= arr.get(i).getRegdate() %></td>
 	                </tr>

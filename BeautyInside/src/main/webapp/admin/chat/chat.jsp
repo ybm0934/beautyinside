@@ -104,7 +104,19 @@
                                 </a>
                              </td>
                              <td><%= dto.getRegdate().substring(0, 19) %></td>
-                             <td><input type="submit" style="width:70px; height: 25px; color: white; background-color: #ff4040; border:none" value="채팅삭제" onclick='chat_delete();'><input type="hidden" name="id" value="<%= dto.getId() %>"></td>
+                             <td>
+                             <input type="submit" style="width:70px; height: 25px; color: white; background-color: #ff4040; border:none" value="채팅삭제" onclick="chat_delete('<%= dto.getId() %>');">
+                             </td>
+                             <script>
+					              function chat_delete(id) {
+					                 let result = confirm('정말 삭제하시겠습니까?');
+					            if (result) {
+					               chat_fm.action='../chat/chat_delete.jsp?id=' + id;
+					            } else {
+					               history.back();
+					            }
+					         }
+					         </script>
                          </tr>
                      <%
                   }
@@ -122,17 +134,6 @@
             </tbody>
         </table>
         </form>
-        <script>
-              function chat_delete() {
-                 let result = confirm('정말 삭제하시겠습니까?');
-            if (result) {
-            	console.log('삭제버튼 눌렸습니다잉~');
-               chat_fm.action='../chat/chat_delete.jsp';
-            } else {
-               history.back();
-            }
-         }
-         </script>
         <div class="page_btn">
                <% 
                   if (firstPage > 1 ) {
