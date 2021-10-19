@@ -13,13 +13,30 @@
 	padding-bottom: 100px;
 }
 
+
+@media all and ( max-width: 1280px ) {
+	
+#reviewWrite_div {
+	padding-top: 11%;
+}
+
+} /* 1280 */
+
+@media all and ( min-width: 1920px ) {
+
+#reviewWrite_div {
+	padding-top: 7%;
+}
+
+} /* 1920 */
+
+
 #reviewWrite_div {
 	width: 70%;
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	margin: 0 auto;	
-	padding-top: 7%;
 }
 
 #write_table {}

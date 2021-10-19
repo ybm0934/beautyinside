@@ -17,8 +17,36 @@
     margin: 0 auto;
 }
 
+@media all and ( max-width: 1280px ) {
+	
+	
+#service_title {
+	padding-top: 100px;
+}
+
+#service_table {
+    width: 100%;
+}
+
+
+} /* 1280px */
+
+@media all and ( min-width: 1920px ) {
+	
 #service_title {
 	padding-top: 200px;
+}
+
+#service_table {
+	width: 80%;
+}
+
+	
+} /* 1920 */
+
+
+#service_title {
+	padding-top: 100px;
 }
 
 #service_title h1 {
@@ -28,7 +56,6 @@
 }
 
 #service_table {
-    width: 80%;
     border-collapse: collapse;
     border-top: 1px solid gray;
     margin: 0 auto;

@@ -86,8 +86,29 @@
 	background-color: #2d2d2d;
 }
 
+
+@media all and ( max-width: 1280px ) {
+	
+#title_tdSpn {
+	font-size: 1.6em;
+	color: white;
+	margin-left: 10px;
+}
+
+} /* 1280 */
+
+@media all and ( min-width: 1920px ) {
+
 #title_tdSpn {
 	font-size: 2em;
+	color: white;
+	margin-left: 10px;
+}
+
+} /* 1920 */
+
+
+#title_tdSpn {
 	color: white;
 	margin-left: 10px;
 }
@@ -110,7 +131,7 @@
 }
 
 .detailImg {
-	width: 60%;
+	width: 100%;
 }
 
 .contentTb_div {

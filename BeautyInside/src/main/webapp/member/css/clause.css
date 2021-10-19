@@ -18,9 +18,36 @@
 	padding: 170px 0 160px 0;
 }
 
+
+@media all and ( max-width: 1280px ) {
+
+#clauseDiv {
+    width: 70%;
+}
+
+.btnDiv {
+    margin-top: 50px;
+}
+
+} /* 1280 */
+
+
+@media all and ( min-width: 1920px ) {
+
+#clauseDiv {
+    width: 40%;
+}
+
+.btnDiv {
+    margin-top: 30px;
+}
+	
+	
+} /* 1920 */
+
+
 #clauseDiv {
     margin: 0 auto;
-    width: 40%;
     background-color: white;
     border: 1px solid lightgray;
     box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
@@ -60,7 +87,6 @@
 
 .btnDiv {
     text-align: center;
-    margin-top: 30px;
 }
 
 .btn {

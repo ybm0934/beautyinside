@@ -60,6 +60,23 @@ button {
     width: 100%;
 }
 
+@media all and ( max-width: 1280px ) {
+
+#top {
+	padding-bottom: 20px;
+}
+
+} /* 1280 */
+
+@media all and ( min-width: 1920px ) {
+	
+#top {
+	padding-bottom: 5px;
+}
+	
+} /* 1920 */
+
+
 #top {
 	-webkit-touch-callout: none;
 	user-select: none;
@@ -69,7 +86,6 @@ button {
 	
     text-align: right;
     padding-right: 50px;
-    padding-bottom: 5px;
     font-size: 20px;
     margin-top: 10px;
 }
