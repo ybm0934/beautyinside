@@ -68,7 +68,7 @@ button {
 
 } /* 1280 */
 
-@media all and ( min-width: 1920px ) {
+@media all and ( min-width: 1281px ) {
 	
 #top {
 	padding-bottom: 5px;
