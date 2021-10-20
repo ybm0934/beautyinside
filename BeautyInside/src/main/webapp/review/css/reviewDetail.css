@@ -95,6 +95,10 @@
 	margin-left: 10px;
 }
 
+.detailImg {
+	width: 100%;
+}
+
 } /* 1280 */
 
 @media all and ( min-width: 1281px ) {
@@ -103,6 +107,10 @@
 	font-size: 2em;
 	color: white;
 	margin-left: 10px;
+}
+
+.detailImg {
+	width: 70%;
 }
 
 } /* 1920 */
@@ -130,9 +138,7 @@
 	margin-top: 20px;
 }
 
-.detailImg {
-	width: 100%;
-}
+.detailImg {}
 
 .contentTb_div {
 	margin:50px 0 50px 0;
